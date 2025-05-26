@@ -143,17 +143,28 @@
         <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
     </div>
 
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+
     <script>
         let timeLeft = 60;
         let timerInterval;
         let userAnswer = "";
         let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
         
         // Start timer when page loads
         function startTimer() {
             timerInterval = setInterval(() => {
                 timeLeft--;
                 document.getElementById('timer').textContent = timeLeft;
+                
+                // Play tick sound
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                }
                 
                 if(timeLeft <= 10) {
                     document.getElementById('timer').style.color = "#ff5555";
@@ -162,6 +173,7 @@
                 
                 if(timeLeft <= 0) {
                     clearInterval(timerInterval);
+                    timeUpSound.play();
                     timeUp();
                 }
             }, 1000);
@@ -208,20 +220,11 @@
         }
 
         function openYouTubeComment() {
-            const videoId = "5DGKBHzGNfM"; // Your video ID
-            const commentText = encodeURIComponent(
-                `నేను ప్రకటన గ్రంథం మృగం క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరిగ్గా ఊహించాను ✅" : "నా సమాధానం: " + userAnswer + " ❌"}\n` +
-                `సరైన సమాధానం: 7 తలలు, 10 కొమ్ములు (ప్రకటన 17:3)\n` +
-                `మీ సమాధానం ఏమిటి?`
-            );
+            const videoId = "4YuRBrzzCrE"; // Your Telugu video ID
+            const commentText = `నేను ప్రకటన గ్రంథం మృగం క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరిగ్గా ఊహించాను ✅" : "నా సమాధానం: " + userAnswer + " ❌"}\nసరైన సమాధానం: 7 తలలు, 10 కొమ్ములు (ప్రకటన 17:3)\nమీ సమాధానం ఏమిటి?`;
             
-            // Try to open YouTube comment interface
-            window.open(`https://youtube.com/shorts/4YuRBrzzCrE?si=wMWALeJ-r3g_8AFG=${videoId}&lc=Ugx...&comment=${commentText}`, "_blank");
-            
-            // Fallback if parameters don't work
-            setTimeout(() => {
-                window.open(`https://youtube.com/shorts/4YuRBrzzCrE?si=wMWALeJ-r3g_8AFG=${videoId}`, "_blank");
-            }, 500);
+            // Open YouTube with comment text in the URL
+            window.open(`https://www.youtube.com/shorts/${videoId}?comment=${encodeURIComponent(commentText)}`, "_blank");
         }
         
         // Start the timer when page loads
