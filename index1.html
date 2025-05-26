@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>నేటి బైబిల్ క్విజ్: ప్రకటన గ్రంథం</title>
+    <style>
+        body {
+            font-family: 'Arial', 'Gautami', sans-serif;
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROp90-73D2D8-k4z_DqclL_tUX0MWnoje3ElYDKtO6b_SF94rDQMp9PAgFxwcp9uOlCv4&usqp=CAU') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px #000;
+        }
+        .quiz-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+        }
+        h1 {
+            color: #ff3333;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+        .beast-image {
+            width: 100%;
+            max-width: 500px;
+            border: 3px solid #ff3333;
+            border-radius: 10px;
+            margin: 15px auto;
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .option {
+            background-color: rgba(255, 51, 51, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+        .option:hover {
+            background-color: rgba(255, 51, 51, 0.6);
+            transform: scale(1.03);
+        }
+        .correct {
+            background-color: rgba(0, 255, 0, 0.5) !important;
+            font-weight: bold;
+        }
+        .incorrect {
+            background-color: rgba(255, 0, 0, 0.5) !important;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 10px;
+            font-size: 20px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #ff3333;
+            text-align: left;
+            display: none;
+        }
+        .participate-btn {
+            background-color: #ff3333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+        }
+        .timer {
+            font-size: 32px;
+            color: #00fffc;
+            margin: 10px 0;
+            font-weight: bold;
+            text-shadow: 0 0 10px #00b7ff, 0 0 20px #0062ff;
+            animation: pulse 1s infinite alternate;
+            font-family: 'Courier New', monospace;
+            background: rgba(0,0,0,0.3);
+            padding: 5px 15px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        @keyframes pulse {
+            from { opacity: 1; }
+            to { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>నేటి బైబిల్ క్విజ్: ప్రకటన గ్రంథం</h1>
+        <div class="bible-ref">ప్రకటన గ్రంథం 17:3-12</div>
+        <div class="timer" id="timer">60</div>
+        
+        <img src="https://i.ytimg.com/vi/5DGKBHzGNfM/sddefault.jpg" alt="ప్రకటన గ్రంథం మృగం" class="beast-image">
+        
+        <div class="question">ప్రకటన గ్రంథం 17లో స్కార్లెట్ మృగానికి ఎన్ని తలలు మరియు కొమ్ములు ఉన్నాయి?</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, false)">7 తలలు, 7 కొమ్ములు</div>
+            <div class="option" onclick="checkAnswer(this, false)">10 తలలు, 7 కొమ్ములు</div>
+            <div class="option" onclick="checkAnswer(this, true)">7 తలలు, 10 కొమ్ములు</div>
+            <div class="option" onclick="checkAnswer(this, false)">12 తలలు, 24 కొమ్ములు</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> 7 తలలు మరియు 10 కొమ్ములు (ప్రకటన 17:3,7)</p>
+            <p><strong>ప్రతీకాత్మక అర్థం:</strong></p>
+            <ul>
+                <li><strong>7 తలలు</strong> = 7 పర్వతాలు/రాజులు (ప్రకటన 17:9-10)</li>
+                <li><strong>10 కొమ్ములు</strong> = 10 రాజులు (ప్రకటన 17:12)</li>
+                <li>ఈ మృగం ఒక రాజ్యం మరియు దాని పాలకుని సూచిస్తుంది (ప్రకటన 17:8)</li>
+            </ul>
+            <p><strong>ప్రధాన వాక్యం:</strong> "ఆ దూత ఆత్మచేత నన్ను ఎడారికి తీసుకొనిపోయెను. అక్కడ ఒక స్త్రీ ఒక స్కార్లెటు రంగు మృగము మీద కూర్చుండి యుండెను; దానికి దైవదూషణలతో నిండిన పేర్లు ఉండెను; దానికి ఏడు తలలును పది కొమ్ములును ఉండెను." (ప్రకటన 17:3)</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <script>
+        let timeLeft = 60;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        
+        // Start timer when page loads
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft <= 10) {
+                    document.getElementById('timer').style.color = "#ff5555";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            // Auto-highlight correct answer
+            const correctOption = document.querySelector('.option:nth-child(3)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">❌</span>';
+                const correctOption = document.querySelector('.option:nth-child(3)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "5DGKBHzGNfM"; // Your video ID
+            const commentText = encodeURIComponent(
+                `నేను ప్రకటన గ్రంథం మృగం క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరిగ్గా ఊహించాను ✅" : "నా సమాధానం: " + userAnswer + " ❌"}\n` +
+                `సరైన సమాధానం: 7 తలలు, 10 కొమ్ములు (ప్రకటన 17:3)\n` +
+                `మీ సమాధానం ఏమిటి?`
+            );
+            
+            // Try to open YouTube comment interface
+            window.open(`https://www.youtube.com/watch?v=${videoId}&lc=Ugx...&comment=${commentText}`, "_blank");
+            
+            // Fallback if parameters don't work
+            setTimeout(() => {
+                window.open(`https://www.youtube.com/watch?v=${videoId}`, "_blank");
+            }, 500);
+        }
+        
+        // Start the timer when page loads
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
