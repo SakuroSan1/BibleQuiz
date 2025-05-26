@@ -143,17 +143,28 @@
         <button class="participate-btn" onclick="openYouTubeComment()">Participate in Quiz</button>
     </div>
 
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+
     <script>
         let timeLeft = 60;
         let timerInterval;
         let userAnswer = "";
         let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
         
         // Start timer when page loads
         function startTimer() {
             timerInterval = setInterval(() => {
                 timeLeft--;
                 document.getElementById('timer').textContent = timeLeft;
+                
+                // Play tick sound
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                }
                 
                 if(timeLeft <= 10) {
                     document.getElementById('timer').style.color = "#ff5555";
@@ -162,6 +173,7 @@
                 
                 if(timeLeft <= 0) {
                     clearInterval(timerInterval);
+                    timeUpSound.play();
                     timeUp();
                 }
             }, 1000);
@@ -208,20 +220,11 @@
         }
 
         function openYouTubeComment() {
-            const videoId = "5DGKBHzGNfM"; // Your video ID
-            const commentText = encodeURIComponent(
-                `I took the Revelation Beast Quiz! ${isCorrect ? "I got it right ✅" : "My answer was: " + userAnswer + " ❌"}\n` +
-                `The correct answer is: 7 heads, 10 horns (Rev 17:3)\n` +
-                `What's your answer?`
-            );
+            const videoId = "11YmZS1HUHg"; // Your English video ID
+            const commentText = `I took the Revelation Beast Quiz! ${isCorrect ? "I got it right ✅" : "My answer was: " + userAnswer + " ❌"}\nThe correct answer is: 7 heads, 10 horns (Rev 17:3)\nWhat's your answer?`;
             
-            // Try to open YouTube comment interface
-            window.open(`https://youtube.com/shorts/11YmZS1HUHg?si=sXp4wVwhBcoe0a_A=${videoId}&lc=Ugx...&comment=${commentText}`, "_blank");
-            
-            // Fallback if parameters don't work
-            setTimeout(() => {
-                window.open(`https://youtube.com/shorts/11YmZS1HUHg?si=sXp4wVwhBcoe0a_A=${videoId}`, "_blank");
-            }, 500);
+            // Open YouTube with comment text in the URL
+            window.open(`https://www.youtube.com/shorts/${videoId}?comment=${encodeURIComponent(commentText)}`, "_blank");
         }
         
         // Start the timer when page loads
