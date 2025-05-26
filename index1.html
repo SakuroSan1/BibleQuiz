@@ -216,11 +216,11 @@
             );
             
             // Try to open YouTube comment interface
-            window.open(`https://www.youtube.com/watch?v=${videoId}&lc=Ugx...&comment=${commentText}`, "_blank");
+            window.open(`https://youtube.com/shorts/4YuRBrzzCrE?si=wMWALeJ-r3g_8AFG${videoId}&lc=Ugx...&comment=${commentText}`, "_blank");
             
             // Fallback if parameters don't work
             setTimeout(() => {
-                window.open(`https://www.youtube.com/watch?v=${videoId}`, "_blank");
+                window.open(`https://youtube.com/shorts/4YuRBrzzCrE?si=wMWALeJ-r3g_8AFG=${videoId}`, "_blank");
             }, 500);
         }
         
