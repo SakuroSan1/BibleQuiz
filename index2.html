@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Quiz: Hailstones in Revelation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXfytDJF4WaCD3Ly3H1AsJAfoAgV6Cx5uAyefC1DlEYbTUYJBJV53nEWMtXzmNnlq3ftLXTixwoQRUrxesaav_G1fEVb2ODInhxgi5zPvEpR8Sr6qCGoHp_vfftwBimUjR-mzeAreFNdc/s1600/1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 40, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(0, 150, 255, 0.6);
+            border: 2px solid #4fc3f7;
+        }
+        h1 {
+            color: #4fc3f7;
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(79, 195, 247, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b3e5fc;
+            margin-bottom: 20px;
+        }
+        .hail-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4fc3f7;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(79, 195, 247, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(79, 195, 247, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #4fc3f7;
+            color: #e1f5fe;
+        }
+        .option:hover {
+            background-color: rgba(79, 195, 247, 0.4);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(79, 195, 247, 0.4);
+        }
+        .correct {
+            background-color: rgba(76, 175, 80, 0.6) !important;
+            font-weight: bold;
+            border-color: #4caf50;
+        }
+        .incorrect {
+            background-color: rgba(244, 67, 54, 0.6) !important;
+            border-color: #f44336;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4fc3f7;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #e1f5fe;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4fc3f7, #2196f3);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(33, 150, 243, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #4fc3f7;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(79, 195, 247, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #4fc3f7;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(79, 195, 247, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(79, 195, 247, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>BIBLE QUIZ: HAILSTONES IN REVELATION</h1>
+        <div class="bible-ref">Revelation 16:21</div>
+        <div class="timer" id="timer">60</div>
+        
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbibrL3E-XNX9Hvt_0MOIKz7xMV6dHx18p4g&s" alt="Hailstones from Heaven" class="hail-image">
+        
+        <div class="question">How much did each hailstone weigh which fell from the sky on people in Revelation 16:21?</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, false)">About 25 pounds (11 kg)</div>
+            <div class="option" onclick="checkAnswer(this, false)">About 50 pounds (23 kg)</div>
+            <div class="option" onclick="checkAnswer(this, false)">About 75 pounds (34 kg)</div>
+            <div class="option" onclick="checkAnswer(this, true)">About 100 pounds (45 kg)</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>Correct Answer:</strong> About 100 pounds (45 kg) - Revelation 16:21</p>
+            <p><strong>Meaning:</strong></p>
+            <ul>
+                <li>Divine judgment from heaven</li>
+                <li>Approximately one talent weight (ancient measurement)</li>
+                <li>Part of the seventh bowl judgment</li>
+                <li>Extremely large hailstones showing God's power</li>
+            </ul>
+            <p><strong>Key Verse:</strong> "And great hailstones, about one hundred pounds each, fell from heaven on people; and they cursed God for the plague of the hail, because the plague was so severe." (Revelation 16:21)</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">Participate in Quiz</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 60;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#ff5555";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(4)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">❌</span>';
+                const correctOption = document.querySelector('.option:nth-child(4)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "Lsw_4vtfl4Q";
+            const commentText = `I took the Hailstone Quiz! ${isCorrect ? "I got it right ✅" : "My answer was: " + userAnswer + " ❌"}\nThe correct answer is: About 100 pounds (45 kg) (Rev 16:21)\nWhat's your answer?`;
+            
+            window.open(`https://www.youtube.com/shorts/${videoId}?comment=${encodeURIComponent(commentText)}`, "_blank");
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
