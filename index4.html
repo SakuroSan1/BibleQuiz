@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Quiz: Unclean Spirits in Revelation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://media.bible.art/9273a83f-804a-4d1c-8010-6b537dad36d0-thumbnail.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 40, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(139, 0, 139, 0.6);
+            border: 2px solid #8b008b;
+        }
+        h1 {
+            color: #ff69b4;
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #d8bfd8;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #8b008b;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(139, 0, 139, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(139, 0, 139, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #9932cc;
+            color: #e6e6fa;
+        }
+        .option:hover {
+            background-color: rgba(139, 0, 139, 0.5);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(147, 112, 219, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #8b008b;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #e6e6fa;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #9932cc, #8b008b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(153, 50, 204, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(153, 50, 204, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #ff69b4;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(255, 105, 180, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #ff69b4;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
+            }
+        }
+        .bg-music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.7);
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>BIBLE QUIZ: UNCLEAN SPIRITS IN REVELATION</h1>
+        <div class="bible-ref">Revelation 16:13-14</div>
+        <div class="timer" id="timer">60</div>
+        
+        <img src="https://godshotspot.wordpress.com/wp-content/uploads/2022/05/20220530_183302.jpg" alt="Unclean spirits like frogs" class="quiz-image">
+        
+        <div class="question">How many unclean spirits that looked like frogs came out of the mouths of the dragon, beast, and false prophet in Revelation 16:13?</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, false)">One spirit</div>
+            <div class="option" onclick="checkAnswer(this, true)">Three spirits</div>
+            <div class="option" onclick="checkAnswer(this, false)">Seven spirits</div>
+            <div class="option" onclick="checkAnswer(this, false)">Twelve spirits</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>Correct Answer:</strong> Three spirits - Revelation 16:13</p>
+            <p><strong>Meaning:</strong></p>
+            <ul>
+                <li>Part of the sixth bowl judgment</li>
+                <li>Demon spirits performing deceptive signs</li>
+                <li>Gather kings for the battle of Armageddon</li>
+                <li>Frog-like appearance symbolizes impurity</li>
+            </ul>
+            <p><strong>Key Verse:</strong> "And I saw, coming out of the mouth of the dragon and out of the mouth of the beast and out of the mouth of the false prophet, three unclean spirits like frogs." (Revelation 16:13)</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">Participate in Quiz</button>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        <!-- Note: Actual music would need to be extracted from your video -->
+    </audio>
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+
+    <div class="bg-music-control" onclick="toggleMusic()">
+        <span id="musicIcon">🔊</span>
+    </div>
+
+    <script>
+        let timeLeft = 60;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const bgMusic = document.getElementById('bgMusic');
+        let musicPlaying = false;
+        
+        function toggleMusic() {
+            if(musicPlaying) {
+                bgMusic.pause();
+                document.getElementById('musicIcon').textContent = '🔇';
+            } else {
+                bgMusic.play();
+                document.getElementById('musicIcon').textContent = '🔊';
+            }
+            musicPlaying = !musicPlaying;
+        }
+        
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#ff5555";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(2)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">❌</span>';
+                const correctOption = document.querySelector('.option:nth-child(2)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "AYoUyzu94iQ";
+            const commentText = `I took the Unclean Spirits Quiz! ${isCorrect ? "I got it right ✅" : "My answer was: " + userAnswer + " ❌"}\nThe correct answer is: Three spirits (Rev 16:13)\nWhat's your answer?`;
+            
+            // Improved YouTube comment handling
+            window.open(`https://www.youtube.com/shorts/${videoId}?comment=${encodeURIComponent(commentText)}`, "_blank");
+            
+            // Fallback method
+            setTimeout(() => {
+                localStorage.setItem('ytComment', commentText);
+                window.open(`https://www.youtube.com/shorts/${videoId}`, "_blank");
+            }, 300);
+        }
+        
+        window.onload = function() {
+            startTimer();
+            // Auto-play music with user gesture
+            document.body.addEventListener('click', function() {
+                bgMusic.play();
+                musicPlaying = true;
+            }, { once: true });
+        };
+    </script>
+</body>
+</html>
