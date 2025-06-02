@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: మృగము యొక్క గుర్తు</title>
+    <style>
+        body {
+            font-family: 'Arial', 'Gautami', sans-serif;
+            background: url('https://www.buffalo.edu/reporter/vol37/vol37n35/images/666.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(66, 0, 0, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(200, 0, 0, 0.6);
+            border: 2px solid #c00;
+        }
+        h1 {
+            color: #ff4444;
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 50, 50, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #ff9999;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #c00;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(200, 0, 0, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(100, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #c00;
+            color: #ffe6e6;
+        }
+        .option:hover {
+            background-color: rgba(150, 0, 0, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(200, 0, 0, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #c00;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #ffe6e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #c00, #900);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(200, 0, 0, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(200, 0, 0, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #ff4444;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(255, 50, 50, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #ff4444;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(255, 50, 50, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(255, 50, 50, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: మృగము యొక్క గుర్తు</h1>
+        <div class="bible-ref">ప్రకటన గ్రంథం 13</div>
+        <div class="timer" id="timer">60</div>
+        
+        <img src="https://static.wixstatic.com/media/c1e027_2a2657aca6e24735ac87791f8ce6aadb~mv2.png/v1/fill/w_700,h_494,al_c/c1e027_2a2657aca6e24735ac87791f8ce6aadb~mv2.png" alt="మృగము యొక్క గుర్తు" class="quiz-image">
+        
+        <div class="question">ప్రకటన గ్రంథం 13లో 'మృగము యొక్క గుర్తు'కు సంబంధించి ఎన్ని 'మృగాలు' ఉన్నాయి?</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, false)">ఒక మృగం</div>
+            <div class="option" onclick="checkAnswer(this, true)">రెండు మృగాలు</div>
+            <div class="option" onclick="checkAnswer(this, false)">మూడు మృగాలు</div>
+            <div class="option" onclick="checkAnswer(this, false)">నాలుగు మృగాలు</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> రెండు మృగాలు - ప్రకటన 13:11-18</p>
+            <p><strong>వివరాలు:</strong></p>
+            <ul>
+                <li>సముద్రం నుండి వచ్చిన మొదటి మృగం (ప్రకటన 13:1-10)</li>
+                <li>భూమి నుండి వచ్చిన రెండవ మృగం (ప్రకటన 13:11-18)</li>
+                <li>రెండవ మృగం మొదటి మృగం పూజను అమలు చేస్తుంది</li>
+                <li>గుర్తు మొదటి మృగం అధికారానికి సంబంధించినది</li>
+            </ul>
+            <p><strong>ప్రధాన వాక్యాలు:</strong> "అంతట నేను మరియొక మృగమును భూమిలోనుండి ఎదురెత్తుటను చూచితిని... అది మొదటి మృగముయొక్క అధికారమంతయు చూపించుచు... మొదటి మృగమును పూజించుటకు భూమిమీది నివాసులను బలవంతము చేయుచు... అది చిన్నవారిగాని, పెద్దవారిగాని, ధనికులుగాని, బీదలుగాని, స్వతంత్రులుగాని, దాసులుగాని ఎవరికైనను వారి కుడి చేతిమీదగాని నుదుటిమీదగాని ఒక గుర్తు ఉండునట్లు చేయును" (ప్రకటన 13:11-16)</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 60;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#ff9999";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(2)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">❌</span>';
+                const correctOption = document.querySelector('.option:nth-child(2)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "Xy8rSQJRGDw";
+            const commentText = `నేను మృగము యొక్క గుర్తు క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరిగ్గా ఊహించాను ✅" : "నా సమాధానం: " + userAnswer + " ❌"}\nసరైన సమాధానం: రెండు మృగాలు (ప్రకటన 13:11-18)\n1. సముద్ర మృగం (ప్రకటన 13:1-10)\n2. భూమి మృగం గుర్తును అమలు చేస్తుంది\nమీ సమాధానం ఏమిటి?`;
+            
+            // Enhanced YouTube comment handling
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}?comment=${encodeURIComponent(commentText)}`;
+            const fallbackUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // Try direct comment method
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Fallback method
+            setTimeout(() => {
+                try {
+                    if(!youtubeWindow || youtubeWindow.closed) {
+                        localStorage.setItem('ytComment', commentText);
+                        window.open(fallbackUrl, "_blank");
+                    }
+                } catch(e) {
+                    localStorage.setItem('ytComment', commentText);
+                    window.open(fallbackUrl, "_blank");
+                }
+            }, 500);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
