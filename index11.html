@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: నక్షత్రాల కిరీటంతో స్త్రీ</title>
+    <style>
+        body {
+            font-family: 'Arial', 'Gautami', sans-serif;
+            background: url('https://i.ytimg.com/vi/DehogoopXbE/maxresdefault.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(0, 0, 40, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(0, 0, 200, 0.6);
+            border: 2px solid #006;
+        }
+        h1 {
+            color: #44aaff;
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(50, 50, 255, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #99ccff;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #006;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(0, 0, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(0, 0, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #006;
+            color: #e6e6ff;
+        }
+        .option:hover {
+            background-color: rgba(0, 0, 150, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(0, 0, 200, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #006;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #e6e6ff;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #006, #003);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 200, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #44aaff;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(50, 50, 255, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #44aaff;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(50, 50, 255, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(50, 50, 255, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: నక్షత్రాల కిరీటంతో స్త్రీ</h1>
+        <div class="bible-ref">ప్రకటన 12</div>
+        <div class="timer" id="timer">60</div>
+        
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjdQTIn_Qp3QbW2VPGi_PGCv0fuOAdtuWmHuQIrOFktnuBVMlZZKcQ-o7KiDy9eblvguyGiTvHuadwnkdtwSm9eF1Euhoa1sFjCgINl4QMBQBMeDe2QkF8IAexbnwkYRF0A3jKgaGJVNBg/s1600/woman_clothed_in_sun.jpg" alt="సూర్యునితో ఆవరింపబడిన స్త్రీ" class="quiz-image">
+        
+        <div class="question">ప్రకటన 12లో స్త్రీ తలపై కిరీటంగా ఎన్ని నక్షత్రాలు ఉన్నాయి?</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, false)">7 నక్షత్రాలు</div>
+            <div class="option" onclick="checkAnswer(this, false)">10 నక్షత్రాలు</div>
+            <div class="option" onclick="checkAnswer(this, true)">12 నక్షత్రాలు</div>
+            <div class="option" onclick="checkAnswer(this, false)">15 నక్షత్రాలు</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> 12 నక్షత్రాలు - ప్రకటన 12:1</p>
+            <p><strong>ప్రకటన 12 నుండి ముఖ్యాంశాలు:</strong></p>
+            <ul>
+                <li>స్త్రీ ఇశ్రాయేలును సూచిస్తుంది (12 గోత్రాలు)</li>
+                <li>12 నక్షత్రాలు = ఇశ్రాయేలు 12 గోత్రాలు</li>
+                <li>బిడ్డ హృదయాలలోకి వచ్చే యేసును సూచిస్తుంది</li>
+                <li>విశ్వ ప్రతీకలు: సూర్యునితో ఆవరింపబడినది, చంద్రుడు పాదాలక్రింద</li>
+            </ul>
+            <p><strong>ప్రధాన వాక్యం:</strong> "అప్పుడు పరలోకములో ఒక గొప్ప సూచకము కనబడెను; సూర్యునితో ఆవరింపబడిన ఒక స్త్రీయు, ఆమె పాదముల క్రింద చంద్రుడును, తలపై పన్నెండు నక్షత్రముల కిరీటము ధరించియుండెను." (ప్రకటన 12:1)</p>
+            <p><strong>సంబంధం:</strong> యోసేపు కలలో 12 నక్షత్రాలు యాకోబు కుటుంబాన్ని సూచిస్తాయి (ఆదికాండం 37:9).</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 60;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#99ccff";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(3)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">❌</span>';
+                const correctOption = document.querySelector('.option:nth-child(3)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "93FY8F0YHXo";
+            const commentText = `నేను నక్షత్రాల కిరీటంతో స్త్రీ క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరిగ్గా ఊహించాను ✅" : "నా సమాధానం: " + userAnswer + " ❌"}\nసరైన సమాధానం: 12 నక్షత్రాలు (ప్రకటన 12:1)\nస్త్రీ = ఇశ్రాయేలు\n12 నక్షత్రాలు = 12 గోత్రాలు\nమీ సమాధానం ఏమిటి?`;
+            
+            // Enhanced YouTube comment handling
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}?comment=${encodeURIComponent(commentText)}`;
+            const fallbackUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // Try direct comment method
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Fallback method
+            setTimeout(() => {
+                try {
+                    if(!youtubeWindow || youtubeWindow.closed) {
+                        localStorage.setItem('ytComment', commentText);
+                        window.open(fallbackUrl, "_blank");
+                    }
+                } catch(e) {
+                    localStorage.setItem('ytComment', commentText);
+                    window.open(fallbackUrl, "_blank");
+                }
+            }, 500);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
