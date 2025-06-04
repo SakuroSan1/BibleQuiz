@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: ఇద్దరు ప్రవక్తల పునరుత్తానం</title>
+    <style>
+        body {
+            font-family: 'Arial', 'Gautami', sans-serif;
+            background: url('https://revelationscriptures.com/wp-content/uploads/2018/03/The-Two-Witnesses-Dead-Bodies-lie-in-the-Street-of-the-Great-City-Spirtual-Sodom-Egypt-Jerusalem-1024x577-1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 0, 0, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(200, 0, 0, 0.6);
+            border: 2px solid #800;
+        }
+        h1 {
+            color: #ff5555;
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 50, 50, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #ff9999;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #800;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(200, 0, 0, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(100, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #800;
+            color: #ffe6e6;
+        }
+        .option:hover {
+            background-color: rgba(150, 0, 0, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(200, 0, 0, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #800;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #ffe6e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #800, #500);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(200, 0, 0, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(200, 0, 0, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #ff5555;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(255, 50, 50, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #ff5555;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(255, 50, 50, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(255, 50, 50, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: ఇద్దరు ప్రవక్తల పునరుత్తానం</h1>
+        <div class="bible-ref">ప్రకటన 11</div>
+        <div class="timer" id="timer">60</div>
+        
+        <img src="https://media.swncdn.com/via/images/2024/02/23/34692/34692-untitled-design_source_file.png" alt="ఇద్దరు ప్రవక్తలు పునరుత్తానమయ్యారు" class="quiz-image">
+        
+        <div class="question">ప్రకటన 11లో దేవుడు ఇద్దరు ప్రవక్తలను మళ్లీ బ్రతికించడానికి ఎన్ని రోజులు తీసుకున్నాడు?</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, false)">1 రోజు</div>
+            <div class="option" onclick="checkAnswer(this, false)">2.5 రోజులు</div>
+            <div class="option" onclick="checkAnswer(this, true)">3.5 రోజులు</div>
+            <div class="option" onclick="checkAnswer(this, false)">7 రోజులు</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> 3.5 రోజులు - ప్రకటన 11:11</p>
+            <p><strong>ముఖ్య వివరాలు:</strong></p>
+            <ul>
+                <li>ఇద్దరు సాక్షులు 1,260 రోజులు ప్రవచిస్తారు (ప్రకటన 11:3)</li>
+                <li>అగాధములోని మృగము వారిని చంపుతుంది (ప్రకటన 11:7)</li>
+                <li>శవాలు యెరూషలేములో 3.5 రోజులు పడి ఉంటాయి (ప్రకటన 11:8-9)</li>
+                <li>3.5 రోజుల తర్వాత పునరుత్తానమవుతారు (ప్రకటన 11:11)</li>
+                <li>క్రీస్తు పునరుత్తాన శక్తికి ప్రతీక</li>
+            </ul>
+            <p><strong>ప్రధాన వాక్యం:</strong> "మూడున్నర దినములైన తరువాత దేవుని నుండి ప్రాణము వారిలో ప్రవేశించెను; అప్పుడు వారు కాళ్లమీద నిలిచిరి; వారిని చూచినవారికి మహాభయము కలిగెను." (ప్రకటన 11:11)</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 60;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#ff9999";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(3)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">❌</span>';
+                const correctOption = document.querySelector('.option:nth-child(3)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "aoP1oJhWiK4";
+            const commentText = `నేను ఇద్దరు ప్రవక్తల క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరిగ్గా ఊహించాను ✅" : "నా సమాధానం: " + userAnswer + " ❌"}\nసరైన సమాధానం: 3.5 రోజులు (ప్రకటన 11:11)\nవారు 1,260 రోజులు ప్రవచించారు\n3.5 రోజుల తర్వాత పునరుత్తానమయ్యారు\nమీ సమాధానం ఏమిటి?`;
+            
+            // Enhanced YouTube comment handling
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}?comment=${encodeURIComponent(commentText)}`;
+            const fallbackUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // Try direct comment method
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Fallback method
+            setTimeout(() => {
+                try {
+                    if(!youtubeWindow || youtubeWindow.closed) {
+                        localStorage.setItem('ytComment', commentText);
+                        window.open(fallbackUrl, "_blank");
+                    }
+                } catch(e) {
+                    localStorage.setItem('ytComment', commentText);
+                    window.open(fallbackUrl, "_blank");
+                }
+            }, 500);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
