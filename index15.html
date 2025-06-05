@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: ఏడు ఉరుముల రహస్యం</title>
+    <style>
+        body {
+            font-family: 'Arial', 'Gautami', sans-serif;
+            background: url('https://4thewordofgod.com/wp-content/uploads/2015/02/image036.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(0, 0, 40, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(0, 0, 200, 0.6);
+            border: 2px solid #008;
+        }
+        h1 {
+            color: #5555ff;
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(50, 50, 255, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #9999ff;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #008;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(0, 0, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(0, 0, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #008;
+            color: #e6e6ff;
+        }
+        .option:hover {
+            background-color: rgba(0, 0, 150, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(0, 0, 200, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #008;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #e6e6ff;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #008, #005);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 200, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #5555ff;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(50, 50, 255, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #5555ff;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(50, 50, 255, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(50, 50, 255, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: ఏడు ఉరుముల రహస్యం</h1>
+        <div class="bible-ref">ప్రకటన 10</div>
+        <div class="timer" id="timer">60</div>
+        
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyULAyiEue3nskOL3gbIq-2sCdDUFW2UJYssYPsKfQJVqWQkVsEYlUNNF4rnNA3qYN3HuBcjYwv_LpUOAaUTnA52X94SG2AkFkfIQG6RkASJfrPvSNL8_a7lo4tza2LOK7i80x-AQs3mBIbwDTwQU2HGS6A0K7ybnLIH4Pom8he-FpFSY2n4YmH4eBeFbZ/s1920/Screenshot%20(31).png" alt="ఏడు ఉరుముల రహస్యం" class="quiz-image">
+        
+        <div class="question">ప్రకటన 10లో దేవుడు చెప్పినట్లుగా యోహాను ఎన్ని ఉరుముల మాటలను రహస్యంగా ఉంచాడు?</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, false)">3 ఉరుములు</div>
+            <div class="option" onclick="checkAnswer(this, false)">5 ఉరుములు</div>
+            <div class="option" onclick="checkAnswer(this, true)">7 ఉరుములు</div>
+            <div class="option" onclick="checkAnswer(this, false)">10 ఉరుములు</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> 7 ఉరుములు - ప్రకటన 10:3-4</p>
+            <p><strong>ముఖ్య వివరాలు:</strong></p>
+            <ul>
+                <li>చిన్న స్క్రోలు దర్శనంలో రహస్యమైన సంఘటన (ప్రకటన 10:1-11)</li>
+                <li>యోహానుకు ఉరుముల సందేశాలు రాయకూడదని ఆజ్ఞ</li>
+                <li>కొన్ని దైవ రహస్యాలు దాచివేయబడతాయి (ద్వితీయోపదేశకాండం 29:29)</li>
+                <li>దానియేలు ముద్రిత ప్రవచనాలకు సంబంధం (దానియేలు 12:4,9)</li>
+            </ul>
+            <p><strong>ప్రధాన వాక్యం:</strong> "ఏడు ఉరుములు మ్రోగెను...నేను వ్రాయబోవుచుండగా...స్వర్గము నుండి ఏడు ఉరుములు మాటలను ముద్రించి వేయుమని ఆజ్ఞ ఇయ్యబడెను." (ప్రకటన 10:3-4)</p>
+            <p><strong>ముఖ్యత్వం:</strong> ఏడు ఉరుములు ప్రకటన గ్రంథంలోని గొప్ప రహస్యాలలో ఒకటి - వాటి విషయాలు ముద్రించబడి ఉంచబడ్డాయి, దేవుడు తన బహిర్గతమును గురించి సార్వభౌమాధికారం కలిగి ఉన్నాడు (2 కొరింథీయులు 12:4లో పౌలు "చెప్పలేని మాటలు" విన్నాడు).</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 60;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#9999ff";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(3)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">❌</span>';
+                const correctOption = document.querySelector('.option:nth-child(3)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "-reNjI2IS1w";
+            const commentText = `నేను ఏడు ఉరుముల క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరిగ్గా ఊహించాను ✅" : "నా సమాధానం: " + userAnswer + " ❌"}\nసరైన సమాధానం: 7 ఉరుములు (ప్రకటన 10:3-4)\nయోహాను విన్నాడు కానీ వ్రాయకూడదని ఆజ్ఞ ఇవ్వబడింది\nప్రకటనలోని గొప్ప రహస్యాలలో ఒకటి\nమీ సమాధానం ఏమిటి?`;
+            
+            // Enhanced YouTube comment handling
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}?comment=${encodeURIComponent(commentText)}`;
+            const fallbackUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // Try direct comment method
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Fallback method
+            setTimeout(() => {
+                try {
+                    if(!youtubeWindow || youtubeWindow.closed) {
+                        localStorage.setItem('ytComment', commentText);
+                        window.open(fallbackUrl, "_blank");
+                    }
+                } catch(e) {
+                    localStorage.setItem('ytComment', commentText);
+                    window.open(fallbackUrl, "_blank");
+                }
+            }, 500);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
