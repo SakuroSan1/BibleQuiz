@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: పరలోక నిశ్శబ్దం</title>
+    <style>
+        body {
+            font-family: 'Arial', 'Gautami', sans-serif;
+            background: url('https://media.bible.art/fb4a146f-8926-42e2-97a1-55e379a98301-compressed.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(0, 20, 40, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(0, 100, 200, 0.6);
+            border: 2px solid #006;
+        }
+        h1 {
+            color: #66ccff;
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 200, 255, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #99ddff;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #006;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(0, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(0, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #006;
+            color: #e6f5ff;
+        }
+        .option:hover {
+            background-color: rgba(0, 80, 150, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(0, 150, 200, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #006;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #e6f5ff;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #006, #003);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 150, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 150, 200, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #66ccff;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 200, 255, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #66ccff;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 200, 255, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 200, 255, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: పరలోక నిశ్శబ్దం</h1>
+        <div class="bible-ref">ప్రకటన 8:1</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8GpuHGk59nnZ0UT71bd_GrDTvh_lrVjkPSaOZ2PCUubftS2WS-U8wfohn8Eqhyt7PkeW96A_ENW7FZT5t8tD6XOKnML0pSODVhPR9gwtUpU4dheXdP_HjDSzbEeRxY2DyP6ssqdy6FoyaIjF86fAE9VLZ2ka-XnS6Sz0E3dyegYSZWrpSlMEkUMIFfaEM/s320/Screenshot%202025-06-07%20193254.png" alt="పరలోకంలో నిశ్శబ్దం" class="quiz-image">
+        
+        <div class="question">ప్రకటన 8:1 ప్రకారం, ఏడవ ముద్ర తెరవబడిన తర్వాత పరలోకంలో ఎంతకాలం నిశ్శబ్దం నెలకొంది?</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, false)">15 నిమిషాలు</div>
+            <div class="option" onclick="checkAnswer(this, true)">30 నిమిషాలు</div>
+            <div class="option" onclick="checkAnswer(this, false)">1 గంట</div>
+            <div class="option" onclick="checkAnswer(this, false)">7 రోజులు</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> 30 నిమిషాలు - ప్రకటన 8:1</p>
+            <p><strong>ముఖ్య వివరాలు:</strong></p>
+            <ul>
+                <li>ఏడవ ముద్ర తెరవబడినప్పుడు (ప్రకటన 8:1)</li>
+                <li>తుది తీర్పులకు ముందు గంభీర విరామం</li>
+                <li>బూరల తెగుళ్లకు ముందు సూచన</li>
+                <li>ప్రకటన 4-5లోని పరలోక ఆరాధనకు విరుద్ధంగా</li>
+            </ul>
+            <p><strong>ప్రధాన వాక్యం:</strong> "అతడు ఏడవ ముద్రను తీసినప్పుడు సుమారు అరగంటసేపు పరలోకములో నిశ్శబ్దముండెను." (ప్రకటన 8:1)</p>
+            <p><strong>ముఖ్యత్వం:</strong> 30 నిమిషాల నిశ్శబ్దం సూచించేది: (1) తుది తీర్పుల ముందు గౌరవం, (2) పశ్చాత్తాపానికి అవకాశం, (3) భూమి మీద అలజడికి విరుద్ధంగా, లేదా (4) బూర దూతల తయారీ.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="silenceSound" src="https://assets.mixkit.co/sfx/preview/mixkit-ominous-drone-551.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const silenceSound = document.getElementById('silenceSound');
+        
+        function startTimer() {
+            silenceSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#99ddff";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    silenceSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(2)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            silenceSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">❌</span>';
+                const correctOption = document.querySelector('.option:nth-child(2)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "0QRLewhnBEg";
+            const commentText = `నేను పరలోక నిశ్శబ్దం క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరిగ్గా ఊహించాను ✅" : "నా సమాధానం: " + userAnswer + " ❌"}\nసరైన సమాధానం: 30 నిమిషాలు (ప్రకటన 8:1)\nబూరల తీర్పులకు ముందు పవిత్ర విరామం\nఈ నిశ్శబ్దం మీకు ఏమి సూచిస్తుంది?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}?comment=${encodeURIComponent(commentText)}`;
+            const fallbackUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            setTimeout(() => {
+                try {
+                    if(!youtubeWindow || youtubeWindow.closed) {
+                        localStorage.setItem('ytComment', commentText);
+                        window.open(fallbackUrl, "_blank");
+                    }
+                } catch(e) {
+                    localStorage.setItem('ytComment', commentText);
+                    window.open(fallbackUrl, "_blank");
+                }
+            }, 500);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
