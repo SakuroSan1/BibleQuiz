@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: 1,44,000 ముద్రిత సేవకులు</title>
+    <style>
+        body {
+            font-family: 'Arial', 'Gautami', sans-serif;
+            background: url('https://jesusway4you.com/wp-content/uploads/2021/09/12_TRIBES_OF_ISRAEL.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 0, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(200, 200, 0, 0.6);
+            border: 2px solid #aa0;
+        }
+        h1 {
+            color: #ffff55;
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 255, 50, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #ffff99;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #aa0;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(200, 200, 0, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(100, 100, 0, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #aa0;
+            color: #ffffe6;
+        }
+        .option:hover {
+            background-color: rgba(150, 150, 0, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(200, 200, 0, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #aa0;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #ffffe6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #aa0, #770);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(200, 200, 0, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(200, 200, 0, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #ffff55;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(255, 255, 50, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #ffff55;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(255, 255, 50, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(255, 255, 50, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: 1,44,000 ముద్రిత సేవకులు</h1>
+        <div class="bible-ref">ప్రకటన 7</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://i.ytimg.com/vi/An4nXvZRm7g/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAXJyvMOuKYf3Sjl8kcC0en_zwVhA" alt="1,44,000 ముద్రిత సేవకులు" class="quiz-image">
+        
+        <div class="question">ప్రకటన 7లో దేవుని ముద్రతో గుర్తించబడిన 1,44,000 మంది ఏర్పడటానికి ఇశ్రాయేలు 12 గోత్రాల నుండి ఎన్ని వేలమంది ఎంపికయ్యారు?</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, false)">10 వేలమంది</div>
+            <div class="option" onclick="checkAnswer(this, true)">12 వేలమంది</div>
+            <div class="option" onclick="checkAnswer(this, false)">14 వేలమంది</div>
+            <div class="option" onclick="checkAnswer(this, false)">20 వేలమంది</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> 12 వేలమంది - ప్రకటన 7:4-8</p>
+            <p><strong>ముఖ్య వివరాలు:</strong></p>
+            <ul>
+                <li>12 గోత్రాలు × 12,000 = 1,44,000 (ప్రకటన 7:4-8)</li>
+                <li>బూరల తీర్పులకు ముందు ముద్రించబడ్డారు (ప్రకటన 7:3)</li>
+                <li>ఉపద్రవ కాలంలో రక్షించబడతారు</li>
+                <li>దైవ సంరక్షణకు పూర్తి సంకేతం</li>
+            </ul>
+            <p><strong>ప్రధాన వాక్యం:</strong> "ఇశ్రాయేలీయులలో ముద్రించబడినవారి సంఖ్య...పన్నెండు గోత్రములవారిలో ఒక్కొక్క గోత్రమునుండి పన్నెండు వేలమంది ముద్రించబడిరి." (ప్రకటన 7:4-8)</p>
+            <p><strong>ముఖ్యత్వం:</strong> ప్రతి గోత్రం నుండి 12,000 మంది సూచించేవి: (1) దైవ పరిపూర్ణ సంఖ్య (12×12×1000), (2) ఇశ్రాయేలు యొక్క సమాన ప్రాతినిధ్యం, (3) ప్రకటన 7:9లోని లెక్కలేని గుంపుకు విరుద్ధంగా, మరియు (4) యెహెఙ్కేలు 9లోని ముద్రణ దర్శనం నెరవేర్పు.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="sealSound" src="https://assets.mixkit.co/sfx/preview/mixkit-magic-sparkle-902.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const sealSound = document.getElementById('sealSound');
+        
+        function startTimer() {
+            sealSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#ffff99";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    sealSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(2)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            sealSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">❌</span>';
+                const correctOption = document.querySelector('.option:nth-child(2)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "x8-vI2qJ70o";
+            const commentText = `నేను 1,44,000 ముద్రిత సేవకుల క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరిగ్గా ఊహించాను ✅" : "నా సమాధానం: " + userAnswer + " ❌"}\nసరైన సమాధానం: ప్రతి గోత్రం నుండి 12 వేలమంది (ప్రకటన 7:4-8)\n12 గోత్రాలు × 12,000 = 1,44,000\nదేవుని పరిపూర్ణమైన సంరక్షణ!\nమీ సమాధానం ఏమిటి?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}?comment=${encodeURIComponent(commentText)}`;
+            const fallbackUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            setTimeout(() => {
+                try {
+                    if(!youtubeWindow || youtubeWindow.closed) {
+                        localStorage.setItem('ytComment', commentText);
+                        window.open(fallbackUrl, "_blank");
+                    }
+                } catch(e) {
+                    localStorage.setItem('ytComment', commentText);
+                    window.open(fallbackUrl, "_blank");
+                }
+            }, 500);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
