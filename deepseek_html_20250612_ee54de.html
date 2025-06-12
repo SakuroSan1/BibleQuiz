@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: ఏడు కళ్ళు గల గొర్రెపిల్ల</title>
+    <style>
+        body {
+            font-family: 'Arial', 'Gautami', sans-serif;
+            background: url('https://mlla2k0zvuy7.i.optimole.com/w:1200/h:675/q:mauto/f:best/id:eb9bb0d0b63255150aba530a2feacba0/https://revivalfellowship.nz/seven-seals-scroll.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(0, 40, 60, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(0, 150, 200, 0.6);
+            border: 2px solid #0088aa;
+        }
+        h1 {
+            color: #55ffff;
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 255, 255, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #99ffff;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #0088aa;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(0, 150, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(0, 80, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #0088aa;
+            color: #e6ffff;
+        }
+        .option:hover {
+            background-color: rgba(0, 120, 150, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(0, 200, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #0088aa;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #e6ffff;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #0088aa, #005566);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 200, 255, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 200, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #55ffff;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 255, 255, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #55ffff;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 255, 255, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 255, 255, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: ఏడు కళ్ళు గల గొర్రెపిల్ల</h1>
+        <div class="bible-ref">ప్రకటన 5</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://images.saatchiart.com/saatchi/868843/art/12185253/11247451-NDHZVGHK-7.jpg" alt="ఏడు కళ్ళు గల గొర్రెపిల్ల" class="quiz-image">
+        
+        <div class="question">ప్రకటన 5లో ఏడు కొమ్ములు కలిగిన గొర్రెపిల్లకు ఎన్ని కళ్ళు ఉన్నాయి?</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, false)">3 కళ్ళు</div>
+            <div class="option" onclick="checkAnswer(this, false)">5 కళ్ళు</div>
+            <div class="option" onclick="checkAnswer(this, true)">7 కళ్ళు</div>
+            <div class="option" onclick="checkAnswer(this, false)">12 కళ్ళు</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> 7 కళ్ళు - ప్రకటన 5:6</p>
+            <p><strong>ముఖ్య వివరాలు:</strong></p>
+            <ul>
+                <li>చంపబడినట్లు నిలిచియున్న గొర్రెపిల్ల (ప్రకటన 5:6)</li>
+                <li>ఏడు కళ్ళు = దేవుని ఏడు ఆత్మలు (ప్రకటన 5:6)</li>
+                <li>క్రీస్తు సంపూర్ణ జ్ఞానాన్ని సూచిస్తుంది</li>
+                <li>కొమ్ములు శక్తిని, కళ్ళు జ్ఞానాన్ని సూచిస్తాయి</li>
+            </ul>
+            <p><strong>ప్రధాన వాక్యం:</strong> "చంపబడినట్లు కనబడుచున్న ఒక గొర్రెపిల్ల సింహాసనము మధ్యన నిలిచియుండగా...దానికి ఏడు కొమ్ములును ఏడు కళ్ళును ఉండెను; అవి భూమియందంతటికి పంపబడిన దేవుని ఏడు ఆత్మలు." (ప్రకటన 5:6)</p>
+            <p><strong>అర్థం:</strong> ఏడు కళ్ళు సూచించేవి: (1) దేవుని పరిపూర్ణమైన అవగాహన (జెకర్యా 4:10), (2) ఏడు రూపాల ఆత్మ (ప్రకటన 1:4), (3) క్రీస్తు సర్వదర్శిత్వం, మరియు (4) సంపూర్ణ ఆధ్యాత్మిక వివేచన.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="lambSound" src="https://assets.mixkit.co/sfx/preview/mixkit-magic-sparkle-902.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const lambSound = document.getElementById('lambSound');
+        
+        function startTimer() {
+            lambSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#99ffff";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    lambSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(3)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            lambSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">❌</span>';
+                const correctOption = document.querySelector('.option:nth-child(3)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "1cT-Qn2mq1I";
+            const commentText = `నేను ఏడు కళ్ళు గల గొర్రెపిల్ల క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరిగ్గా ఊహించాను ✅" : "నా సమాధానం: " + userAnswer + " ❌"}\nసరైన సమాధానం: 7 కళ్ళు (ప్రకటన 5:6)\nఏడు కొమ్ములు = సంపూర్ణ శక్తి\nఏడు కళ్ళు = పరిపూర్ణ జ్ఞానం\nఈ దర్శనం మీకు ఏమి సూచిస్తుంది?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}?comment=${encodeURIComponent(commentText)}`;
+            const fallbackUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            setTimeout(() => {
+                try {
+                    if(!youtubeWindow || youtubeWindow.closed) {
+                        localStorage.setItem('ytComment', commentText);
+                        window.open(fallbackUrl, "_blank");
+                    }
+                } catch(e) {
+                    localStorage.setItem('ytComment', commentText);
+                    window.open(fallbackUrl, "_blank");
+                }
+            }, 500);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
