@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: స్మిర్నా సంఘం యొక్క హింస</title>
+    <style>
+        body {
+            font-family: 'Arial', 'Gautami', sans-serif;
+            background: url('https://completewellbeing.com/wp-content/uploads/2012/11/imprisoned_by_your_phobias.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 40, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(150, 0, 0, 0.6);
+            border: 2px solid #800000;
+        }
+        h1 {
+            color: #ff5555;
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 50, 50, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #ff9999;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #800000;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(150, 0, 0, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(80, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #800000;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(120, 0, 0, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(200, 0, 0, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #800000;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #800000, #500000);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(150, 0, 0, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(200, 0, 0, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #ff5555;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(255, 50, 50, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #ff5555;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(255, 50, 50, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(255, 50, 50, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: స్మిర్నా సంఘం యొక్క హింస</h1>
+        <div class="bible-ref">ప్రకటన 2:8-11</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://www.shutterstock.com/image-vector/politician-debate-elections-vector-concept-600nw-1255447483.jpg" alt="స్మిర్నా హింస" class="quiz-image">
+        
+        <div class="question">ప్రకటన 2 ప్రకారం, స్మిర్నా సంఘానికి ఎన్ని రోజుల బాధలు ఉంటాయి?</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">10 రోజులు</div>
+            <div class="option" onclick="checkAnswer(this, false)">40 రోజులు</div>
+            <div class="option" onclick="checkAnswer(this, false)">1,000 రోజులు</div>
+            <div class="option" onclick="checkAnswer(this, false)">7 రోజులు</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> 10 రోజులు - ప్రకటన 2:10</p>
+            <p><strong>ముఖ్య వివరాలు:</strong></p>
+            <ul>
+                <li>హింసలు ఎదుర్కొంటున్న స్మిర్నా సంఘానికి సందేశం</li>
+                <li>పరిమితమైన కానీ తీవ్రమైన పరీక్ష కాలాన్ని సూచిస్తుంది</li>
+                <li>వాగ్దానం: "మరణమువరకు నమ్మకముగా ఉండుము"</li>
+                <li>దేవుని సర్వాధికారం బాధలపై ఉందని తెలియచేస్తుంది</li>
+            </ul>
+            <p><strong>ప్రధాన వాక్యం:</strong> "మీరు అనుభవించబోవు కష్టమునుగూర్చి భయపడకుడు... మీరు పది దినములు కష్టమునొందుదురు. మరణమువరకు నమ్మకముగా ఉండుము, నేను మీకు జీవకిరీటమును ఇచ్చెదను." (ప్రకటన 2:10)</p>
+            <p><strong>అర్థం:</strong> 10-రోజుల కాలం సూచించేది: (1) పూర్తి పరీక్ష (10 = బైబిల్ సంఖ్య పూర్తితనానికి), (2) దేవుని నిర్ణయించిన బాధల పరిమితి, (3) దానియేలు 1లోని 10-రోజుల పరీక్షకు సారూప్యం, మరియు (4) హింసలకు గడువు తేదీ ఉందనే హామీ.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="chainsSound" src="https://assets.mixkit.co/sfx/preview/mixkit-metal-hit-1124.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const chainsSound = document.getElementById('chainsSound');
+        
+        function startTimer() {
+            chainsSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#ff9999";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    chainsSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(1)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            chainsSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">❌</span>';
+                const correctOption = document.querySelector('.option:nth-child(1)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "7s20WbNNfQI";
+            const commentText = `నేను స్మిర్నా హింస క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరిగ్గా ఊహించాను ✅" : "నా సమాధానం: " + userAnswer + " ❌"}\nసరైన సమాధానం: 10 రోజులు (ప్రకటన 2:10)\n"మరణమువరకు నమ్మకముగా ఉండుము"\nఈ వాగ్దానం మిమ్మల్ని ఎలా ప్రోత్సహిస్తుంది?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}?comment=${encodeURIComponent(commentText)}`;
+            const fallbackUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            setTimeout(() => {
+                try {
+                    if(!youtubeWindow || youtubeWindow.closed) {
+                        localStorage.setItem('ytComment', commentText);
+                        window.open(fallbackUrl, "_blank");
+                    }
+                } catch(e) {
+                    localStorage.setItem('ytComment', commentText);
+                    window.open(fallbackUrl, "_blank");
+                }
+            }, 500);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
