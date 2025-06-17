@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: ఏడు సంఘాలు</title>
+    <style>
+        body {
+            font-family: 'Arial', 'Gautami', sans-serif;
+            background: url('https://i0.wp.com/top-bibleverses.com/wp-content/uploads/2020/07/The-Book-of-Revelation.jpg?fit=1024%2C673&ssl=1') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 0, 60, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(150, 0, 200, 0.6);
+            border: 2px solid #800080;
+        }
+        h1 {
+            color: #dda0dd;
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(221, 160, 221, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #e6c3ff;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 500px;
+            border: 3px solid #800080;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(150, 0, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(80, 0, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #800080;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(120, 0, 150, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(200, 0, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #800080;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #800080, #4b0082);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(150, 0, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(200, 0, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #dda0dd;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(221, 160, 221, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #dda0dd;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(221, 160, 221, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(221, 160, 221, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: ఏడు సంఘాలు</h1>
+        <div class="bible-ref">ప్రకటన 1:10-11</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEh-nUxDl0m-pbBho4276Kd-E_c9ufdx3fQpftkdZlQZ-qaL03yKG3KgOerMMAT-dzrm6_2RlRvTWE12Xfwi2yvghYIwl1-Jb6x-kqx17snnEarn_YkIXSa7Bb6D4krzgwlFPyKFw4LyNuZP_IiZLbe28bHb_b38oT5RZvi4DAALyvmeVFcL1ssf6flXdGua" alt="ప్రకటన ఏడు సంఘాల మ్యాప్" class="quiz-image">
+        
+        <div class="question">ప్రకటన 1లోని బిగ్గరగా ఉన్న స్వరం ఈ గ్రంథాన్ని ______ సంఘాలకు వ్రాయమని చెప్పింది?</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">ఏడు</div>
+            <div class="option" onclick="checkAnswer(this, false)">పన్నెండు</div>
+            <div class="option" onclick="checkAnswer(this, false)">ఆరు</div>
+            <div class="option" onclick="checkAnswer(this, false)">నాలుగు</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> ఏడు - ప్రకటన 1:11</p>
+            <p><strong>ఏడు సంఘాలు సూచించేవి:</strong></p>
+            <ol>
+                <li><strong>ఎఫెసు</strong> (మొదటి ప్రేమను విడిచిపెట్టిన సంఘం - ప్రకటన 2:1-7)</li>
+                <li><strong>స్మిర్నా</strong> (హింసలు అనుభవించిన కానీ నమ్మకమైన సంఘం - ప్రకటన 2:8-11)</li>
+                <li><strong>పెర్గమును</strong> (రాజీపడిన సంఘం - ప్రకటన 2:12-17)</li>
+                <li><strong>తుయతీర</strong> (తప్పుడు బోధనలను సహించిన సంఘం - ప్రకటన 2:18-29)</li>
+                <li><strong>సర్దీసు</strong> (చనిపోయిన సంఘం - ప్రకటన 3:1-6)</li>
+                <li><strong>ఫిలదల్ఫియా</strong> (నమ్మకమైన సంఘం - ప్రకటన 3:7-13)</li>
+                <li><strong>లవోదీకయ</strong> (వెచ్చని సంఘం - ప్రకటన 3:14-22)</li>
+            </ol>
+            <p><strong>ప్రధాన వాక్యం:</strong> "నీవు చూచినదానిని ఒక పుస్తకములో వ్రాసి ఏడు సంఘములకు పంపుము: ఎఫెసుకును, స్మిర్నాకును, పెర్గమునకును, తుయతీరకును, సర్దీసుకును, ఫిలదల్ఫియాకును, లవోదీకయకును పంపుము." (ప్రకటన 1:11)</p>
+            <p><strong>అర్థం:</strong> ఏడు సంఘాలు సూచించేవి: (1) ఆసియా మైనర్లోని చారిత్రక సంఘాలు, (2) ఏడు రకాల ఆధ్యాత్మిక స్థితులు, మరియు (3) చరిత్రలోని ఏడు సంఘ యుగాలు.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="voiceSound" src="https://assets.mixkit.co/sfx/preview/mixkit-thunder-rumble-1716.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const voiceSound = document.getElementById('voiceSound');
+        
+        function startTimer() {
+            voiceSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#e6c3ff";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    voiceSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(1)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            voiceSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">❌</span>';
+                const correctOption = document.querySelector('.option:nth-child(1)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✅</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "4t3mj_nZmgg";
+            const commentText = `నేను ఏడు సంఘాలు క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరిగ్గా ఊహించాను ✅" : "నా సమాధానం: " + userAnswer + " ❌"}\nసరైన సమాధానం: ఏడు (ప్రకటన 1:11)\nఎఫెసు, స్మిర్నా, పెర్గమును, తుయతీర, సర్దీసు, ఫిలదల్ఫియా, లవోదీకయ\nఏ సంఘ స్థితి మీకు అత్యంత ప్రస్తుతంగా ఉంది?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}?comment=${encodeURIComponent(commentText)}`;
+            const fallbackUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            setTimeout(() => {
+                try {
+                    if(!youtubeWindow || youtubeWindow.closed) {
+                        localStorage.setItem('ytComment', commentText);
+                        window.open(fallbackUrl, "_blank");
+                    }
+                } catch(e) {
+                    localStorage.setItem('ytComment', commentText);
+                    window.open(fallbackUrl, "_blank");
+                }
+            }, 500);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
