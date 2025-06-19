@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Quiz: 3 John Contrasts</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://www.biblecartoons.co.uk/images/909.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(30, 60, 30, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(50, 150, 50, 0.6);
+            border: 2px solid #2e8b57;
+        }
+        h1 {
+            color: #98fb98;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(152, 251, 152, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #c1ffc1;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #2e8b57;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(50, 150, 50, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 100, 50, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #2e8b57;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 130, 70, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(100, 200, 100, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #2e8b57;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #2e8b57, #3cb371);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(50, 150, 50, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(100, 200, 100, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #98fb98;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(152, 251, 152, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #98fb98;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(152, 251, 152, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(152, 251, 152, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>BIBLE QUIZ: 3 JOHN CONTRASTS</h1>
+        <div class="bible-ref">3 John 1:1-14</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://www.biblecartoons.co.uk/images/910.jpg" alt="3 John Characters" class="quiz-image">
+        
+        <div class="question">How many members from the church are mainly contrasted (other than the letter holder) in 3 John?</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">Two</div>
+            <div class="option" onclick="checkAnswer(this, false)">Three</div>
+            <div class="option" onclick="checkAnswer(this, false)">One</div>
+            <div class="option" onclick="checkAnswer(this, false)">Four</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>Correct Answer:</strong> Two - Gaius vs Diotrephes (3 John 1:9-10)</p>
+            
+            <p><strong>Detailed Contrast in 3 John:</strong></p>
+            <ol>
+                <li><strong>Gaius</strong> (3 John 1:1-8):
+                    <ul>
+                        <li>Faithful church member</li>
+                        <li>Known for hospitality to traveling ministers</li>
+                        <li>"Walk in truth" (v.3-4)</li>
+                        <li>Supports missionaries financially (v.5-8)</li>
+                    </ul>
+                </li>
+                <li><strong>Diotrephes</strong> (3 John 1:9-11):
+                    <ul>
+                        <li>Power-hungry leader</li>
+                        <li>Rejects apostolic authority ("loves to be first")</li>
+                        <li>Spreads malicious words</li>
+                        <li>Refuses hospitality and excommunicates believers</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <p><strong>Demetrius</strong> (3 John 1:12):
+                <ul>
+                    <li>Third mentioned but not contrasted</li>
+                    <li>Holds good testimony from all</li>
+                    <li>Possible letter carrier</li>
+                    <li>Example of good reputation</li>
+                </ul>
+            </p>
+            
+            <p><strong>Key Lessons:</strong></p>
+            <ul>
+                <li>Early church faced leadership conflicts</li>
+                <li>God honors faithful servants like Gaius</li>
+                <li>Warns against domineering leaders like Diotrephes</li>
+                <li>Demetrius models Christian integrity</li>
+            </ul>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">Participate in Quiz</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="letterSound" src="https://assets.mixkit.co/sfx/preview/mixkit-paper-whisper-1106.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const letterSound = document.getElementById('letterSound');
+        
+        function startTimer() {
+            letterSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#c1ffc1";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    letterSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(1)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            letterSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(1)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "IIT_IqA-csg";
+            const commentText = `I took the 3 John Quiz! ${isCorrect ? "I got it right ✓" : "My answer was: " + userAnswer + " ✗"}\nThe correct answer is: Two (Gaius vs Diotrephes)\nKey Contrasts:\n- Gaius: Faithful & hospitable (3 John 1:5-8)\n- Diotrephes: Power-hungry (3 John 1:9-10)\nWhich character do you relate to most?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}?comment=${encodeURIComponent(commentText)}`;
+            const fallbackUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            setTimeout(() => {
+                try {
+                    if(!youtubeWindow || youtubeWindow.closed) {
+                        localStorage.setItem('ytComment', commentText);
+                        window.open(fallbackUrl, "_blank");
+                    }
+                } catch(e) {
+                    localStorage.setItem('ytComment', commentText);
+                    window.open(fallbackUrl, "_blank");
+                }
+            }, 500);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
