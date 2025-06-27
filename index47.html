@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: 1 యోహాను 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://i.pinimg.com/736x/32/86/94/328694df8a8e41a624a8c56593edcddf.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .quiz-box {
+            background: rgba(0,0,0,0.7);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .timer {
+            font-size: 30px;
+            color: #ffcc00;
+            margin: 15px 0;
+        }
+        .question {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .options {
+            display: grid;
+            gap: 10px;
+        }
+        .option {
+            background: rgba(255,255,255,0.2);
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .option:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        .correct {
+            background: green !important;
+        }
+        .wrong {
+            background: red !important;
+        }
+        .verse {
+            margin-top: 20px;
+            font-style: italic;
+            display: none;
+        }
+        .next-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-box">
+        <h2>బైబిల్ క్విజ్</h2>
+        <div class="timer" id="timer">30</div>
+        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjW3cyOCs1tVIi5A0KvjtJX8NvzLJn9vKCvdur1EqwxEC9qTid4REIR1NAVimA8BSVxc_UTgo7lB8M5_jKNgsWQqHXFcL19Ynl1nl2Rbs2S6T8DgkgbFOslJP7HLUaBuHdSX9cqYrx06oZ4mQFtseN1LFCq_G35ee5iCVAR5AedxNUZTgB18yxsWUSHJpBY" width="300">
+        <div class="question">1 యోహాను 2 ప్రకారం, మనం ఏది ప్రేమించకూడదు?</div>
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">లోకం</div>
+            <div class="option" onclick="checkAnswer(this, false)">మన కుటుంబం</div>
+            <div class="option" onclick="checkAnswer(this, false)">మన పొరుగువారు</div>
+            <div class="option" onclick="checkAnswer(this, false)">దేవుడు</div>
+        </div>
+        <div class="verse" id="verse">
+            "లోకమును గాని, లోకములోని వాటిని గాని ప్రేమించకుడి" (1 యోహాను 2:15)
+        </div>
+        <button class="next-btn" onclick="openYouTube()">మీ సమాధానం షేర్ చేయండి</button>
+    </div>
+
+    <script>
+        let timeLeft = 30;
+        let timer = setInterval(function() {
+            timeLeft--;
+            document.getElementById('timer').textContent = timeLeft;
+            if(timeLeft <= 0) {
+                clearInterval(timer);
+                showAnswer();
+            }
+        }, 1000);
+
+        function checkAnswer(selected, isCorrect) {
+            clearInterval(timer);
+            if(isCorrect) {
+                selected.classList.add('correct');
+            } else {
+                selected.classList.add('wrong');
+                document.querySelector('.option:nth-child(1)').classList.add('correct');
+            }
+            showAnswer();
+        }
+
+        function showAnswer() {
+            document.getElementById('verse').style.display = 'block';
+            document.querySelector('.next-btn').style.display = 'inline-block';
+        }
+
+        function openYouTube() {
+            window.open('https://www.youtube.com/shorts/FoGk9m1HysE');
+        }
+    </script>
+</body>
+</html>
