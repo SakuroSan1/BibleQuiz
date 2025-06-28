@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Quiz: 1 John 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://static.wixstatic.com/media/11178b_dcbaa634415e44e3860eaf959e8da86f~mv2.jpg/v1/fill/w_640,h_318,al_c,q_80,usm_2.00_1.00_0.00,enc_avif,quality_auto/11178b_dcbaa634415e44e3860eaf959e8da86f~mv2.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .quiz-box {
+            background: rgba(0,0,0,0.7);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .timer {
+            font-size: 30px;
+            color: #ffcc00;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+        .question {
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .options {
+            display: grid;
+            gap: 10px;
+        }
+        .option {
+            background: rgba(255,255,255,0.2);
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .option:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.02);
+        }
+        .correct {
+            background: green !important;
+            font-weight: bold;
+        }
+        .wrong {
+            background: red !important;
+        }
+        .verse {
+            margin-top: 20px;
+            font-style: italic;
+            display: none;
+            background: rgba(0,0,0,0.5);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .next-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            margin: 10px auto;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-box">
+        <h2>Bible Quiz: 1 John 1</h2>
+        <div class="timer" id="timer">30</div>
+        <img src="https://i.ytimg.com/vi/Jrv0Q5vqx4E/maxresdefault.jpg" class="quiz-image" alt="Confession">
+        <div class="question">What does 1 John 1 say we should do when we sin?</div>
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">Confess our sins</div>
+            <div class="option" onclick="checkAnswer(this, false)">Hide our sins</div>
+            <div class="option" onclick="checkAnswer(this, false)">Ignore our sins</div>
+            <div class="option" onclick="checkAnswer(this, false)">Blame others</div>
+        </div>
+        <div class="verse" id="verse">
+            "If we confess our sins, He is faithful and just to forgive us our sins" (1 John 1:9)
+        </div>
+        <button class="next-btn" onclick="openYouTube()">Share Your Answer</button>
+    </div>
+
+    <script>
+        let timeLeft = 30;
+        let timer = setInterval(function() {
+            timeLeft--;
+            document.getElementById('timer').textContent = timeLeft;
+            if(timeLeft <= 0) {
+                clearInterval(timer);
+                showAnswer();
+            }
+        }, 1000);
+
+        function checkAnswer(selected, isCorrect) {
+            clearInterval(timer);
+            if(isCorrect) {
+                selected.classList.add('correct');
+            } else {
+                selected.classList.add('wrong');
+                document.querySelector('.option:nth-child(1)').classList.add('correct');
+            }
+            showAnswer();
+        }
+
+        function showAnswer() {
+            document.getElementById('verse').style.display = 'block';
+            document.querySelector('.next-btn').style.display = 'inline-block';
+        }
+
+        function openYouTube() {
+            window.open('https://www.youtube.com/shorts/_vsyKeVf33w');
+        }
+    </script>
+</body>
+</html>
