@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: 2 పేతురు 3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://media.bible.art/84456695-bc23-47aa-bd82-0aacf765b59e-thumbnail.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .quiz-box {
+            background: rgba(0,0,0,0.7);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .timer {
+            font-size: 30px;
+            color: #ffcc00;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+        .question {
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .options {
+            display: grid;
+            gap: 10px;
+        }
+        .option {
+            background: rgba(255,255,255,0.2);
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .option:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.02);
+        }
+        .correct {
+            background: green !important;
+            font-weight: bold;
+        }
+        .wrong {
+            background: red !important;
+        }
+        .next-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            margin: 10px auto;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-box">
+        <h2>బైబిల్ క్విజ్: 2 పేతురు 3</h2>
+        <div class="timer" id="timer">30</div>
+        <img src="https://shortpowerfulsermonscom.b-cdn.net/wp-content/uploads/2023/12/2-Peter-3-8-15-922x922.png" class="quiz-image" alt="దేవుని దృష్టిలో సమయం">
+        <div class="question">2 పేతురు 3 ప్రకారం, దేవుని దృష్టిలో 1000 సంవత్సరాలు ఎన్ని రోజులకు సమానం?</div>
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">ఒక రోజు</div>
+            <div class="option" onclick="checkAnswer(this, false)">ఏడు రోజులు</div>
+            <div class="option" onclick="checkAnswer(this, false)">నలభై రోజులు</div>
+            <div class="option" onclick="checkAnswer(this, false)">ఒక సంవత్సరం</div>
+        </div>
+        <button class="next-btn" onclick="openYouTube()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <script>
+        let timeLeft = 30;
+        let timer = setInterval(function() {
+            timeLeft--;
+            document.getElementById('timer').textContent = timeLeft;
+            if(timeLeft <= 0) {
+                clearInterval(timer);
+                showAnswer();
+            }
+        }, 1000);
+
+        function checkAnswer(selected, isCorrect) {
+            clearInterval(timer);
+            if(isCorrect) {
+                selected.classList.add('correct');
+            } else {
+                selected.classList.add('wrong');
+                document.querySelector('.option:nth-child(1)').classList.add('correct');
+            }
+            document.querySelector('.next-btn').style.display = 'inline-block';
+        }
+
+        function openYouTube() {
+            window.open('https://www.youtube.com/shorts/nIqAqQqLDqk');
+        }
+    </script>
+</body>
+</html>
