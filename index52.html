@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Quiz: 2 Peter 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://i0.wp.com/graceandpeacejoanne.com/wp-content/uploads/2021/07/angel-and-balaam.jpg?fit=768%2C1200&ssl=1') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .quiz-box {
+            background: rgba(0,0,0,0.8);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .timer {
+            font-size: 30px;
+            color: #ffcc00;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+        .question {
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .options {
+            display: grid;
+            gap: 10px;
+        }
+        .option {
+            background: rgba(255,255,255,0.2);
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .option:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.02);
+        }
+        .correct {
+            background: green !important;
+            font-weight: bold;
+        }
+        .wrong {
+            background: red !important;
+        }
+        .key-verse {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0,0,0,0.5);
+            border-left: 4px solid #ffcc00;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            font-style: italic;
+        }
+        .key-points {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(0,60,0,0.5);
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+        }
+        .next-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            margin: 10px auto;
+            border: 2px solid #ffcc00;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-box">
+        <h2>Bible Quiz: 2 Peter 2</h2>
+        <div class="timer" id="timer">30</div>
+        <img src="https://c8.alamy.com/comp/CWX6R2/solutions-and-strategy-with-goals-and-strategic-journey-choosing-the-CWX6R2.jpg" class="quiz-image" alt="Right Way">
+        <div class="question">According to 2 Peter 2:15, what do false teachers cause believers to lose?</div>
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">The straight way</div>
+            <div class="option" onclick="checkAnswer(this, false)">Material wealth</div>
+            <div class="option" onclick="checkAnswer(this, false)">Physical health</div>
+            <div class="option" onclick="checkAnswer(this, false)">Social status</div>
+        </div>
+        <div class="key-verse" id="key-verse">
+            <strong>Key Verse:</strong> "Which have forsaken the right way, and are gone astray" (2 Peter 2:15 KJV)
+        </div>
+        <div class="key-points" id="key-points">
+            <strong>Key Points:</strong>
+            <ul>
+                <li>False teachers lead people away from God's truth</li>
+                <li>Follows Balaam's error of greed (Numbers 22-24)</li>
+                <li>God preserves the righteous (2 Peter 2:9)</li>
+            </ul>
+        </div>
+        <button class="next-btn" onclick="openYouTube()">Participate in Quiz</button>
+    </div>
+
+    <script>
+        let timeLeft = 30;
+        let timer = setInterval(function() {
+            timeLeft--;
+            document.getElementById('timer').textContent = timeLeft;
+            if(timeLeft <= 0) {
+                clearInterval(timer);
+                showAnswer();
+            }
+        }, 1000);
+
+        function checkAnswer(selected, isCorrect) {
+            clearInterval(timer);
+            if(isCorrect) {
+                selected.classList.add('correct');
+            } else {
+                selected.classList.add('wrong');
+                document.querySelector('.option:nth-child(1)').classList.add('correct');
+            }
+            showAnswer();
+        }
+
+        function showAnswer() {
+            document.getElementById('key-verse').style.display = 'block';
+            document.getElementById('key-points').style.display = 'block';
+            document.querySelector('.next-btn').style.display = 'inline-block';
+        }
+
+        function openYouTube() {
+            window.open('https://www.youtube.com/shorts/9Wvpsrn29UQ');
+        }
+    </script>
+</body>
+</html>
