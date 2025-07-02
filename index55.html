@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: 2 పేతురు 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://bethanybible.org/new/wp-content/uploads/2013/12/1201.Building-on-the-Foundation-of-Faith-2-Peter1.5-11.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        .quiz-box {
+            background: rgba(255,255,255,0.9);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+        .timer {
+            font-size: 30px;
+            color: #e74c3c;
+            margin: 15px 0;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+        .question {
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .options {
+            display: grid;
+            gap: 12px;
+        }
+        .option {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid #ddd;
+            color: #34495e;
+        }
+        .option:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .correct {
+            background: #2ecc71 !important;
+            color: white !important;
+            font-weight: bold;
+            border-color: #27ae60 !important;
+        }
+        .incorrect {
+            background: #e74c3c !important;
+            color: white !important;
+            border-color: #c0392b !important;
+        }
+        .key-verse {
+            margin: 20px 0;
+            padding: 15px;
+            background: #3498db;
+            color: white;
+            border-radius: 8px;
+            display: none;
+            text-align: left;
+            font-style: italic;
+        }
+        .key-points {
+            background: #f1c40f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            display: none;
+            text-align: left;
+            color: #2c3e50;
+        }
+        .participate-btn {
+            background: #9b59b6;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            background: #8e44ad;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 10px;
+            margin: 15px auto;
+            border: 3px solid #2c3e50;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-box">
+        <h2 style="color: #2c3e50;">బైబిల్ క్విజ్: 2 పేతురు 1</h2>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjDhJiNqxsmS1uTDMIgsEQDag27qFKJQUPz3pv9M4V56-gJwXVXCRVo8_fGgAYn-DtUw3I0ueFKcX1WW84BHBPpfMfyLEKvxEkxJlcsVw4CXtIfzSYRL34kw8H68j-eYQjc8r5-9vR1VN7jDMyOuRDiknbGDvqDqszlpjJ0G8VPoeMOUvXoSTNProrytXL-" alt="ఆధ్యాత్మిక అంధత్వం" class="quiz-image">
+        
+        <div class="question">2 పేతురు 1:9 ప్రకారం, ఈ ఆధ్యాత్మిక గుణాలు లేని వ్యక్తి ఎలా వర్ణించబడ్డాడు?</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">గుడ్డితనం మరియు అర్థదృష్టి లేనివాడు</div>
+            <div class="option" onclick="checkAnswer(this, false)">శారీరకంగా బలహీనుడు</div>
+            <div class="option" onclick="checkAnswer(this, false)">పేద మరియు ఆకలితో ఉన్నవాడు</div>
+            <div class="option" onclick="checkAnswer(this, false)">ఒంటరితనం మరియు నిరాశతో ఉన్నవాడు</div>
+        </div>
+        
+        <div class="key-verse" id="key-verse">
+            <strong>ముఖ్య వాక్యం:</strong> "ఈ గుణములు లేనివాడు గుడ్డివాడై దూరదృష్టి లేనివాడగును, తన పాతపాపములనుండి శుద్ధిచేయబడినవాడని మరచిపోయెను." (2 పేతురు 1:9)
+        </div>
+        
+        <div class="key-points" id="key-points">
+            <strong>ముఖ్య విషయాలు:</strong>
+            <ul>
+                <li>2 పేతురు 1:5-7లో పేర్కొన్న గుణాలను సూచిస్తుంది (విశ్వాసం, సద్గుణం, జ్ఞానం మొదలైనవి)</li>
+                <li>ఆధ్యాత్మిక వృద్ధిని నిర్లక్ష్యం చేయడం వల్ల ఆధ్యాత్మిక అంధత్వం వస్తుంది</li>
+                <li>దేవుని క్షమాపణను మరచిపోవడం అర్థదృష్టి లేకపోవడానికి దారితీస్తుంది</li>
+            </ul>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTube()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <script>
+        let timeLeft = 30;
+        let timer;
+        
+        function startTimer() {
+            timer = setInterval(function() {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                if(timeLeft <= 10) {
+                    document.getElementById('timer').style.color = "#e74c3c";
+                }
+                if(timeLeft <= 0) {
+                    clearInterval(timer);
+                    showAnswer();
+                }
+            }, 1000);
+        }
+        
+        function checkAnswer(selected, isCorrect) {
+            clearInterval(timer);
+            if(isCorrect) {
+                selected.classList.add('correct');
+            } else {
+                selected.classList.add('incorrect');
+                document.querySelector('.option:nth-child(1)').classList.add('correct');
+            }
+            showAnswer();
+        }
+
+        function showAnswer() {
+            document.getElementById('key-verse').style.display = 'block';
+            document.getElementById('key-points').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTube() {
+            window.open('https://www.youtube.com/shorts/jR2GyayKMGo');
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>

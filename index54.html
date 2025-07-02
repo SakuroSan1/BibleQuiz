@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Quiz: 2 Peter 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://bethanybible.org/new/wp-content/uploads/2013/12/1201.Building-on-the-Foundation-of-Faith-2-Peter1.5-11.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        .quiz-box {
+            background: rgba(255,255,255,0.9);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+        .timer {
+            font-size: 30px;
+            color: #e74c3c;
+            margin: 15px 0;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+        .question {
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .options {
+            display: grid;
+            gap: 12px;
+        }
+        .option {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid #ddd;
+            color: #34495e;
+        }
+        .option:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .correct {
+            background: #2ecc71 !important;
+            color: white !important;
+            font-weight: bold;
+            border-color: #27ae60 !important;
+        }
+        .incorrect {
+            background: #e74c3c !important;
+            color: white !important;
+            border-color: #c0392b !important;
+        }
+        .key-verse {
+            margin: 20px 0;
+            padding: 15px;
+            background: #3498db;
+            color: white;
+            border-radius: 8px;
+            display: none;
+            text-align: left;
+            font-style: italic;
+        }
+        .key-points {
+            background: #f1c40f;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            display: none;
+            text-align: left;
+            color: #2c3e50;
+        }
+        .participate-btn {
+            background: #9b59b6;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            background: #8e44ad;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 10px;
+            margin: 15px auto;
+            border: 3px solid #2c3e50;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-box">
+        <h2 style="color: #2c3e50;">Bible Quiz: 2 Peter 1</h2>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://images.knowing-jesus.com/w/700/61-2+PETER/2+Peter+1-9+Lacking+These+Qualities+Is+Short-Sighted+beige.jpg" alt="Spiritual Blindness" class="quiz-image">
+        
+        <div class="question">According to 2 Peter 1:9, what describes someone who lacks these spiritual qualities?</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">Blind and shortsighted</div>
+            <div class="option" onclick="checkAnswer(this, false)">Physically weak</div>
+            <div class="option" onclick="checkAnswer(this, false)">Poor and hungry</div>
+            <div class="option" onclick="checkAnswer(this, false)">Lonely and depressed</div>
+        </div>
+        
+        <div class="key-verse" id="key-verse">
+            <strong>Key Verse:</strong> "But he that lacketh these things is blind, and cannot see afar off, and hath forgotten that he was purged from his old sins." (2 Peter 1:9 KJV)
+        </div>
+        
+        <div class="key-points" id="key-points">
+            <strong>Key Points:</strong>
+            <ul>
+                <li>Refers to the qualities listed in 2 Peter 1:5-7 (faith, virtue, knowledge, etc.)</li>
+                <li>Spiritual blindness results from neglecting spiritual growth</li>
+                <li>Forgetting God's forgiveness leads to shortsightedness</li>
+            </ul>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTube()">Participate in Quiz</button>
+    </div>
+
+    <script>
+        let timeLeft = 30;
+        let timer;
+        
+        function startTimer() {
+            timer = setInterval(function() {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                if(timeLeft <= 10) {
+                    document.getElementById('timer').style.color = "#e74c3c";
+                }
+                if(timeLeft <= 0) {
+                    clearInterval(timer);
+                    showAnswer();
+                }
+            }, 1000);
+        }
+        
+        function checkAnswer(selected, isCorrect) {
+            clearInterval(timer);
+            if(isCorrect) {
+                selected.classList.add('correct');
+            } else {
+                selected.classList.add('incorrect');
+                document.querySelector('.option:nth-child(1)').classList.add('correct');
+            }
+            showAnswer();
+        }
+
+        function showAnswer() {
+            document.getElementById('key-verse').style.display = 'block';
+            document.getElementById('key-points').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTube() {
+            window.open('https://www.youtube.com/shorts/k-lhENf2XG4');
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
