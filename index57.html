@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: 1 పేతురు 5</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://maranathaministrieshawaii.org/wp-content/uploads/2022/12/1-Peter-5_8-2.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .quiz-box {
+            background: rgba(0,0,0,0.8);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+        .timer {
+            font-size: 30px;
+            color: #ff3333;
+            margin: 15px 0;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+        .question {
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .options {
+            display: grid;
+            gap: 12px;
+        }
+        .option {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid #444;
+        }
+        .option:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.02);
+        }
+        .correct {
+            background: #27ae60 !important;
+            font-weight: bold;
+        }
+        .incorrect {
+            background: #e74c3c !important;
+        }
+        .key-verse {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(214, 48, 49,0.7);
+            border-radius: 8px;
+            display: none;
+            font-style: italic;
+        }
+        .participate-btn {
+            background: #e67e22;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            background: #d35400;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 10px;
+            margin: 15px auto;
+            border: 3px solid #ff3333;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-box">
+        <h2>బైబిల్ క్విజ్: 1 పేతురు 5</h2>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjizvmZe7-ioljDfiFtNrqyp0Zn9UdNwNIatZguPBQJgtoRwFFCT5zYjR419BM7B_MzI3DHLr_vLE26ikv_b8Acn_DMU4DebEUuWDIgRilCAT2aGe6RSlWvDW6-x0ZdkqnIBju9NYCK3wOnRTP-ilSD6OasQZoWoY4YSfq7d5z9QZ8WNAnQwmfc_KuNSfW0" alt="గర్జించే సింహం" class="quiz-image">
+        
+        <div class="question">1 పేతురు 5:8లో దయ్యాన్ని దేనితో పోల్చారు?</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">గర్జించే సింహం</div>
+            <div class="option" onclick="checkAnswer(this, false)">మోసపూరిత పాము</div>
+            <div class="option" onclick="checkAnswer(this, false)">చీకటి నీడ</div>
+            <div class="option" onclick="checkAnswer(this, false)">బలమైన గాలి</div>
+        </div>
+        
+        <div class="key-verse" id="key-verse">
+            <strong>ముఖ్య వాక్యం:</strong> "మీరు ఏకాగ్రతతో ఉండి మద్యపానము చేయకుండ జాగ్రత్తపడుడి. మీ శత్రువైన దయ్యము గర్జించుచున్న సింహమువలె ఎవరినైనను మ్రింగివేయుటకై చుట్టుతిరుగుచున్నాడు." (1 పేతురు 5:8)
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTube()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <script>
+        let timeLeft = 30;
+        let timer;
+        
+        function startTimer() {
+            timer = setInterval(function() {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                if(timeLeft <= 10) {
+                    document.getElementById('timer').style.color = "#ff9999";
+                }
+                if(timeLeft <= 0) {
+                    clearInterval(timer);
+                    showAnswer();
+                }
+            }, 1000);
+        }
+        
+        function checkAnswer(selected, isCorrect) {
+            clearInterval(timer);
+            if(isCorrect) {
+                selected.classList.add('correct');
+            } else {
+                selected.classList.add('incorrect');
+                document.querySelector('.option:nth-child(1)').classList.add('correct');
+            }
+            showAnswer();
+        }
+
+        function showAnswer() {
+            document.getElementById('key-verse').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTube() {
+            window.open('https://www.youtube.com/shorts/1DsPEypGdHk');
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
