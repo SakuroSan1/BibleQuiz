@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Quiz: 1 Peter 4</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSmcyZIajnNo7qpNEx68F4bNiixLsWjf6hdbe8yiVdnjo2KqK0GDDXN-8vmliFOdR7NfY&usqp=CAU') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        .quiz-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0, 100, 0, 0.3);
+            border: 2px solid #2e8b57;
+        }
+        h1 {
+            color: #2e8b57;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .timer {
+            font-size: 30px;
+            color: #e67e22;
+            margin: 15px 0;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            margin: 15px auto;
+            border: 3px solid #e67e22;
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 20px 0;
+        }
+        .option {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid #ddd;
+            color: #34495e;
+        }
+        .option:hover {
+            background-color: #e9ecef;
+            transform: translateY(-2px);
+        }
+        .correct {
+            background-color: #2ecc71 !important;
+            color: white !important;
+            font-weight: bold;
+        }
+        .incorrect {
+            background-color: #e74c3c !important;
+            color: white !important;
+        }
+        .key-verse {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(46, 204, 113, 0.2);
+            border-left: 4px solid #2ecc71;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+        }
+        .participate-btn {
+            background: linear-gradient(to right, #e67e22, #d35400);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Bible Quiz: 1 Peter 4</h1>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://media.swncdn.com/cms/IB/44483-spiritual-gifts-hands-glow-1200.1200w.tn.jpg" alt="Spiritual Gifts" class="quiz-image">
+        
+        <div class="question">According to 1 Peter 4:10, what should every believer do with their gifts?</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">Use them to serve others</div>
+            <div class="option" onclick="checkAnswer(this, false)">Keep them hidden</div>
+            <div class="option" onclick="checkAnswer(this, false)">Show them off proudly</div>
+            <div class="option" onclick="checkAnswer(this, false)">Sell them for money</div>
+        </div>
+        
+        <div class="key-verse" id="key-verse">
+            <strong>Key Verse:</strong> "Each of you should use whatever gift you have received to serve others, as faithful stewards of God's grace in its various forms." (1 Peter 4:10)
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTube()">Participate in Quiz</button>
+    </div>
+
+    <script>
+        let timeLeft = 30;
+        let timer;
+        
+        function startTimer() {
+            timer = setInterval(function() {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft <= 10) {
+                    document.getElementById('timer').style.color = "#e74c3c";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timer);
+                    showAnswer();
+                }
+            }, 1000);
+        }
+        
+        function checkAnswer(selected, isCorrect) {
+            clearInterval(timer);
+            
+            if(isCorrect) {
+                selected.classList.add('correct');
+            } else {
+                selected.classList.add('incorrect');
+                document.querySelector('.option:nth-child(1)').classList.add('correct');
+            }
+            
+            showAnswer();
+        }
+
+        function showAnswer() {
+            document.getElementById('key-verse').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTube() {
+            window.open('https://www.youtube.com/shorts/deM-Ccleq6o');
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
