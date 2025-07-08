@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: 1 పేతురు 3</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://belifteddotme.wordpress.com/wp-content/uploads/2014/05/you-are-precious.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        .quiz-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+            border: 2px solid #d4af37;
+        }
+        h1 {
+            color: #d4af37;
+            font-size: 24px;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        .timer {
+            font-size: 32px;
+            color: #e67e22;
+            margin: 15px 0;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 50%;
+            margin: 15px auto;
+            border: 4px solid #d4af37;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #2c3e50;
+            line-height: 1.4;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid #ddd;
+            color: #34495e;
+            font-size: 16px;
+        }
+        .option:hover {
+            background-color: #e9ecef;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .correct {
+            background-color: #27ae60 !important;
+            color: white !important;
+            font-weight: bold;
+            border-color: #219653 !important;
+        }
+        .incorrect {
+            background-color: #e74c3c !important;
+            color: white !important;
+            border-color: #c0392b !important;
+        }
+        .key-verse {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: rgba(212, 175, 55, 0.2);
+            border-left: 4px solid #d4af37;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            font-style: italic;
+        }
+        .participate-btn {
+            background: linear-gradient(to right, #e67e22, #d35400);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(230, 126, 34, 0.3);
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(230, 126, 34, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: 1 పేతురు 3</h1>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://belifteddotme.wordpress.com/wp-content/uploads/2014/05/you-are-precious.jpg" alt="దేవుని దృష్టిలో విలువైనది" class="quiz-image">
+        
+        <div class="question">1 పేతురు 3:4 ప్రకారం, దేవుని దృష్టిలో విలువైనది ఏమిటి?</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">సాత్వికమైన మరియు ప్రశాంతమైన ఆత్మ</div>
+            <div class="option" onclick="checkAnswer(this, false)">బాహ్య అందం</div>
+            <div class="option" onclick="checkAnswer(this, false)">సంపద మరియు సామగ్రి</div>
+            <div class="option" onclick="checkAnswer(this, false)">ప్రతిభలు మరియు సామర్థ్యాలు</div>
+        </div>
+        
+        <div class="key-verse" id="key-verse">
+            <strong>ముఖ్య వాక్యం:</strong> "మీలోని మనుష్యుడైన గుణము, సాత్వికమైన ప్రశాంతమైన ఆత్మయొక్క కృశించని అందమే దేవుని దృష్టికి విలువైనది." (1 పేతురు 3:4)
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTube()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <script>
+        let timeLeft = 30;
+        let timer;
+        
+        function startTimer() {
+            timer = setInterval(function() {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft <= 10) {
+                    document.getElementById('timer').style.color = "#e74c3c";
+                    document.getElementById('timer').style.fontWeight = "bolder";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timer);
+                    showAnswer();
+                }
+            }, 1000);
+        }
+        
+        function checkAnswer(selected, isCorrect) {
+            clearInterval(timer);
+            
+            if(isCorrect) {
+                selected.classList.add('correct');
+            } else {
+                selected.classList.add('incorrect');
+                document.querySelector('.option:nth-child(1)').classList.add('correct');
+            }
+            
+            showAnswer();
+        }
+
+        function showAnswer() {
+            document.getElementById('key-verse').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTube() {
+            window.open('https://www.youtube.com/shorts/8OL9I9b_-ZI');
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
