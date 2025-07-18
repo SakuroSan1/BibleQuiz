@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: నాలుక శక్తి</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('https://media.bible.art/540814a8-f783-445a-9edf-ba6cccc7236c-compressed.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            margin: 0;
+        }
+        .quiz-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 25px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(0,0,0,0.5);
+            border: 2px solid #e74c3c;
+        }
+        h1 {
+            color: #e74c3c;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .timer {
+            font-size: 32px;
+            color: #f1c40f;
+            margin: 15px 0;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+            text-shadow: 0 0 5px #f1c40f;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            margin: 15px auto;
+            border: 3px solid #e74c3c;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(231, 76, 60, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid #e74c3c;
+        }
+        .option:hover {
+            background-color: rgba(231, 76, 60, 0.3);
+            transform: translateY(-3px);
+        }
+        .correct {
+            background-color: #27ae60 !important;
+            font-weight: bold;
+            border-color: #2ecc71 !important;
+            animation: pulse 0.5s infinite alternate;
+        }
+        .incorrect {
+            background-color: rgba(231, 76, 60, 0.7) !important;
+            border-color: #c0392b !important;
+        }
+        .key-verse {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: rgba(231, 76, 60, 0.2);
+            border-left: 4px solid #e74c3c;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            font-style: italic;
+        }
+        .participate-btn {
+            background: linear-gradient(to right, #e74c3c, #c0392b);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+        }
+        @keyframes pulse {
+            from { box-shadow: 0 0 5px rgba(39, 174, 96, 0.5); }
+            to { box-shadow: 0 0 15px rgba(39, 174, 96, 0.8); }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: నాలుక శక్తి</h1>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://insider.pureflix.com/hubfs/Imported_Blog_Media/taming-the-tongue-james-3-pure-flix-blog-header-2.jpg" alt="నాలుకను అదుపులో ఉంచుకోవడం" class="quiz-image">
+        
+        <div class="question">యాకోబు 3:9-10 ప్రకారం, నాలుక ఎన్ని విభిన్న మార్గాల్లో మాట్లాడగలదు?</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, false)">ఒకే మార్గం (ఎల్లప్పుడూ మంచిది)</div>
+            <div class="option" onclick="checkAnswer(this, true)">రెండు మార్గాలు (ఆశీర్వాదాలు & శాపాలు)</div>
+            <div class="option" onclick="checkAnswer(this, false)">మూడు మార్గాలు (మంచి, చెడు, తటస్థ)</div>
+            <div class="option" onclick="checkAnswer(this, false)">అపరిమిత మార్గాలు</div>
+        </div>
+        
+        <div class="key-verse" id="key-verse">
+            <strong>ముఖ్య వాక్యం:</strong> "దానితో మనము ప్రభువును పితను స్తుతించుచున్నాము, దానితోనే మనుష్యులను శపించుచున్నాము... ఇట్లు కాకూడదు!" (యాకోబు 3:9-10)
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTube()">నేటి ఉపదేశం చూడండి</button>
+    </div>
+
+    <script>
+        let timeLeft = 30;
+        let timer;
+        
+        function startTimer() {
+            timer = setInterval(function() {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft <= 10) {
+                    document.getElementById('timer').style.color = "#e74c3c";
+                    document.getElementById('timer').style.textShadow = "0 0 10px #e74c3c";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timer);
+                    showAnswer();
+                }
+            }, 1000);
+        }
+        
+        function checkAnswer(selected, isCorrect) {
+            clearInterval(timer);
+            
+            if(isCorrect) {
+                selected.classList.add('correct');
+            } else {
+                selected.classList.add('incorrect');
+                document.querySelector('.option:nth-child(2)').classList.add('correct');
+            }
+            
+            showAnswer();
+        }
+
+        function showAnswer() {
+            document.getElementById('key-verse').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTube() {
+            window.open('https://www.youtube.com/shorts/_WTWZHpWddw');
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
