@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Quiz: Avoiding Strange Teachings</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('https://dailyverse.knowing-jesus.com/w/dv_700/dailyverse-images/9b/Hebrews%2013-9%20Strengthened%20By%20Grace%20brown.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            margin: 0;
+        }
+        .quiz-container {
+            background-color: rgba(0, 0, 0, 0.75);
+            border-radius: 15px;
+            padding: 25px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            border: 3px solid #8B4513;
+        }
+        h1 {
+            color: #DAA520;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .timer {
+            font-size: 36px;
+            color: #e74c3c;
+            margin: 15px 0;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            margin: 20px auto;
+            border: 4px solid #8B4513;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        }
+        .question {
+            font-size: 22px;
+            margin: 25px 0;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .option {
+            background-color: rgba(139, 69, 19, 0.3);
+            padding: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid #8B4513;
+            font-size: 18px;
+        }
+        .option:hover {
+            background-color: rgba(139, 69, 19, 0.4);
+            transform: translateY(-5px);
+        }
+        .correct {
+            background-color: rgba(46, 204, 113, 0.7) !important;
+            font-weight: bold;
+            border-color: #27ae60 !important;
+            animation: pulse 1s infinite alternate;
+        }
+        .incorrect {
+            background-color: rgba(231, 76, 60, 0.7) !important;
+            border-color: #c0392b !important;
+        }
+        .key-verse {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: rgba(139, 69, 19, 0.3);
+            border-left: 5px solid #8B4513;
+            text-align: left;
+            display: none;
+            border-radius: 8px;
+            font-style: italic;
+        }
+        .participate-btn {
+            background: linear-gradient(to right, #8B4513, #A0522D);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 25px;
+            display: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.5);
+        }
+        @keyframes pulse {
+            from { box-shadow: 0 0 5px rgba(46, 204, 113, 0.5); }
+            to { box-shadow: 0 0 20px rgba(46, 204, 113, 0.8); }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Bible Quiz: Avoiding Strange Teachings</h1>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://thumbs.dreamstime.com/b/carried-away-icon-illustration-showing-man-holding-several-balloons-being-them-40467149.jpg" alt="Carried Away by False Teachings" class="quiz-image">
+        
+        <div class="question">According to Hebrews 13:9, we should not be carried away by all kinds of:</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, false)">Emotions</div>
+            <div class="option" onclick="checkAnswer(this, true)">Strange teachings</div>
+            <div class="option" onclick="checkAnswer(this, false)">Popular opinions</div>
+            <div class="option" onclick="checkAnswer(this, false)">Entertainment</div>
+        </div>
+        
+        <div class="key-verse" id="key-verse">
+            <strong>Key Verse:</strong> "Do not be carried away by all kinds of strange teachings. It is good for our hearts to be strengthened by grace..." (Hebrews 13:9)
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTube()">Watch Today's Devotional</button>
+    </div>
+
+    <script>
+        let timeLeft = 30;
+        let timer;
+        
+        function startTimer() {
+            timer = setInterval(function() {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft <= 10) {
+                    document.getElementById('timer').style.color = "#f1c40f";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timer);
+                    showAnswer();
+                }
+            }, 1000);
+        }
+        
+        function checkAnswer(selected, isCorrect) {
+            clearInterval(timer);
+            
+            if(isCorrect) {
+                selected.classList.add('correct');
+            } else {
+                selected.classList.add('incorrect');
+                document.querySelector('.option:nth-child(2)').classList.add('correct');
+            }
+            
+            showAnswer();
+        }
+
+        function showAnswer() {
+            document.getElementById('key-verse').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTube() {
+            window.open('https://www.youtube.com/shorts/8a6z14g7e40');
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
