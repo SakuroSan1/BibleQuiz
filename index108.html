@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Quiz: Spiritual Purity</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://c8.alamy.com/comp/2DRRP16/vector-cartoon-stick-figure-illustration-of-stressed-frustrated-sad-or-tired-man-or-businessman-holding-and-walking-with-future-sign-2DRRP16.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>BIBLE QUIZ: SPIRITUAL PURITY</h1>
+        <div class="bible-ref">Titus 1:15-16</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://s3.envato.com/files/70e47f42-b280-4517-bd42-1c2918519ec4/inline_image_preview.jpg" alt="Pure vs Impure Heart" class="quiz-image">
+        
+        <div class="question">According to Titus 1:15-16, to the pure all things are pure, but to the impure nothing is pure. Both are ______ for doing good.</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">Unfit</div>
+            <div class="option" onclick="checkAnswer(this, false)">Unwilling</div>
+            <div class="option" onclick="checkAnswer(this, false)">Unaware</div>
+            <div class="option" onclick="checkAnswer(this, false)">Unprepared</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>Correct Answer:</strong> Unfit (Titus 1:16)</p>
+            
+            <p><strong>Titus 1:15-16 (NIV):</strong> <em>"To the pure, all things are pure, but to those who are corrupted and do not believe, nothing is pure. In fact, both their minds and consciences are corrupted. They claim to know God, but by their actions they deny him. They are detestable, disobedient and unfit for doing anything good."</em></p>
+            
+            <p><strong>Two Contrasting Perspectives:</strong></p>
+            <ul>
+                <li><strong>The Pure:</strong> See God's goodness in all things (v.15)</li>
+                <li><strong>The Impure:</strong> See corruption everywhere (v.15)</li>
+                <li><strong>Heart Condition:</strong> Determines how we perceive reality</li>
+            </ul>
+            
+            <p><strong>Characteristics of the Unfit:</strong></p>
+            <ul>
+                <li><strong>Corrupted Minds:</strong> Thinking is polluted (v.15)</li>
+                <li><strong>Defiled Consciences:</strong> Moral compass is broken (v.15)</li>
+                <li><strong>Hypocritical:</strong> Claim to know God but deny Him by actions (v.16)</li>
+                <li><strong>Detestable:</strong> Morally repulsive to God (v.16)</li>
+                <li><strong>Disobedient:</strong> Rebellious against God's will (v.16)</li>
+            </ul>
+            
+            <p><strong>Why They Are Unfit for Good Works:</strong></p>
+            <ul>
+                <li>Spiritual corruption affects ability to do genuine good</li>
+                <li>Actions flow from heart condition (Matthew 15:18-19)</li>
+                <li>Without purity, even "good" deeds may have wrong motives</li>
+                <li>God looks at the heart, not just outward actions (1 Samuel 16:7)</li>
+            </ul>
+            
+            <p><strong>The Solution:</strong></p>
+            <ul>
+                <li>Heart transformation through Christ (Ezekiel 36:26)</li>
+                <li>Renewal of mind through God's Word (Romans 12:2)</li>
+                <li>Cleansing through repentance and faith (1 John 1:9)</li>
+                <li>Walking in the Spirit rather than flesh (Galatians 5:16)</li>
+            </ul>
+            
+            <p><strong>Practical Application:</strong> Examine your heart condition - does it enable you to see God's goodness and be fit for His service?</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">Participate in Quiz</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(1)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(1)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "xI5SICkrqfw";
+            const commentText = `I took the Spiritual Purity Quiz! ${isCorrect ? "I got it right ✓" : "My answer was: " + userAnswer + " ✗"}\nThe correct answer is: Unfit (Titus 1:16)\nKey truths:\n- Pure see purity everywhere\n- Impure see corruption everywhere\n- Heart condition determines fitness for good works\nHow's your spiritual vision?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}?comment=${encodeURIComponent(commentText)}`;
+            const fallbackUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            setTimeout(() => {
+                try {
+                    if(!youtubeWindow || youtubeWindow.closed) {
+                        localStorage.setItem('ytComment', commentText);
+                        window.open(fallbackUrl, "_blank");
+                    }
+                } catch(e) {
+                    localStorage.setItem('ytComment', commentText);
+                    window.open(fallbackUrl, "_blank");
+                }
+            }, 500);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
