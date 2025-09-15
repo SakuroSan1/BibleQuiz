@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: దేవుని సేవకుని గుణం</title>
+    <style>
+        body {
+            font-family: 'Gautami', sans-serif;
+            background: url('https://media.istockphoto.com/id/1389899751/vector/two-persons-arguing-or-fighting-vector-cartoon-stick-figure-illustration.jpg?s=612x612&w=0&k=20&c=-t9rQLRKpFghqQevQCt_hAzx160aowIML5JKYaMCehM=') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: దేవుని సేవకుని గుణం</h1>
+        <div class="bible-ref">2 తిమోతి 2:24</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaW1QkdEZzqlUcTDQKEDrFOF28kzUMq0D0YmZMAwPKRhaVC9xdSlBYxoLzfQUY0wNrs0g&usqp=CAU" alt="దయగల దేవుని సేవకుడు" class="quiz-image">
+        
+        <div class="question">2 తిమోతి 2:24 ప్రకారం, ప్రభువు సేవకుడు అందరికీ ______గా ఉండాలి.</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">దయగల</div>
+            <div class="option" onclick="checkAnswer(this, false)">కఠినమైన</div>
+            <div class="option" onclick="checkAnswer(this, false)">డిమాండ్ చేసే</div>
+            <div class="option" onclick="checkAnswer(this, false)">దూరమైన</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> దయగల (2 తిమోతి 2:24)</p>
+            
+            <p><strong>2 తిమోతి 2:24-25:</strong> <em>"ప్రభువు దాసుడు జగడమాడువాడు కాక అందరితోను దయగలవాడై యుండవలెను; బోధించుటకు శక్తిగలవాడై యుండవలెను; దుర్భరుడు కాకుండ వుండవలెను; విరోధులను సాత్వికముగా శిక్షించవలెను; వారు మననపరచుకొని సత్యమును అర్థముచేసికొనునట్లు దేవుడు వారికి మననపరచుకొనుటను అనుగ్రహించు నని ఆశతో నుండవలెను."</em></p>
+            
+            <p><strong>దేవుని సేవకుని లక్షణాలు:</strong></p>
+            <ul>
+                <li><strong>జగడమాడనివాడు:</strong> వాదనలు మరియు వివాదాలను తప్పించుకుంటాడు (24 వచనం)</li>
+                <li><strong>అందరికీ దయగల:</strong> అందరికీ దయ చూపిస్తాడు (24 వచనం)</li>
+                <li><strong>బోధించుటకు శక్తిగల:</strong> దేవుని సత్యాన్ని వివరించడంలో సమర్థుడు (24 వచనం)</li>
+                <li><strong>దుర్భరుడు కాడు:</strong> చిన్నచూపు మరియు కోపం నుండి స్వతంత్రుడు (24 వచనం)</li>
+                <li><strong>విరోధులను సాత్వికముగా శిక్షించువాడు:</strong> వ్యతిరేకించేవారితో ఓర్పుగా ఉంటాడు (25 వచనం)</li>
+            </ul>
+            
+            <p><strong>దయ ఎందుకు ముఖ్యమైనది:</strong></p>
+            <ul>
+                <li>దేవుని స్వభావాన్ని ప్రతిబింబిస్తుంది (ఎఫెసీయులు 4:32)</li>
+                <li>సమర్థవంతమైన సేవకు తలుపులు తెరుస్తుంది</li>
+                <li>ఆత్మ ఫలాన్ని ప్రదర్శిస్తుంది (గలతీయులు 5:22-23)</li>
+                <li>విరోధులను పశ్చాత్తాపానికి నడిపించగలదు (25 వచనం)</li>
+                <li>క్రీస్తు ప్రేమను ప్రాయోగిక మార్గాల్లో చూపిస్తుంది</li>
+            </ul>
+            
+            <p><strong>ప్రాయోగిక అనువర్తనాలు:</strong></p>
+            <ul>
+                <li>వాదనల్లో కరుణను ఎంచుకోండి</li>
+                <li>కష్టమైన వ్యక్తులకు కృప చూపించండి</li>
+                <li>టీకలకు సున్నితంగా ప్రతిస్పందించండి</li>
+                <li>నిరాశపరిచే పరిస్థితుల్లో ఓర్పు ప్రదర్శించండి</li>
+                <li>దయ కఠిన హృదయాలను మృదువు చేయగలదని గుర్తుంచుకోండి</li>
+            </ul>
+            
+            <p><strong>బైబిల్ ఉదాహరణ:</strong> పాపులకు, సుంకరులకు మరియు బహిష్కృతులకు యేసు దయ చూపించాడు, అదే సమయంలో సత్యాన్ని కాపాడాడు (మత్తయి 9:10-13)</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(1)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(1)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "ZLLbrpI4waI";
+            const commentText = `నేను దేవుని సేవకుడి క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరిగ్గా ఊహించాను ✓" : "నా సమాధానం: " + userAnswer + " ✗"}\nసరైన సమాధానం: దయగల (2 తిమోతి 2:24)\nదేవుని సేవకుడు ఇలా ఉండాలి:\n- అందరికీ దయగల\n- జగడమాడనివాడు\n- విరోధులతో సాత్వికముగా\n- బోధించుటకు శక్తిగల\nమీరు మీ సేవలో దయను ఎలా చూపిస్తున్నారు?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}?comment=${encodeURIComponent(commentText)}`;
+            const fallbackUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            setTimeout(() => {
+                try {
+                    if(!youtubeWindow || youtubeWindow.closed) {
+                        localStorage.setItem('ytComment', commentText);
+                        window.open(fallbackUrl, "_blank");
+                    }
+                } catch(e) {
+                    localStorage.setItem('ytComment', commentText);
+                    window.open(fallbackUrl, "_blank");
+                }
+            }, 500);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
