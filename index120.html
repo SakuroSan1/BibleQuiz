@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Bible Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('https://www.thewidowshandbook.com/uploads/7/4/9/4/7494329/list_orig.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 90%;
+            border: 5px solid #8B4513;
+        }
+        h1 {
+            color: #8B0000;
+            margin-bottom: 10px;
+            font-size: 2.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        .question {
+            font-size: 1.4em;
+            margin-bottom: 25px;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+        .verse {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            background: linear-gradient(to right, #f9f9f9, #eaeaea);
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            border: 2px solid #ddd;
+        }
+        .options li:hover {
+            background: linear-gradient(to right, #e6f7ff, #ccefff);
+            border-color: #8B4513;
+            transform: scale(1.02);
+        }
+        .correct {
+            background: linear-gradient(to right, #d4edda, #c3e6cb) !important;
+            border-color: #28a745 !important;
+            color: #155724;
+        }
+        .incorrect {
+            background: linear-gradient(to right, #f8d7da, #f1b0b7) !important;
+            border-color: #dc3545 !important;
+            color: #721c24;
+        }
+        #timer {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #8B0000;
+            margin: 20px 0;
+        }
+        #result {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin: 20px 0;
+            min-height: 30px;
+        }
+        #explanation {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 5px solid #8B4513;
+            text-align: left;
+            display: none;
+        }
+        .theme-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 3px solid #8B4513;
+        }
+        #next-button {
+            background: linear-gradient(to bottom, #8B4513, #654321);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+        #next-button:hover {
+            background: linear-gradient(to bottom, #654321, #8B4513);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Daily Bible Quiz</h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBtMG7Iy9c0gaZCh0HBu02R55_md7yC-eXYA&s" alt="Widows List" class="theme-image">
+        
+        <div class="question">According to 1 Timothy 5, no widow should be put on the list of widows unless...?</div>
+        <div class="verse">1 Timothy 5:9</div>
+        
+        <div id="timer">Time left: 30 seconds</div>
+        
+        <ul class="options">
+            <li onclick="checkAnswer(1)">She is over sixty years of age</li>
+            <li onclick="checkAnswer(2)">She has no children to support her</li>
+            <li onclick="checkAnswer(3)">She is well-known for her good deeds</li>
+            <li onclick="checkAnswer(4)">She has been faithful to her husband</li>
+        </ul>
+        
+        <div id="result"></div>
+        
+        <div id="explanation">
+            <p><strong>Explanation:</strong> 1 Timothy 5:9 says, "No widow may be put on the list of widows unless she is over sixty, has been faithful to her husband, and is well known for her good deeds..."</p>
+            <p><strong>Full Criteria for Widows List:</strong></p>
+            <ul>
+                <li>Over sixty years old</li>
+                <li>Faithful to her husband (one husband)</li>
+                <li>Known for good deeds</li>
+                <li>Brought up children</li>
+                <li>Shown hospitality</li>
+                <li>Washed the feet of the Lord's people</li>
+                <li>Helped those in trouble</li>
+                <li>Devoted herself to all kinds of good deeds</li>
+            </ul>
+            <p>This system ensured church resources went to those most in need and who had demonstrated lifelong faithfulness.</p>
+        </div>
+        
+        <button id="next-button" onclick="nextQuestion()" style="display: none;">Next Question</button>
+    </div>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let answered = false;
+        const correctAnswer = 1;
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = `Time left: ${timeLeft} seconds`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    if (!answered) {
+                        document.getElementById('result').textContent = "Time's up! The correct answer is: She is over sixty years of age.";
+                        document.getElementById('result').style.color = "#8B0000";
+                        showAnswer();
+                    }
+                }
+            }, 1000);
+        }
+
+        function checkAnswer(selected) {
+            if (answered) return;
+            
+            answered = true;
+            clearInterval(timerInterval);
+            
+            const options = document.querySelectorAll('.options li');
+            const resultDiv = document.getElementById('result');
+            
+            if (selected === correctAnswer) {
+                options[selected-1].classList.add('correct');
+                resultDiv.textContent = "Correct! Well done!";
+                resultDiv.style.color = "#28a745";
+            } else {
+                options[selected-1].classList.add('incorrect');
+                options[correctAnswer-1].classList.add('correct');
+                resultDiv.textContent = "Incorrect. The right answer is: She is over sixty years of age.";
+                resultDiv.style.color = "#dc3545";
+            }
+            
+            showAnswer();
+        }
+
+        function showAnswer() {
+            document.getElementById('explanation').style.display = 'block';
+            document.getElementById('next-button').style.display = 'block';
+        }
+
+        function nextQuestion() {
+            // Redirect to YouTube Shorts after answering
+            window.location.href = "https://www.youtube.com/shorts/60kV9V40mS4";
+        }
+
+        // Start the timer when the page loads
+        window.onload = startTimer;
+    </script>
+</body>
+</html>

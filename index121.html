@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>దైనందిన బైబిల్ క్విజ్</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('https://www.thewidowshandbook.com/uploads/7/4/9/4/7494329/list_orig.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 90%;
+            border: 5px solid #8B4513;
+        }
+        h1 {
+            color: #8B0000;
+            margin-bottom: 10px;
+            font-size: 2.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        .question {
+            font-size: 1.4em;
+            margin-bottom: 25px;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+        .verse {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            background: linear-gradient(to right, #f9f9f9, #eaeaea);
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            border: 2px solid #ddd;
+        }
+        .options li:hover {
+            background: linear-gradient(to right, #e6f7ff, #ccefff);
+            border-color: #8B4513;
+            transform: scale(1.02);
+        }
+        .correct {
+            background: linear-gradient(to right, #d4edda, #c3e6cb) !important;
+            border-color: #28a745 !important;
+            color: #155724;
+        }
+        .incorrect {
+            background: linear-gradient(to right, #f8d7da, #f1b0b7) !important;
+            border-color: #dc3545 !important;
+            color: #721c24;
+        }
+        #timer {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #8B0000;
+            margin: 20px 0;
+        }
+        #result {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin: 20px 0;
+            min-height: 30px;
+        }
+        #explanation {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 5px solid #8B4513;
+            text-align: left;
+            display: none;
+        }
+        .theme-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 3px solid #8B4513;
+        }
+        #next-button {
+            background: linear-gradient(to bottom, #8B4513, #654321);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+        #next-button:hover {
+            background: linear-gradient(to bottom, #654321, #8B4513);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>దైనందిన బైబిల్ క్విజ్</h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBtMG7Iy9c0gaZCh0HBu02R55_md7yC-eXYA&s" alt="వితంతువుల జాబితా" class="theme-image">
+        
+        <div class="question">1 తిమోతి 5 ప్రకారం, ఒక వితంతువు వితంతువుల జాబితాలో చేర్చబడకూడదు, తప్ప...?</div>
+        <div class="verse">1 తిమోతి 5:9</div>
+        
+        <div id="timer">సమయం: 30 సెకన్లు</div>
+        
+        <ul class="options">
+            <li onclick="checkAnswer(1)">ఆమె వయస్సు అరవై సంవత్సరాలు దాటి ఉండి</li>
+            <li onclick="checkAnswer(2)">ఆమెకు ఆదరించే పిల్లలు లేకుండా ఉండి</li>
+            <li onclick="checkAnswer(3)">ఆమె మంచి పనులకు ప్రసిద్ధి చెంది ఉండి</li>
+            <li onclick="checkAnswer(4)">ఆమె తన భర్తకు విశ్వస్తురాలై ఉండి</li>
+        </ul>
+        
+        <div id="result"></div>
+        
+        <div id="explanation">
+            <p><strong>వివరణ:</strong> 1 తిమోతి 5:9లో ఇలా వ్రాయబడింది: "ఎవరైనను వితంతువు అరవైయేండ్లకు మించినదై, ఒకని భార్యయై యుండినదై, మంచి పనులకు ప్రసిద్ధి చెందినదైయుండవలెను..."</p>
+            <p><strong>వితంతువుల జాబితా కోసం పూర్తి నియమాలు:</strong></p>
+            <ul>
+                <li>అరవై సంవత్సరాలకు మించిన వయస్సు</li>
+                <li>భర్తకు విశ్వస్తురాలు (ఒకే భర్త)</li>
+                <li>మంచి పనులకు ప్రసిద్ధి చెందినది</li>
+                <li>పిల్లలను పెంచినది</li>
+                <li>అతిథి సత్కారం చేసినది</li>
+                <li>ప్రభువు వారి పాదాలు కడిగినది</li>
+                <li>కష్టాలలో ఉన్నవారికి సహాయం చేసినది</li>
+                <li>అన్ని రకాల మంచి పనులకు తనను తాను అర్పించుకున్నది</li>
+            </ul>
+            <p>ఈ వ్యవస్థ సంస్థ వనరులు అత్యంత అవసరమైన వారికి మరియు జీవితపర్యంతం విశ్వస్తతను ప్రదర్శించిన వారికి వెళ్లేలా చూసుకుంది.</p>
+        </div>
+        
+        <button id="next-button" onclick="nextQuestion()" style="display: none;">తర్వాతి ప్రశ్న</button>
+    </div>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let answered = false;
+        const correctAnswer = 1;
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = `సమయం: ${timeLeft} సెకన్లు`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    if (!answered) {
+                        document.getElementById('result').textContent = "సమయం ముగిసింది! సరైన సమాధానం: ఆమె వయస్సు అరవై సంవత్సరాలు దాటి ఉండి.";
+                        document.getElementById('result').style.color = "#8B0000";
+                        showAnswer();
+                    }
+                }
+            }, 1000);
+        }
+
+        function checkAnswer(selected) {
+            if (answered) return;
+            
+            answered = true;
+            clearInterval(timerInterval);
+            
+            const options = document.querySelectorAll('.options li');
+            const resultDiv = document.getElementById('result');
+            
+            if (selected === correctAnswer) {
+                options[selected-1].classList.add('correct');
+                resultDiv.textContent = "సరైనది! చాలా బాగుంది!";
+                resultDiv.style.color = "#28a745";
+            } else {
+                options[selected-1].classList.add('incorrect');
+                options[correctAnswer-1].classList.add('correct');
+                resultDiv.textContent = "తప్పు. సరైన సమాధానం: ఆమె వయస్సు అరవై సంవత్సరాలు దాటి ఉండి.";
+                resultDiv.style.color = "#dc3545";
+            }
+            
+            showAnswer();
+        }
+
+        function showAnswer() {
+            document.getElementById('explanation').style.display = 'block';
+            document.getElementById('next-button').style.display = 'block';
+        }
+
+        function nextQuestion() {
+            // Redirect to YouTube Shorts after answering
+            window.location.href = "https://www.youtube.com/shorts/MEJOLNPROes";
+        }
+
+        // Start the timer when the page loads
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
