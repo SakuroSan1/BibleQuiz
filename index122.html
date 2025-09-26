@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Bible Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('https://patrickoben.com/wp-content/uploads/2024/08/seducing-spirits-doctrines-demons.webp') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 90%;
+            border: 5px solid #8B0000;
+        }
+        h1 {
+            color: #8B0000;
+            margin-bottom: 10px;
+            font-size: 2.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        .question {
+            font-size: 1.4em;
+            margin-bottom: 25px;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+        .verse {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            background: linear-gradient(to right, #f9f9f9, #eaeaea);
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            border: 2px solid #ddd;
+        }
+        .options li:hover {
+            background: linear-gradient(to right, #ffe6e6, #ffcccc);
+            border-color: #8B0000;
+            transform: scale(1.02);
+        }
+        .correct {
+            background: linear-gradient(to right, #d4edda, #c3e6cb) !important;
+            border-color: #28a745 !important;
+            color: #155724;
+        }
+        .incorrect {
+            background: linear-gradient(to right, #f8d7da, #f1b0b7) !important;
+            border-color: #dc3545 !important;
+            color: #721c24;
+        }
+        #timer {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #8B0000;
+            margin: 20px 0;
+        }
+        #result {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin: 20px 0;
+            min-height: 30px;
+        }
+        #explanation {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 5px solid #8B0000;
+            text-align: left;
+            display: none;
+        }
+        .theme-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 3px solid #8B0000;
+        }
+        #next-button {
+            background: linear-gradient(to bottom, #8B0000, #A52A2A);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+        #next-button:hover {
+            background: linear-gradient(to bottom, #A52A2A, #8B0000);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Daily Bible Quiz</h1>
+        <img src="https://reasonsforjesus.com/wp-content/uploads/2016/12/demons-e1483053489705-1024x514.jpg" alt="Deceiving Spirits and Demons" class="theme-image">
+        
+        <div class="question">According to 1 Timothy 4, in later times some will abandon the faith and follow deceiving spirits and teachings of...?</div>
+        <div class="verse">1 Timothy 4:1</div>
+        
+        <div id="timer">Time left: 30 seconds</div>
+        
+        <ul class="options">
+            <li onclick="checkAnswer(1)">Angels</li>
+            <li onclick="checkAnswer(2)">Demons</li>
+            <li onclick="checkAnswer(3)">Humans</li>
+            <li onclick="checkAnswer(4)">Prophets</li>
+        </ul>
+        
+        <div id="result"></div>
+        
+        <div id="explanation">
+            <p><strong>Explanation:</strong> 1 Timothy 4:1 says, "The Spirit clearly says that in later times some will abandon the faith and follow deceiving spirits and things taught by demons."</p>
+            
+            <p><strong>Key Points from 1 Timothy 4:1-5:</strong></p>
+            <ul>
+                <li><strong>Source:</strong> This warning comes directly from the Holy Spirit</li>
+                <li><strong>Timing:</strong> Refers to "later times" (end times)</li>
+                <li><strong>Action:</strong> People will abandon the true faith</li>
+                <li><strong>Deception:</strong> Follow deceiving spirits and demonic teachings</li>
+                <li><strong>Examples:</strong> False teachers will forbid marriage and certain foods</li>
+                <li><strong>Truth:</strong> Everything God created is good and should be received with thanksgiving</li>
+            </ul>
+            
+            <p><strong>Spiritual Significance:</strong> This verse warns believers to be discerning about teachings that claim to be spiritual but actually originate from demonic sources rather than from God's Word.</p>
+        </div>
+        
+        <button id="next-button" onclick="nextQuestion()" style="display: none;">Next Question</button>
+    </div>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let answered = false;
+        const correctAnswer = 2;
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = `Time left: ${timeLeft} seconds`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    if (!answered) {
+                        document.getElementById('result').textContent = "Time's up! The correct answer is Demons.";
+                        document.getElementById('result').style.color = "#8B0000";
+                        showAnswer();
+                    }
+                }
+            }, 1000);
+        }
+
+        function checkAnswer(selected) {
+            if (answered) return;
+            
+            answered = true;
+            clearInterval(timerInterval);
+            
+            const options = document.querySelectorAll('.options li');
+            const resultDiv = document.getElementById('result');
+            
+            if (selected === correctAnswer) {
+                options[selected-1].classList.add('correct');
+                resultDiv.textContent = "Correct! Well done!";
+                resultDiv.style.color = "#28a745";
+            } else {
+                options[selected-1].classList.add('incorrect');
+                options[correctAnswer-1].classList.add('correct');
+                resultDiv.textContent = "Incorrect. The right answer is Demons.";
+                resultDiv.style.color = "#dc3545";
+            }
+            
+            showAnswer();
+        }
+
+        function showAnswer() {
+            document.getElementById('explanation').style.display = 'block';
+            document.getElementById('next-button').style.display = 'block';
+        }
+
+        function nextQuestion() {
+            // Redirect to YouTube Shorts after answering
+            window.location.href = "https://www.youtube.com/shorts/hbaiyC5v2sg";
+        }
+
+        // Start the timer when the page loads
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
