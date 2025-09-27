@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: సంఘ నాయకత్వ అర్హతలు</title>
+    <style>
+        body {
+            font-family: 'Gautami', sans-serif;
+            background: url('https://blogger.googleusercontent.com/img/a/AVvXsEiP0yCz6e7dIxbKA4FMu1ftUDUCDfOxuxUhzhgGu3d2RPX0CkQSF2a92ZTFY5Zp_sm0-gd-TFdXHsNu4JHXDwhwz7_9DcpxWYUkW2myIFNMIcqtuT28Y1P_fVROxWUQwIpEeJcnjjlTb-k9XOhY2qfJGnC_mRSFvAGqMPUt795h6nMMVZ0CGRhWZxwaASY_') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: సంఘ నాయకత్వ అర్హతలు</h1>
+        <div class="bible-ref">1 తిమోతి 3:7</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://dailyverse.knowing-jesus.com/dailyverse-images/62/1%20Timothy%203-5%20Elders%20Must%20Manage%20Their%20Own%20Household%20gray.jpg" alt="సంఘ నాయకుడి పేరు" class="quiz-image">
+        
+        <div class="question">1 తిమోతి 3 ప్రకారం, సంఘ నాయకుడు బయటి వారి ముందు ______ పేరు కలిగి ఉండాలి, అప్రతిష్టలోను, పిశాచపు ఉచ్చులలోను చిక్కుకోకుండా ఉండేందుకు.</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, false)">శక్తివంతమైన</div>
+            <div class="option" onclick="checkAnswer(this, true)">మంచి</div>
+            <div class="option" onclick="checkAnswer(this, false)">భయంకరమైన</div>
+            <div class="option" onclick="checkAnswer(this, false)">సంపన్నమైన</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> మంచి (1 తిమోతి 3:7)</p>
+            
+            <p><strong>1 తిమోతి 3:7:</strong> <em>"బయటి వారి ముందు అతనికి మంచి పేరు కలిగియుండవలెను; అప్రతిష్టలోను పిశాచపు ఉచ్చులలోను చిక్కుకొనకుండ ఉండవలెను."</em></p>
+            
+            <p><strong>మంచి పేరు యొక్క ప్రాముఖ్యత:</strong></p>
+            <ol>
+                <li><strong>బాహ్య సాక్ష్యం:</strong> అవిశ్వాసులకు సాక్ష్యం</li>
+                <li><strong>అప్రతిష్ట నుండి రక్షణ:</strong> ప్రజా కలంకాన్ని నిరోధిస్తుంది</li>
+                <li><strong>ఆధ్యాత్మిక రక్షణ:</strong> పిశాచపు ఉచ్చులను తప్పించుకుంటుంది</li>
+                <li><strong>విశ్వసనీయత:</strong> సేవా ప్రభావాన్ని పెంచుతుంది</li>
+            </ol>
+            
+            <p><strong>సంఘ నాయకులకు బైబిల్ అర్హతలు (1 తిమోతి 3:1-7):</strong></p>
+            <ul>
+                <li>నిందారహితుడు</li>
+                <li>ఒకే భార్యకు భర్త</li>
+                <li>స్వస్థబుద్ధి, ఆత్మనిగ్రహం, గౌరవపాత్రుడు</li>
+                <li>అతిథి సత్కారం చేయువాడు, బోధించగలవాడు</li>
+               li>తాగుబోతుకాడు, హింసకాడు కాదు</li>
+                <li>సాత్వికుడు, వాదప్రియుడు కాదు, డబ్బు ప్రియుడు కాదు</li>
+                <li>తన కుటుంబాన్ని చక్కగా నడుపుకుంటాడు</li>
+                <li>కొత్తగా మారినవాడు కాదు</li>
+                <li><strong>బయటి వారి ముందు మంచి పేరు</strong></li>
+            </ul>
+            
+            <p><strong>ప్రాయోగిక అనువర్తనాలు:</strong></p>
+            <ul>
+                <li><strong>నిజాయితీ:</strong> జీవితంలోని అన్ని రంగాలలో స్థిరమైన పాత్ర</li>
+                <li><strong>జవాబుదారీతనం:</strong> సంఘం మరియు సమాజం నుండి పరిశీలనకు తెరిచి ఉండటం</li>
+                <li><strong>సంబంధాల జ్ఞానం:</strong> అవిశ్వాసులతో వారధులను నిర్మించడం</li>
+                <li><strong>రక్షణ చర్య:</strong> ఆరోపణలు మరియు ప్రలోభాల నుండి రక్షించడం</li>
+            </ul>
+            
+            <p><strong>ప్రధాన అంశం:</strong> నాయకుని పేరు సంఘం గోడలను దాటి వ్యాపిస్తుంది మరియు సువార్త సందేశానికి శక్తివంతమైన సాక్ష్యంగా లేదా అడ్డంకిగా పనిచేస్తుంది.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(2)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(2)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "9xpKnZCApq4";
+            const commentText = `నేను సంఘ నాయకత్వ క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరిగ్గా ఊహించాను ✓" : "నా సమాధానం: " + userAnswer + " ✗"}\nసరైన సమాధానం: మంచి (1 తిమోతి 3:7)\nసంఘ నాయకులు కలిగి ఉండాలి:\n- బయటి వారి ముందు మంచి పేరు\n- అప్రతిష్ట నుండి రక్షణ\n- పిశాచపు ఉచ్చులను తప్పించుకోవడం\nసంఘ నాయకత్వంలో ఏ గుణం అత్యంత ముఖ్యమైనది?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}?comment=${encodeURIComponent(commentText)}`;
+            const fallbackUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            setTimeout(() => {
+                try {
+                    if(!youtubeWindow || youtubeWindow.closed) {
+                        localStorage.setItem('ytComment', commentText);
+                        window.open(fallbackUrl, "_blank");
+                    }
+                } catch(e) {
+                    localStorage.setItem('ytComment', commentText);
+                    window.open(fallbackUrl, "_blank");
+                }
+            }, 500);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
