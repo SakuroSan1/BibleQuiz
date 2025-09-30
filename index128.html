@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Quiz: The Proper Use of Law</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://judiciallearningcenter.org/wp-content/uploads/2012/07/gavel1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>BIBLE QUIZ: THE PROPER USE OF LAW</h1>
+        <div class="bible-ref">1 Timothy 1:8</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://bg3-blog.s3.amazonaws.com/blog/wp-content/uploads/2015/01/law.jpg" alt="God's Law" class="quiz-image">
+        
+        <div class="question">According to 1 Timothy 1:8, "We know that the law is good if one uses it ______."</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">Properly</div>
+            <div class="option" onclick="checkAnswer(this, false)">Strictly</div>
+            <div class="option" onclick="checkAnswer(this, false)">Legally</div>
+            <div class="option" onclick="checkAnswer(this, false)">Wisely</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>Correct Answer:</strong> Properly (1 Timothy 1:8)</p>
+            
+            <p><strong>1 Timothy 1:8 (NIV):</strong> <em>"We know that the law is good if one uses it properly."</em></p>
+            
+            <p><strong>The Purpose and Proper Use of God's Law:</strong></p>
+            <ol>
+                <li><strong>Reveals Sin:</strong> Shows us our need for salvation (Romans 3:20)</li>
+                <li><strong>Leads to Christ:</strong> Acts as a tutor to bring us to Christ (Galatians 3:24)</li>
+                <li><strong>Reflects God's Character:</strong> Reveals God's holiness and standards</li>
+                <li><strong>Guides Christian Living:</strong> Provides moral guidance for believers</li>
+            </ol>
+            
+            <p><strong>Improper Uses of the Law (1 Timothy 1:6-7):</strong></p>
+            <ul>
+                <li>Promoting meaningless talk and speculation</li>
+                <li>Teaching false doctrines</li>
+                <li>Emphasizing genealogies and myths</li>
+                <li>Using it for legalistic control rather than spiritual growth</li>
+            </ul>
+            
+            <p><strong>Proper vs Improper Use of Law:</strong></p>
+            <ul>
+                <li><strong>PROPER:</strong> To convict of sin and point to Christ</li>
+                <li><strong>IMPROPER:</strong> To establish self-righteousness</li>
+                <li><strong>PROPER:</strong> To guide in righteous living</li>
+                <li><strong>IMPROPER:</strong> To burden with impossible requirements</li>
+                <li><strong>PROPER:</strong> To reveal God's character</li>
+                <li><strong>IMPROPER:</strong> To promote legalistic traditions</li>
+            </ul>
+            
+            <p><strong>Biblical Context (1 Timothy 1:8-11):</strong></p>
+            <ul>
+                <li>Paul contrasts proper and improper use of law</li>
+                <li>Law is made for lawbreakers and rebels</li>
+                <li>It condemns various sins listed in verses 9-10</li>
+                <li>Proper use aligns with the gospel of Christ</li>
+            </ul>
+            
+            <p><strong>Practical Applications:</strong></p>
+            <ul>
+                <li><strong>Humility:</strong> Recognizing we all fall short of God's law</li>
+                <li><strong>Grace-Focused:</strong> Using law to magnify God's grace</li>
+                <li><strong>Christ-Centered:</strong> Seeing Christ as the fulfillment of the law</li>
+                <li><strong>Freedom:</strong> Living by the Spirit, not legalistic bondage</li>
+            </ul>
+            
+            <p><strong>Key Insight:</strong> The law is like a mirror that shows us our dirt but cannot wash it away - that requires the cleansing blood of Christ.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">Participate in Quiz</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(1)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(1)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "TPvn_V4vkuI";
+            const commentText = `I took the Law Quiz! ${isCorrect ? "I got it right ✓" : "My answer was: " + userAnswer + " ✗"}\nThe correct answer is: Properly (1 Timothy 1:8)\nKey Truths:\n- God's law is good\n- Must be used properly\n- Reveals sin, points to Christ\n- Misuse leads to legalism\nHow do you balance law and grace in your Christian walk?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}?comment=${encodeURIComponent(commentText)}`;
+            const fallbackUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            setTimeout(() => {
+                try {
+                    if(!youtubeWindow || youtubeWindow.closed) {
+                        localStorage.setItem('ytComment', commentText);
+                        window.open(fallbackUrl, "_blank");
+                    }
+                } catch(e) {
+                    localStorage.setItem('ytComment', commentText);
+                    window.open(fallbackUrl, "_blank");
+                }
+            }, 500);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
