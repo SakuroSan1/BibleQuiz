@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: అగ్నిలో క్రీస్తు తిరిగి రాక</title>
+    <style>
+        body {
+            font-family: 'Gautami', sans-serif;
+            background: url('https://i.pinimg.com/736x/22/e9/41/22e941d2451dac109a6950c6678af069.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: అగ్నిలో క్రీస్తు తిరిగి రాక</h1>
+        <div class="bible-ref">2 థెస్సలొనీకయులకు 1:7</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://i.ytimg.com/vi/qmZIaN0xbnk/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCgZkBXjYPrIMX4dS2UP1cng6zQlw" alt="అగ్నిలో క్రీస్తు తిరిగి రాక" class="quiz-image">
+        
+        <div class="question">2 థెస్సలొనీకయులకు 1 ప్రకారం, దేవుడు శ్రమపడుచున్న మీకును మాకును విశ్రాంతి నిచ్చును, ప్రభువైన యేసు స్వర్గమునుండి మహాతేజస్సుగల ______ తో వెల్లడియగునప్పుడు.</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">అగ్ని</div>
+            <div class="option" onclick="checkAnswer(this, false)">వెలుగు</div>
+            <div class="option" onclick="checkAnswer(this, false)">తేజస్సు</div>
+            <div class="option" onclick="checkAnswer(this, false)">శక్తి</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> అగ్ని (2 థెస్సలొనీకయులకు 1:7)</p>
+            
+            <p><strong>2 థెస్సలొనీకయులకు 1:7-8:</strong> <em>"శ్రమపడుచున్న మీకును మాకును విశ్రాంతి నిచ్చును. ప్రభువైన యేసు స్వర్గమునుండి మహాతేజస్సుగల అగ్నితో వెల్లడియగునప్పుడు ఇది జరుగును; ఆయన తన శక్తిమంతులైన దూతలతో కూడి వచ్చునప్పుడు ఇది జరుగును."</em></p>
+            
+            <p><strong>అగ్నిలో క్రీస్తు తిరిగి రాక యొక్క ప్రాముఖ్యత:</strong></p>
+            <ol>
+                <li><strong>దైవిక తీర్పు:</strong> అగ్ని దేవుని పవిత్ర తీర్పును సూచిస్తుంది</li>
+                <li><strong>శుద్ధీకరణ:</strong> అనీతిమంతమైన ప్రతిదీ నాశనం చేస్తుంది</li>
+                <li><strong>తేజస్సు వెల్లడి:</strong> క్రీస్తు యొక్క దైవిక స్వభావాన్ని వెల్లడిస్తుంది</li>
+                <li><strong>అంతిమ విజయం:</strong> దుష్టత్వంపై పూర్తి విజయం</li>
+            </ol>
+            
+            <p><strong>2 థెస్సలొనీకయులకు 1 నుండి ప్రధాన అంశాలు:</strong></p>
+            <ul>
+                <li><strong>అనుభవించిన హింస:</strong> థెస్సలొనీక విశ్వాసులు విశ్వాసం కోసం శ్రమలు అనుభవిస్తున్నారు</li>
+                <li><strong>దేవుని న్యాయం:</strong> హింసకారులకు నీతిమంతమైన తీర్పు</li>
+                <li><strong>విశ్వాసుల విశ్రాంతి:</strong> శ్రమ మరియు బాధ నుండి విశ్రాంతి</li>
+                <li><strong>క్రీస్తు వెల్లడి:</strong> దూతలతో కూడిన మహిమాన్వితమైన కన్పువు</li>
+                <li><strong>శాశ్వత నాశనం:</strong> దేవునిని తిరస్కరించేవారికి శిక్ష</li>
+            </ul>
+            
+            <p><strong>బైబిల్లో అగ్ని యొక్క సంకేతార్థం:</strong></p>
+            <ul>
+                <li><strong>దేవుని సాన్నిధ్యం:</strong> మండుతున్న పొద (నిర్గమకాండము 3:2)</li>
+                <li><strong>దైవిక మార్గదర్శకత్వం:</strong> అగ్ని స్తంభం (నిర్గమకాండము 13:21)</li>
+                <li><strong>శుద్ధీకరణ:</strong> శుద్ధి చేసే అగ్ని (మలాకీ 3:2)</li>
+                <li><strong>పవిత్రాత్మ:</strong> అగ్ని నాలుకలు (అపో. కార్యములు 2:3)</li>
+                <li><strong>అంతిమ తీర్పు:</strong> అగ్ని సరస్సు (ప్రకటన 20:14)</li>
+            </ul>
+            
+            <p><strong>క్రీస్తు తిరిగి రాక యొక్క ద్వంద్వ ఉద్దేశ్యం:</strong></p>
+            <ul>
+                <li><strong>విశ్వాసులకు:</strong> విశ్రాంతి, విరామం మరియు బహుమానం</li>
+                <li><strong>అవిశ్వాసులకు:</strong> తీర్పు మరియు శిక్ష</li>
+                <li><strong>సృష్టికి:</strong> పునరుద్ధరణ మరియు నవీకరణ</li>
+                <li><strong>దేవుని రాజ్యానికి:</strong> అంతిమ స్థాపన</li>
+            </ul>
+            
+            <p><strong>విశ్వాసులకు ప్రాయోగిక అనువర్తనాలు:</strong></p>
+            <ul>
+                <li><strong>శ్రమలలో ఆశ:</strong> ప్రస్తుత ఇబ్బందులు తాత్కాలికం</li>
+                <li><strong>సహనం:</strong> శాశ్వత దృక్పథంతో ఓర్పు చూపించండి</li>
+                <li><strong>సిద్ధత:</strong> క్రీస్తు తిరిగి రాక కోసం నిరీక్షణగా జీవించండి</li>
+                <li><strong>ఆదరణ:</strong> దేవుడు చూస్తాడు మరియు అన్యాయానికి ప్రతిఫలం ఇస్తాడు</li>
+                <li><strong>తాత్కాలికత:</strong> సమయం ఉన్నంత వరకు సువార్తను పంచుకోండి</li>
+            </ul>
+            
+            <p><strong>ప్రధాన అంశం:</strong> దేవుని శత్రువులకు భయాన్ని తెచ్చే అదే అగ్ని ఆయన ప్రజలకు ఓదార్పు మరియు విశ్రాంతిని తెస్తుంది. మహాతేజస్సుగల అగ్నిలో క్రీస్తు తిరిగి రాక హింసితుల ఆశ మరియు హింసకారి యొక్క భయం రెండూ.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(1)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(1)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "w7nlSO2LtU8";
+            const commentText = `నేను క్రీస్తు తిరిగి రాక క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరిగ్గా ఊహించాను ✓" : "నా సమాధానం: " + userAnswer + " ✗"}\nసరైన సమాధానం: అగ్ని (2 థెస్సలొనీకయులకు 1:7)\nప్రధాన సత్యాలు:\n- క్రీస్తు మహాతేజస్సుగల అగ్నిలో తిరిగి వస్తాడు\n- విశ్వాసులకు విశ్రాంతి తెస్తాడు\n- శత్రువులపై తీర్పు నడుపుతాడు\n- శక్తిమంతులైన దూతలతో వెల్లడి అవుతాడు\nక్రీస్తు అగ్నిమయ తిరిగి రాక శ్రమలలో మీకు ఎలా ఆశనిస్తుంది?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}?comment=${encodeURIComponent(commentText)}`;
+            const fallbackUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            setTimeout(() => {
+                try {
+                    if(!youtubeWindow || youtubeWindow.closed) {
+                        localStorage.setItem('ytComment', commentText);
+                        window.open(fallbackUrl, "_blank");
+                    }
+                } catch(e) {
+                    localStorage.setItem('ytComment', commentText);
+                    window.open(fallbackUrl, "_blank");
+                }
+            }, 500);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
