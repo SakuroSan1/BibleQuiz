@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: దుష్టత్వము నుండి దూరముగా ఉండుట</title>
+    <style>
+        body {
+            font-family: 'Gautami', sans-serif;
+            background: url('https://as1.ftcdn.net/jpg/01/57/12/96/1000_F_157129631_zScVeVPr4JWKHvXp7iNhh2IiMIYuAfv0.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: దుష్టత్వము నుండి దూరముగా ఉండుట</h1>
+        <div class="bible-ref">1 థెస్సలొనీకయులకు 5:22</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://i0.wp.com/exhortationsfortoday.com/wp-content/uploads/2025/08/rejecting-evil-crossed-hands.webp?fit=1200%2C675&ssl=1" alt="దుష్టత్వము నుండి దూరముగా ఉండుట" class="quiz-image">
+        
+        <div class="question">1 థెస్సలొనీకయులకు 5:22 ప్రకారం, "ప్రతి విధమైన దుష్టత్వము నుండి ______."</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">దూరముగా ఉండుము</div>
+            <div class="option" onclick="checkAnswer(this, false)">యుద్ధము చేయుము</div>
+            <div class="option" onclick="checkAnswer(this, false)">నిరోధించుము</div>
+            <div class="option" onclick="checkAnswer(this, false)">ఎదుర్కొనుము</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> దూరముగా ఉండుము (1 థెస్సలొనీకయులకు 5:22)</p>
+            
+            <p><strong>1 థెస్సలొనీకయులకు 5:22:</strong> <em>"ప్రతి విధమైన దుష్టత్వము నుండి దూరముగా ఉండుము."</em></p>
+            
+            <p><strong>దుష్టత్వము నుండి దూరముగా ఉండమనే ఆజ్ఞ:</strong></p>
+            <ol>
+                <li><strong>సక్రియ విభజన:</strong> అది చిక్కుకోకముందే దుష్టత్వం నుండి దూరంగా ఉండండి</li>
+                <li><strong>సంపూర్ణ తప్పించుకోవడం:</strong> ప్రతి రకం మరియు రూపంలోని దుష్టత్వం</li>
+                <li><strong>నివారణ చర్య:</strong> నిరోధించడం కంటే తప్పించుకోవడం మంచిది</li>
+                <li><strong>ఆధ్యాత్మిక జ్ఞానం:</strong> దుష్టత్వాన్ని దాని అన్ని రూపాల్లో గుర్తించడం</li>
+            </ol>
+            
+            <p><strong>1 థెస్సలొనీకయులకు 5:12-22 సందర్భం:</strong></p>
+            <ul>
+                <li>మీలో పనిచేసేవారిని గౌరవించండి</li>
+                <li>ఒకరితో ఒకరు సమాధానంగా ఉండండి</li>
+                <li>నిరుద్యోగులను మరియు అశాంతిని కలిగించేవారిని హెచ్చరించండి</li>
+                <li>ధైర్యం కోల్పోయినవారిని ప్రోత్సహించండి, బలహీనులకు సహాయం చేయండి</li>
+                <li>ఎల్లప్పుడు సంతోషించండి, నిరంతరం ప్రార్థించండి, కృతజ్ఞతలు చెప్పండి</li>
+                <li>ఆత్మను ఆర్పకూడదు</li>
+                <li>మంచిదానిని పట్టుకోండి</li>
+                <li><strong>ప్రతి విధమైన దుష్టత్వము నుండి దూరముగా ఉండుము</strong></li>
+            </ul>
+            
+            <p><strong>"ప్రతి విధమైన దుష్టత్వము" ఏమి కలిగి ఉంటుంది:</strong></p>
+            <ul>
+                <li><strong>నైతిక దుష్టత్వం:</strong> పాపపు చర్యలు మరియు ప్రవర్తనలు</li>
+                <li><strong>ఆధ్యాత్మిక దుష్టత్వం:</strong> తప్పుడు బోధనలు మరియు మోసం</li>
+                <li><strong>సంబంధాల దుష్టత్వం:</strong> వివాదం, గాసిప్ మరియు విభజన</li>
+                <li><strong>దుష్టత్వం యొక్క రూపం:</strong> తప్పుగా కనిపించే ఏదైనా</li>
+                <li><strong>సూక్ష్మ దుష్టత్వం:</strong> రాజీ మరియు లౌకిక ప్రభావాలు</li>
+            </ul>
+            
+            <p><strong>దుష్టత్వాన్ని తప్పించుకోవడానికి ప్రాయోగిక మార్గాలు:</strong></p>
+            <ul>
+                <li><strong>ఆధ్యాత్మిక వివేచన:</strong> దుష్టత్వాన్ని గుర్తించడానికి జ్ఞానం కోసం ప్రార్థించండి</li>
+                <li><strong>బైబిల్ ప్రమాణాలు:</strong> మార్గదర్శిగా వేదాన్ని ఉపయోగించండి</li>
+                <li><strong>జవాబుదారీతనం:</strong> మిమ్మల్ని హెచ్చరించగల క్రైస్తవ మిత్రులను కలిగి ఉండండి</li>
+                <li><strong>ప్రలోభాన్ని తప్పించుకోండి:</strong> పోతీఫర్ భార్య నుండి యోసేపు వలె పారిపోండి</li>
+                <li><strong>మనస్సును కాపాడుకోండి:</strong> మీరు ఏమి చూస్తారో మరియు వింటారో జాగ్రత్తగా ఉండండి</li>
+                <li><strong>సంఘంలో ఉండండి:</strong> ఏకాకితనం మిమ్మల్ని దుర్బలంగా చేస్తుంది</li>
+            </ul>
+            
+            <p><strong>దుష్టత్వాన్ని తప్పించుకున్న బైబిల్ ఉదాహరణలు:</strong></p>
+            <ul>
+                <li><strong>యోసేపు:</strong> లైంగిక ప్రలోభం నుండి పారిపోయాడు (ఆదికాండము 39)</li>
+                <li><strong>దానియేలు:</strong> తన నమ్మకాలతో రాజీపడడానికి నిరాకరించాడు (దానియేలు 1)</li>
+                <li><strong>యేసు:</strong> సాతాను ప్రలోభాలను నిరోధించాడు (మత్తయి 4)</li>
+                <li><strong>ప్రారంభ సంఘం:</strong> లైంగిక అనైతికత మరియు విగ్రహారాధనను తప్పించుకుంది (అపో. కార్యములు 15)</li>
+            </ul>
+            
+            <p><strong>దుష్టత్వాన్ని తప్పించుకోవడం యొక్క ప్రయోజనాలు:</strong></p>
+            <ul>
+                <li><strong>ఆధ్యాత్మిక రక్షణ:</strong> పాపం యొక్క పరిణామాల నుండి మిమ్మల్ని కాపాడుతుంది</li>
+                <li><strong>స్పష్టమైన మనస్సాక్షి:</strong> దేవునితో మరియు మీతో మీరు సమాధానంగా ఉంటారు</li>
+                <li><strong>బలమైన సాక్ష్యం:</strong> క్రీస్తును పంచుకోవడంలో విశ్వసనీయత</li>
+                <li><strong>దైవిక ఆశీర్వాదం:</strong> దేవుడు ఆజ్ఞపాలనను గౌరవిస్తాడు</li>
+                <li><strong>శాశ్వత బహుమానం:</strong> స్వర్గీయ వారసత్వం సంరక్షించబడింది</li>
+            </ul>
+            
+            <p><strong>ప్రధాన అంశం:</strong> దుష్టత్వాన్ని తప్పించుకోవడం బలహీనత కాదు, జ్ఞానం. కొన్ని యుద్ధాలు వాటితో పోరాడకుండా, యుద్ధభూమి నుండి దూరంగా ఉండడం ద్వారా గెలవడం మంచిదని గుర్తించడం ఇది.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(1)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(1)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "-5mI3bVfQbI";
+            const commentText = `నేను దుష్టత్వము నుండి దూరముగా ఉండుట క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరిగ్గా ఊహించాను ✓" : "నా సమాధానం: " + userAnswer + " ✗"}\nసరైన సమాధానం: దూరముగా ఉండుము (1 థెస్సలొనీకయులకు 5:22)\nప్రధాన సత్యాలు:\n- ప్రతి విధమైన దుష్టత్వము నుండి దూరముగా ఉండుము\n- పాపం నుండి సక్రియ విభజన\n- నిరోధించడం కంటే తప్పించుకోవడం మంచిది\n- దుష్టత్వం యొక్క రూపాన్ని కూడా కలిగి ఉంటుంది\nమీరు రోజువారీ జీవితంలో దుష్టత్వాన్ని తప్పించుకోవడానికి ఏ ఆచరణాత్మక చర్యలు తీసుకుంటారు?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}?comment=${encodeURIComponent(commentText)}`;
+            const fallbackUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            setTimeout(() => {
+                try {
+                    if(!youtubeWindow || youtubeWindow.closed) {
+                        localStorage.setItem('ytComment', commentText);
+                        window.open(fallbackUrl, "_blank");
+                    }
+                } catch(e) {
+                    localStorage.setItem('ytComment', commentText);
+                    window.open(fallbackUrl, "_blank");
+                }
+            }, 500);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
