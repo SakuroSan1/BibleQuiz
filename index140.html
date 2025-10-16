@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Quiz: Spiritual Preparation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://nathangreene.com/cdn/shop/products/Blessed_Hope_p_65177fd1-3722-44c1-9374-f2773c37195f.png?v=1610298860') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>BIBLE QUIZ: SPIRITUAL PREPARATION</h1>
+        <div class="bible-ref">1 Thessalonians 3:13</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://www.welthi.com/uploads/images/2022/01/16021569836251.jpg" alt="Spiritual Heart Preparation" class="quiz-image">
+        
+        <div class="question">According to 1 Thessalonians 3:13, may God strengthen your hearts so you will be ______ and holy when Jesus comes.</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">Blameless</div>
+            <div class="option" onclick="checkAnswer(this, false)">Joyful</div>
+            <div class="option" onclick="checkAnswer(this, false)">Faithful</div>
+            <div class="option" onclick="checkAnswer(this, false)">Strong</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>Correct Answer:</strong> Blameless (1 Thessalonians 3:13)</p>
+            
+            <p><strong>1 Thessalonians 3:13 (NIV):</strong> <em>"May he strengthen your hearts so that you will be blameless and holy in the presence of our God and Father when our Lord Jesus comes with all his holy ones."</em></p>
+            
+            <p><strong>The Prayer for Spiritual Readiness:</strong></p>
+            <ol>
+                <li><strong>Divine Strengthening:</strong> God's power to make us ready</li>
+                <li><strong>Heart Transformation:</strong> Inner character development</li>
+                <li><strong>Moral Integrity:</strong> Blameless in conduct</li>
+                <li><strong>Spiritual Purity:</strong> Holy in character</li>
+                <li><strong>Eternal Perspective:</strong> Prepared for Christ's return</li>
+            </ol>
+            
+            <p><strong>What "Blameless and Holy" Means:</strong></p>
+            <ul>
+                <li><strong>Blameless:</strong> No legitimate accusation can stand against us</li>
+                <li><strong>Holy:</strong> Set apart for God's purposes and pure in motive</li>
+                <li><strong>Together:</strong> Both outward integrity and inward purity</li>
+                <li><strong>Process:</strong> Progressive work of sanctification</li>
+                <li><strong>Goal:</strong> Complete readiness for Christ's presence</li>
+            </ul>
+            
+            <p><strong>Context in 1 Thessalonians 3:</strong></p>
+            <ul>
+                <li>Paul sends Timothy to strengthen and encourage the Thessalonians</li>
+                <li>He rejoices at their faith and perseverance amid persecution</li>
+                <li>Prays for their spiritual growth and maturity</li>
+                <li>Focuses on their readiness for Christ's return</li>
+                <li>Emphasizes love for one another and all people</li>
+            </ul>
+            
+            <p><strong>Practical Ways to Pursue Blamelessness:</strong></p>
+            <ul>
+                <li><strong>Regular Self-Examination:</strong> Check motives and actions</li>
+                <li><strong>Accountability:</strong> Have others speak into your life</li>
+                <li><strong>Repentance:</strong> Quick to confess and turn from sin</li>
+                <li><strong>Bible Study:</strong> Let Scripture shape your character</li>
+                <li><strong>Prayer:</strong> Depend on God's transforming power</li>
+            </ul>
+            
+            <p><strong>Why This Matters for Christ's Return:</strong></p>
+            <ul>
+                <li><strong>Confidence:</strong> Able to stand before God without shame</li>
+                <li><strong>Witness:</strong> Testifies to God's transforming power</li>
+                <li><strong>Reward:</strong> Prepared to receive eternal rewards</li>
+                <li><strong>Worship:</strong> Pure hearts can worship fully</li>
+                <li><strong>Unity:</strong> Ready to join the holy ones</li>
+            </ul>
+            
+            <p><strong>Key Insight:</strong> Being blameless doesn't mean sinless perfection, but rather a life so characterized by repentance and dependence on Christ that no charge of hypocrisy or ongoing sin can legitimately stick against us.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">Participate in Quiz</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(1)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(1)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "m7ZfM_8Ku6o";
+            const commentText = `I took the Spiritual Preparation Quiz! ${isCorrect ? "I got it right ✓" : "My answer was: " + userAnswer + " ✗"}\nThe correct answer is: Blameless (1 Thessalonians 3:13)\nKey Truths:\n- God strengthens our hearts\n- To be blameless and holy\n- Ready for Christ's return\n- Standing before God with confidence\nHow are you preparing your heart for Christ's return?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}?comment=${encodeURIComponent(commentText)}`;
+            const fallbackUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            setTimeout(() => {
+                try {
+                    if(!youtubeWindow || youtubeWindow.closed) {
+                        localStorage.setItem('ytComment', commentText);
+                        window.open(fallbackUrl, "_blank");
+                    }
+                } catch(e) {
+                    localStorage.setItem('ytComment', commentText);
+                    window.open(fallbackUrl, "_blank");
+                }
+            }, 500);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
