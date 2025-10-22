@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: సత్యం vs పురాణ కథలు</title>
+    <style>
+        body {
+            font-family: 'Gautami', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(30, 30, 60, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #ff6b6b;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #ff6b6b;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(255, 107, 107, 0.4);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #ff6b6b;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #ff6b6b, #cc0000);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #ff6b6b;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(255, 107, 107, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #ff6b6b;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(255, 107, 107, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: సత్యం vs పురాణ కథలు</h1>
+        <div class="bible-ref">2 తిమోతి 4:3-4</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://images.unsplash.com/photo-1579546929662-711aa81148cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="సత్యం vs పురాణ కథలు" class="quiz-image">
+        
+        <div class="question">2 తిమోతి 4:4 ప్రకారం, ప్రజలు సత్యం నుండి దూరంగా మారి ______ వైపు తిరుగుతారు.</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, false)">శాస్త్రం</div>
+            <div class="option" onclick="checkAnswer(this, true)">పురాణ కథలు</div>
+            <div class="option" onclick="checkAnswer(this, false)">సంప్రదాయాలు</div>
+            <div class="option" onclick="checkAnswer(this, false)">తమను తాము</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> పురాణ కథలు (2 తిమోతి 4:4)</p>
+            
+            <p><strong>2 తిమోతి 4:3-4:</strong> <em>"ఎందుకనగా సత్యోపదేశమును సహించని కాలము వచ్చును; వారు చెవులు చేరవలెనని కోరుకొనుచు, తమకు ఇష్టమైనట్టి వింతలు కల్పించుకొనుటకై తమకు తామే ఉపాధ్యాయులను గూర్చుకొందురు; వారు సత్యమును విననొల్లక తమ స్వకపోలకల్పితములవైపు తిరుగుదురు."</em></p>
+            
+            <p><strong>హెచ్చరిక సూచనలు:</strong></p>
+            <ul>
+                <li><strong>సత్యం పట్ల అసహనం:</strong> ప్రజలు సత్యోపదేశాన్ని తిరస్కరిస్తారు (3 వచనం)</li>
+                <li><strong>స్వీయ-కేంద్రీకృత ఆధ్యాత్మికత:</strong> వ్యక్తిగత కోరికలకు అనుగుణంగా ఉపదేశాలను వెతుకుతారు (3 వచనం)</li>
+                <li><strong>ఉపాధ్యాయులను ఎంపిక చేయడం:</strong> తమకు ఇష్టమైన విషయాలు చెప్పే ఉపాధ్యాయులను సేకరిస్తారు (3 వచనం)</li>
+                <li><strong>ఆధ్యాత్మిక బధిరత్వం:</strong> సక్రియంగా సత్యం వినడం మానుకుంటారు (4 వచనం)</li>
+                <li><strong>పురాణ కథలపై ఆధారపడటం:</strong> సవాలునిచ్చే సత్యం కంటే ఓదార్పునిచ్చే అబద్ధాలను ఆలింగనం చేసుకుంటారు (4 వచనం)</li>
+            </ul>
+            
+            <p><strong>"దురద చెవులు" లక్షణాలు:</strong></p>
+            <ul>
+                <li>సవాలునిచ్చే సత్యం కంటే సౌకర్యవంతమైన సందేశాల కోసం ఆసక్తి</li>
+                <li>రూపాంతరం కంటే వినోదానికి ప్రాధాన్యత</li>
+                <li>సవరణ కంటే ధృవీకరణ కోసం అన్వేషణ</li>
+                <li>వాస్తవాల కంటే భావాలను ఎంపిక చేయడం</li>
+                <li>సూత్రం కంటే ప్రజాదరణను అనుసరించడం</li>
+            </ul>
+            
+            <p><strong>ఆధునిక ఆధ్యాత్మిక పురాణ కథల ఉదాహరణలు:</strong></p>
+            <ul>
+                <li>"దేవుడు మీరు ధనవంతులుగా ఉండాలని, ఎప్పుడూ బాధపడకూడదని కోరుకుంటాడు" (సంపద సువార్త)</li>
+                <li>"అన్ని ఆధ్యాత్మిక మార్గాలు దేవుని వద్దకు చేరుస్తాయి" (మతపరమైన బహుళత్వవాదం)</li>
+                <li>"సత్యం మీరు నమ్మేది ఏదైనా కావచ్చు" (సాపేక్షవాదం)</li>
+                <li>"మీరు ప్రాథమికంగా మంచివారు మరియు మీకు రక్షణ అవసరం లేదు" (మానవతావాదం)</li>
+                <li>"బైబిల్లో తప్పులు ఉన్నాయి మరియు అది పూర్తిగా నమ్మదగినది కాదు" (ఉదారవాద వేదాంతం)</li>
+            </ul>
+            
+            <p><strong>పురాణ కథలకు ప్రతివిధానం:</strong></p>
+            <ul>
+                <li>సత్యోపదేశానికి నిబద్ధత (2 తిమోతి 1:13)</li>
+                <li>శాస్త్ర వచనాల క్రమబద్ధమైన అధ్యయనం (2 తిమోతి 3:16-17)</li>
+                <li>పవిత్రాత్మ ద్వారా వివేచన (1 యోహాను 4:1)</li>
+                <li>బైబిల్ సమాజానికి జవాబుదారీతనం (హెబ్రీయులు 10:25)</li>
+                <li>సవరించబడే సిద్ధాంతం (సామెతలు 12:1)</li>
+            </ul>
+            
+            <p><strong>ప్రాయోగిక అనువర్తనం:</strong> మీరు ఏమి వింటున్నారో పరీక్షించుకోండి - అది దురద చెవులకు దురద పుట్టిస్తుందా లేదా బైబిల్ సత్యాన్ని మాట్లాడుతుందా?</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="warningSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const warningSound = document.getElementById('warningSound');
+        
+        function startTimer() {
+            warningSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#ff6b6b";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    warningSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(2)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            warningSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(2)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "Ti2hei-ApTI";
+            const commentText = `నేను సత్యం vs పురాణ కథలు క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరిగ్గా ఊహించాను ✓" : "నా సమాధానం: " + userAnswer + " ✗"}\nసరైన సమాధానం: పురాణ కథలు (2 తిమోతి 4:4)\nప్రధాన హెచ్చరిక:\n- సత్యోపదేశాన్ని తిరస్కరించే కాలం వస్తుంది\n- "దురద చెవుల" కోసం ఉపాధ్యాయులను సేకరిస్తారు\n- సత్యం నుండి పురాణ కథల వైపు తిరుగుతారు\nమీరు సత్యం వింటున్నారా లేదా పురాణ కథలు వింటున్నారా?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}?comment=${encodeURIComponent(commentText)}`;
+            const fallbackUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            setTimeout(() => {
+                try {
+                    if(!youtubeWindow || youtubeWindow.closed) {
+                        localStorage.setItem('ytComment', commentText);
+                        window.open(fallbackUrl, "_blank");
+                    }
+                } catch(e) {
+                    localStorage.setItem('ytComment', commentText);
+                    window.open(fallbackUrl, "_blank");
+                }
+            }, 500);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
