@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Quiz: Gospel Came With Power</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://nathangreene.com/cdn/shop/products/Blessed_Hope_p_65177fd1-3722-44c1-9374-f2773c37195f.png?v=1610298860') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>BIBLE QUIZ: GOSPEL CAME WITH POWER</h1>
+        <div class="bible-ref">1 Thessalonians 1:5</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://i0.wp.com/www.thegoalislife.com/wp-content/uploads/2016/09/The-Gospel-is-not.jpg?fit=850%2C450&ssl=1" alt="Gospel Came With Power" class="quiz-image">
+        
+        <div class="question">According to 1 Thessalonians 1:5, the gospel came to you not simply with words but also with ______.</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">Power</div>
+            <div class="option" onclick="checkAnswer(this, false)">Wisdom</div>
+            <div class="option" onclick="checkAnswer(this, false)">Love</div>
+            <div class="option" onclick="checkAnswer(this, false)">Prophecy</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>Correct Answer:</strong> Power (1 Thessalonians 1:5)</p>
+            
+            <p><strong>1 Thessalonians 1:5 (NIV):</strong> <em>"because our gospel came to you not simply with words but also with power, with the Holy Spirit and deep conviction."</em></p>
+            
+            <p><strong>The Multi-Dimensional Gospel:</strong></p>
+            <ol>
+                <li><strong>Beyond Words:</strong> The gospel transcends human eloquence</li>
+                <li><strong>Divine Power:</strong> Accompanied by supernatural demonstration</li>
+                <li><strong>Spiritual Presence:</strong> Empowered by the Holy Spirit</li>
+                <li><strong>Heart Transformation:</strong> Produces deep conviction and change</li>
+            </ol>
+            
+            <p><strong>Context in 1 Thessalonians 1:4-6:</strong></p>
+            <ul>
+                <li>Paul reminds the Thessalonians of their election by God</li>
+                <li>The gospel came with power despite persecution</li>
+                <li>They received the message with joy given by the Holy Spirit</li>
+                <li>They became imitators of Paul and of the Lord</li>
+                <li>Their faith became known throughout the region</li>
+            </ul>
+            
+            <p><strong>What "Power" Means in This Context:</strong></p>
+            <ul>
+                <li><strong>Miraculous Demonstration:</strong> Signs and wonders confirming the message</li>
+                <li><strong>Conviction Power:</strong> Ability to penetrate hardened hearts</li>
+                <li><strong>Transforming Power:</strong> Changes lives from the inside out</li>
+                <li><strong>Sustaining Power:</strong> Enables endurance through trials</li>
+                <li><strong>Reproducing Power:</strong> Spreads rapidly and effectively</li>
+            </ul>
+            
+            <p><strong>The Threefold Manifestation:</strong></p>
+            <ul>
+                <li><strong>Power:</strong> Divine energy and miraculous works</li>
+                <li><strong>Holy Spirit:</strong> God's personal presence and guidance</li>
+                <li><strong>Deep Conviction:</strong> Certainty and assurance in believers</li>
+            </ul>
+            
+            <p><strong>Biblical Examples of Gospel Power:</strong></p>
+            <ul>
+                <li><strong>Pentecost:</strong> Holy Spirit's power transforming disciples (Acts 2)</li>
+                <li><strong>Paul's Ministry:</strong> Signs and wonders confirming his message (Romans 15:18-19)</li>
+                <li><strong>Hebrews 4:12:</strong> Word of God is living, active, and powerful</li>
+                <li><strong>Romans 1:16:</strong> Gospel is the power of God for salvation</li>
+            </ul>
+            
+            <p><strong>Practical Applications for Today:</strong></p>
+            <ul>
+                <li><strong>Dependence on Spirit:</strong> Rely on Holy Spirit rather than human ability</li>
+                <li><strong>Expect Miracles:</strong> Believe God works supernaturally today</li>
+                <li><strong>Pray for Power:</strong> Ask God to demonstrate His power in ministry</li>
+                <li><strong>Share Confidently:</strong> Trust the gospel's inherent power to transform</li>
+                <li><strong>Seek Conviction:</strong> Pray for deep heart transformation in listeners</li>
+            </ul>
+            
+            <p><strong>Evidence of Gospel Power in Believers:</strong></p>
+            <ul>
+                <li><strong>Changed Lives:</strong> Transformation of character and priorities</li>
+                <li><strong>Spiritual Gifts:</strong> Manifestation of Holy Spirit's gifts</li>
+                <li><strong>Bold Witness:</strong> Courage to share faith despite opposition</li>
+                <li><strong>Enduring Faith:</strong> Perseverance through trials and persecution</li>
+                <li><strong>Joyful Service:</strong> Willingness to serve with joy and sacrifice</li>
+            </ul>
+            
+            <p><strong>Key Insight:</strong> The true gospel is never merely a human message but always comes with divine power that transforms lives, confirms truth, and demonstrates God's reality through the Holy Spirit's work in and through believers.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">Participate in Quiz</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(1)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(1)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "dyOdKLRoqDc";
+            const commentText = `I took the Gospel Power Quiz! ${isCorrect ? "I got it right ✓" : "My answer was: " + userAnswer + " ✗"}\nThe correct answer is: Power (1 Thessalonians 1:5)\nKey Truths:\n- Gospel comes with power, not just words\n- Accompanied by Holy Spirit\n- Produces deep conviction\n- Transforms lives supernaturally\nHow have you experienced the gospel's power in your life?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // For YouTube Shorts, we open the video and suggest commenting
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Store comment in localStorage for easy copy-paste
+            localStorage.setItem('quizComment', commentText);
+            
+            setTimeout(() => {
+                alert("Comment suggestion copied! Paste it in the YouTube comments.\n\nThe gospel's power transforms lives beyond human words!");
+            }, 1000);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>

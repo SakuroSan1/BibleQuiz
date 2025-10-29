@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: సువార్త సామర్థ్యంతో వచ్చెను</title>
+    <style>
+        body {
+            font-family: 'Gautami', sans-serif;
+            background: url('https://nathangreene.com/cdn/shop/products/Blessed_Hope_p_65177fd1-3722-44c1-9374-f2773c37195f.png?v=1610298860') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: సువార్త సామర్థ్యంతో వచ్చెను</h1>
+        <div class="bible-ref">1 థెస్సలొనీకయులకు 1:5</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://i0.wp.com/www.thegoalislife.com/wp-content/uploads/2016/09/The-Gospel-is-not.jpg?fit=850%2C450&ssl=1" alt="సువార్త సామర్థ్యంతో వచ్చెను" class="quiz-image">
+        
+        <div class="question">1 థెస్సలొనీకయులకు 1:5 ప్రకారం, సువార్త మాటలతో మాత్రమే కాక ______తో కూడా మీ వద్దకు వచ్చెను.</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">సామర్థ్యము</div>
+            <div class="option" onclick="checkAnswer(this, false)">జ్ఞానము</div>
+            <div class="option" onclick="checkAnswer(this, false)">ప్రేమ</div>
+            <div class="option" onclick="checkAnswer(this, false)">ప్రవచనము</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> సామర్థ్యము (1 థెస్సలొనీకయులకు 1:5)</p>
+            
+            <p><strong>1 థెస్సలొనీకయులకు 1:5:</strong> <em>"ఎందుకనగా సువార్త మాటలతో మాత్రమే కాక సామర్థ్యముతోను, పరిశుద్ధాత్మతోను, పూర్ణనమ్మకముతోను కూడా మీ వద్దకు వచ్చెను."</em></p>
+            
+            <p><strong>బహుమితీయ సువార్త:</strong></p>
+            <ol>
+                <li><strong>మాటలకు మించినది:</strong> సువార్త మానవ వాక్చాతుర్యానికి మించినది</li>
+                <li><strong>దైవిక శక్తి:</strong> అతీంద్రియ ప్రదర్శనతో కూడినది</li>
+                <li><strong>ఆధ్యాత్మిక సాన్నిధ్యం:</strong> పరిశుద్ధాత్మచే శక్తివంతమైనది</li>
+                <li><strong>హృదయ పరివర్తన:</strong> లోతైన నమ్మకం మరియు మార్పును ఉత్పత్తి చేస్తుంది</li>
+            </ol>
+            
+            <p><strong>1 థెస్సలొనీకయులకు 1:4-6 లో సందర్భం:</strong></p>
+            <ul>
+                <li>థెస్సలొనీకయులలో వారి ఎన్నికను పౌలు గుర్తు చేస్తాడు</li>
+                <li>ఛద్దివేదన ఉన్నప్పటికీ సువార్త సామర్థ్యంతో వచ్చింది</li>
+                <li>పరిశుద్ధాత్మ ఇచ్చిన ఆనందంతో వారు సందేశాన్ని స్వీకరించారు</li>
+                <li>వారు పౌలు మరియు ప్రభువును అనుకరించేవారయ్యారు</li>
+                <li>వారి విశ్వాసం మొత్తం ప్రాంతంలో ప్రసిద్ధి చెందింది</li>
+            </ul>
+            
+            <p><strong>ఈ సందర్భంలో "సామర్థ్యం" అంటే ఏమిటి:</strong></p>
+            <ul>
+                <li><strong>అద్భుత ప్రదర్శన:</strong> సందేశాన్ని నిర్ధారించే సంకేతాలు మరియు అద్భుతాలు</li>
+                <li><strong>నమ్మక శక్తి:</strong> గట్టిపడిన హృదయాలలోకి ప్రవేశించే సామర్థ్యం</li>
+                <li><strong>మార్పు తెచ్చే శక్తి:</strong> లోపలి నుండి బయటికి జీవితాలను మారుస్తుంది</li>
+                <li><strong>నిలుపుట శక్తి:</strong> శోధనల ద్వారా సహనాన్ని సాధ్యం చేస్తుంది</li>
+                <li><strong>పునరుత్పత్తి శక్తి:</strong> వేగంగా మరియు ప్రభావవంతంగా వ్యాప్తి చెందుతుంది</li>
+            </ul>
+            
+            <p><strong>మూడు రకాల అభివ్యక్తి:</strong></p>
+            <ul>
+                <li><strong>సామర్థ్యం:</strong> దైవిక శక్తి మరియు అద్భుత కార్యాలు</li>
+                <li><strong>పరిశుద్ధాత్మ:</strong> దేవుని వ్యక్తిగత సాన్నిధ్యం మరియు మార్గదర్శకత్వం</li>
+                <li><strong>లోతైన నమ్మకం:</strong> విశ్వాసులలో ఖచ్చితత్వం మరియు హామీ</li>
+            </ul>
+            
+            <p><strong>సువార్త శక్తికి బైబిల్ ఉదాహరణలు:</strong></p>
+            <ul>
+                <li><strong>పెంతెకోస్తే:</strong> శిష్యులను మార్చే పరిశుద్ధాత్మ శక్తి (అపో. 2)</li>
+                <li><strong>పౌలు సేవ:</strong> అతని సందేశాన్ని నిర్ధారించే సంకేతాలు మరియు అద్భుతాలు (రోమీయులు 15:18-19)</li>
+                <li><strong>హెబ్రీయులు 4:12:</strong> దేవుని వచనం సజీవమైనది, సక్రియమైనది మరియు శక్తివంతమైనది</li>
+                <li><strong>రోమీయులు 1:16:</strong> సువార్త రక్షణ కోసం దేవుని శక్తి</li>
+            </ul>
+            
+            <p><strong>నేటికి ప్రాయోగిక అనువర్తనాలు:</strong></p>
+            <ul>
+                <li><strong>ఆత్మపై ఆధారపడటం:</strong> మానవ సామర్థ్యం కంటే పరిశుద్ధాత్మపై ఆధారపడండి</li>
+                <li><strong>అద్భుతాలను ఆశించండి:</strong> దేవుడు ఈ రోజు అతీంద్రియంగా పని చేస్తాడని నమ్మండి</li>
+                <li><strong>శక్తి కోసం ప్రార్థించండి:</strong> మినిస్ట్రీలో తన శక్తిని ప్రదర్శించమని దేవునిని అడగండి</li>
+                <li><strong>నమ్మకంగా పంచుకోండి:</strong> మార్పు తెచ్చే సువార్త యొక్క అంతర్గత శక్తిని విశ్వసించండి</li>
+                <li><strong>నమ్మకం కోసం ప్రయత్నించండి:</strong> వినేవారి హృదయాలలో లోతైన హృదయ మార్పు కోసం ప్రార్థించండి</li>
+            </ul>
+            
+            <p><strong>విశ్వాసులలో సువార్త శక్తి యొక్క సాక్ష్యం:</strong></p>
+            <ul>
+                <li><strong>మారిన జీవితాలు:</strong> పాత్ర మరియు ప్రాధాన్యతల మార్పు</li>
+                <li><strong>ఆధ్యాత్మిక వరాలు:</strong> పరిశుద్ధాత్మ వరాల అభివ్యక్తి</li>
+                <li><strong>నిర్భయ సాక్ష్యం:</strong> వ్యతిరేకత ఉన్నప్పటికీ విశ్వాసాన్ని పంచుకోవడానికి ధైర్యం</li>
+                <li><strong>నిలిచే విశ్వాసం:</strong> శోధనలు మరియు ఛద్దివేదన ద్వారా సహనం</li>
+                <li><strong>ఆనందకర సేవ:</strong> ఆనందం మరియు త్యాగంతో సేవించే సంసిద్ధత</li>
+            </ul>
+            
+            <p><strong>ప్రధాన అంశం:</strong> నిజమైన సువార్త ఎప్పుడూ కేవలం మానవ సందేశం కాదు, కానీ ఎల్లప్పుడూ దైవిక శక్తితో వస్తుంది, ఇది జీవితాలను మారుస్తుంది, సత్యాన్ని నిర్ధారిస్తుంది మరియు విశ్వాసులలో మరియు ద్వారా పరిశుద్ధాత్మ పని ద్వారా దేవుని వాస్తవికతను ప్రదర్శిస్తుంది.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(1)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(1)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "xLbRLiybJTE";
+            const commentText = `నేను సువార్త సామర్థ్యం క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరైన సమాధానం ఇచ్చాను ✓" : "నా సమాధానం: " + userAnswer + " ✗"}\nసరైన సమాధానం: సామర్థ్యము (1 థెస్సలొనీకయులకు 1:5)\nప్రధాన సత్యాలు:\n- సువార్త సామర్థ్యంతో, కేవలం మాటలతో మాత్రమే కాదు\n- పరిశుద్ధాత్మతో కూడినది\n- లోతైన నమ్మకాన్ని ఉత్పత్తి చేస్తుంది\n- అతీంద్రియంగా జీవితాలను మారుస్తుంది\nమీ జీవితంలో సువార్త సామర్థ్యాన్ని ఎలా అనుభవించారు?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // For YouTube Shorts, we open the video and suggest commenting
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Store comment in localStorage for easy copy-paste
+            localStorage.setItem('quizComment', commentText);
+            
+            setTimeout(() => {
+                alert("కామెంట్ సూచన కాపీ చేయబడింది! దయచేసి దానిని యూట్యూబ్ కామెంట్లలో పేస్ట్ చేయండి.\n\nసువార్త శక్తి మానవ మాటలకు మించి జీవితాలను మారుస్తుంది!");
+            }, 1000);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
