@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Quiz: Jesus Called Justus</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://images.squarespace-cdn.com/content/v1/62aa2f8ec2e5fc138c3b3ada/1743867957349-8VI6FZKFHZJYJP3G6Q8S/IMG_6156.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>BIBLE QUIZ: JESUS CALLED JUSTUS</h1>
+        <div class="bible-ref">Colossians 4:11</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://chatgpt.com/backend-api/estuary/content?id=file_0000000084c062089a909754376977c0&ts=489411&p=fs&cid=1&sig=26cade4c45a15f0c0347d89630880f3d35cfa089c23f643de2a8f63b466586d1&v=0" alt="Jesus Called Justus" class="quiz-image">
+        
+        <div class="question">According to Colossians 4:11, Justus, the fellow prisoner who is also called ______.</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">Jesus</div>
+            <div class="option" onclick="checkAnswer(this, false)">Barnabas</div>
+            <div class="option" onclick="checkAnswer(this, false)">Silas</div>
+            <div class="option" onclick="checkAnswer(this, false)">Barsabbas</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>Correct Answer:</strong> Jesus (Colossians 4:11)</p>
+            
+            <p><strong>Colossians 4:11 (NIV):</strong> <em>"Jesus, who is called Justus, also sends greetings. These are the only Jews among my co-workers for the kingdom of God, and they have proved a comfort to me."</em></p>
+            
+            <p><strong>The Faithful Companion:</strong></p>
+            <ol>
+                <li><strong>Dual Identity:</strong> Known as both Jesus and Justus</li>
+                <li><strong>Loyal Co-worker:</strong> One of Paul's trusted companions</li>
+                <li><strong>Jewish Background:</strong> Among the few Jewish helpers</li>
+                <li><strong>Prison Ministry:</strong> Stood with Paul during imprisonment</li>
+            </ol>
+            
+            <p><strong>Context in Colossians 4:7-14:</strong></p>
+            <ul>
+                <li>Paul sends greetings from his companions in Rome</li>
+                <li>Lists faithful co-workers who comforted him</li>
+                <li>Jesus called Justus is mentioned among Jewish helpers</li>
+                <li>They worked together for the kingdom of God</li>
+                <li>Demonstrated unity across cultural backgrounds</li>
+            </ul>
+            
+            <p><strong>Significance of Jesus Called Justus:</strong></p>
+            <ul>
+                <li><strong>Name Meaning:</strong> "Jesus" means "Yahweh saves," "Justus" means "righteous"</li>
+                <li><strong>Cultural Bridge:</strong> Jewish believer serving with Gentile churches</li>
+                <li><strong>Faithful Support:</strong> Provided comfort during Paul's imprisonment</li>
+                <li><strong>Team Ministry:</strong> Part of Paul's inner circle of workers</li>
+                <li><strong>Historical Witness:</strong> Early church leader mentioned in Scripture</li>
+            </ul>
+            
+            <p><strong>The Three Jewish Co-workers:</strong></p>
+            <ul>
+                <li><strong>Aristarchus:</strong> Fellow prisoner and traveling companion</li>
+                <li><strong>Mark:</strong> Cousin of Barnabas, later reconciled with Paul</li>
+                <li><strong>Jesus called Justus:</strong> Faithful comfort to Paul in prison</li>
+            </ul>
+            
+            <p><strong>Biblical Significance of Names:</strong></p>
+            <ul>
+                <li><strong>Jesus:</strong> Common Jewish name (Joshua in Hebrew)</li>
+                <li><strong>Justus:</strong> Latin name meaning "righteous" or "just"</li>
+                <li><strong>Dual Names:</strong> Common practice in multicultural Roman world</li>
+                <li><strong>Identity:</strong> Maintained both Jewish and Roman identities</li>
+            </ul>
+            
+            <p><strong>Lessons from Jesus Called Justus:</strong></p>
+            <ul>
+                <li><strong>Faithful Service:</strong> Ministry isn't always in the spotlight</li>
+                <li><strong>Cross-cultural Ministry:</strong> Serving beyond one's own background</li>
+                <li><strong>Prison Ministry:</strong> Standing with those in difficult circumstances</li>
+                <li><strong>Teamwork:</strong> Essential for effective kingdom work</li>
+                <li><strong>Comfort Ministry:</strong> Providing emotional and spiritual support</li>
+            </ul>
+            
+            <p><strong>Modern Applications:</strong></p>
+            <ul>
+                <li><strong>Support Roles:</strong> Valuing behind-the-scenes ministry</li>
+                <li><strong>Cultural Sensitivity:</strong> Working across different backgrounds</li>
+                <li><strong>Prison Ministry:</strong> Visiting and supporting incarcerated believers</li>
+                <li><strong>Encouragement:</strong> Being a comfort to leaders and pastors</li>
+                <li><strong>Faithfulness:</strong> Consistent service regardless of recognition</li>
+            </ul>
+            
+            <p><strong>Key Insight:</strong> Jesus called Justus represents the often-unsung heroes of ministry - faithful companions who provide comfort, support kingdom work across cultural boundaries, and demonstrate that true service doesn't require public recognition but steadfast faithfulness in challenging circumstances.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">Participate in Quiz</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(1)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(1)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "6vRACNGLs1A";
+            const commentText = `I took the Jesus Called Justus Quiz! ${isCorrect ? "I got it right ✓" : "My answer was: " + userAnswer + " ✗"}\nThe correct answer is: Jesus (Colossians 4:11)\nKey Truths:\n- Jesus called Justus was Paul's fellow worker\n- One of few Jewish companions\n- Provided comfort during imprisonment\n- Faithful behind-the-scenes ministry\nWhat encourages you about faithful but lesser-known Bible characters?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // For YouTube Shorts, we open the video and suggest commenting
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Store comment in localStorage for easy copy-paste
+            localStorage.setItem('quizComment', commentText);
+            
+            setTimeout(() => {
+                alert("Comment suggestion copied! Paste it in the YouTube comments.\n\nJesus called Justus reminds us that faithful service matters more than public recognition!");
+            }, 1000);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
