@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: దేవునికి పక్షపాతం లేదు</title>
+    <style>
+        body {
+            font-family: 'Gautami', sans-serif;
+            background: url('https://c8.alamy.com/comp/2AA8NE1/vector-cartoon-stick-figure-drawing-conceptual-illustration-of-angry-rude-man-or-businessman-walking-on-the-path-to-hell-concept-of-negativism-and-evil-2AA8NE1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: దేవునికి పక్షపాతం లేదు</h1>
+        <div class="bible-ref">కొలస్సెయులకు 3:25</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://i.ytimg.com/vi/5iYyGBcqOWQ/maxresdefault.jpg" alt="దేవుని నిష్పక్షపాత న్యాయం" class="quiz-image">
+        
+        <div class="question">కొలస్సెయులకు 3:25 ప్రకారం, తప్పు చేయువాడెవడును తన తప్పుకు ప్రతిఫలము పొందును, పక్షపాతము ______.</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, false)">క్షమాపణ</div>
+            <div class="option" onclick="checkAnswer(this, true)">లేదు</div>
+            <div class="option" onclick="checkAnswer(this, false)">సాకు</div>
+            <div class="option" onclick="checkAnswer(this, false)">కనికరము</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> లేదు (కొలస్సెయులకు 3:25)</p>
+            
+            <p><strong>కొలస్సెయులకు 3:25:</strong> <em>"తప్పు చేయువాడెవడును తన తప్పుకు ప్రతిఫలము పొందును, పక్షపాతము లేదు."</em></p>
+            
+            <p><strong>దేవుని సంపూర్ణ న్యాయం:</strong></p>
+            <ol>
+                <li><strong>దైవిక జవాబుదారీతనం:</strong> ప్రతి తప్పుకు ప్రతిఫలం ఉంటుంది</li>
+                <li><strong>నిష్పక్షపాత తీర్పు:</strong> దేవుడు పక్షపాతం చూపడు</li>
+                <li><strong>సార్వత్రిక ప్రమాణం:</strong> అందరికీ ఒకే నియమాలు వర్తిస్తాయి</li>
+                <li><strong>నైతిక క్రమం:</strong> న్యాయం సృష్టిలో నిర్మించబడింది</li>
+            </ol>
+            
+            <p><strong>కొలస్సెయులకు 3:22-25 లో సందర్భం:</strong></p>
+            <ul>
+                <li>భూస్వాములకు సేవ చేయడానికి బానిసలకు సూచనలు</li>
+                <li>ప్రభువు కోసం నిష్కాపట్యం మరియు గౌరవంతో పని చేయడానికి ప్రోత్సాహం</li>
+                <li>క్రీస్తుకు సేవ చేసినందుకు బహుమతిగా వారసత్వం యొక్క వాగ్దానం</li>
+                <li>తప్పు చేసేవారు పరిణామాలను ఎదుర్కొంటారని హెచ్చరిక</li>
+                <li>దేవుని నిష్పక్షపాత తీర్పు వ్యవస్థపై దృష్టి</li>
+            </ul>
+            
+            <p><strong>"పక్షపాతం లేదు" అంటే ఏమిటి:</strong></p>
+            <ul>
+                <li><strong>సమాన ప్రమాణాలు:</strong> ధనవంతులు మరియు పేదలు ఒకే కొలతతో తీర్పు చేయబడతారు</li>
+                <li><strong>ప్రత్యేక待遇 లేదు:</strong> స్థితి లేదా స్థానం ఎవరినీ మినహాయించదు</li>
+                <li><strong>శుద్ధ న్యాయం:</strong> ప్రాధాన్యతల ఆధారంగా కాకుండా సత్యం ఆధారంగా నిర్ణయాలు</li>
+                <li><strong>సార్వత్రిక అనువర్తనం:</strong> అన్ని పరిస్థితుల్లో అన్ని వ్యక్తులకు వర్తిస్తుంది</li>
+                <li><strong>దైవిక స్వభావం:</strong> సంపూర్ణ న్యాయం యొక్క దేవుని స్వభావాన్ని ప్రతిబింబిస్తుంది</li>
+            </ul>
+            
+            <p><strong>దేవుని నిష్పక్షపాతానికి బైబిల్ ఉదాహరణలు:</strong></p>
+            <ul>
+                <li><strong>పేతురు దర్శనం:</strong> "దేవుడు పక్షపాతము చూపడు" (అపో. 10:34)</li>
+                <li><strong>యాకోబు హెచ్చరిక:</strong> ధనవంతుల పక్షం పట్టవద్దు (యాకోబు 2:1-9)</li>
+                <li><strong>పౌలు బోధన:</strong> దేవుడు అందరినీ సమానంగా తీర్పు చేస్తాడు (రోమీయులు 2:11)</li>
+                <li><strong>పాత నిబంధన:</strong> "న్యాయమును వక్రపరచకుము" (లేవీయులు 19:15)</li>
+            </ul>
+            
+            <p><strong>విశ్వాసులకు ప్రాయోగిక ప్రభావాలు:</strong></p>
+            <ul>
+                <li><strong>వ్యక్తిగత బాధ్యత:</strong> మన చర్యలకు మనం జవాబుదారులం</li>
+                <li><strong>న్యాయమైన待遇:</strong> సంబంధాలలో దేవుని నిష్పక్షపాతాన్ని ప్రతిబింబించాలి</li>
+                <li><strong>నైతిక ధైర్యం:</strong> ఎవరూ చూడనప్పుడు కూడా సరిగ్గా చేయండి</li>
+                <li><strong>న్యాయంపై నమ్మకం:</strong> దేవుడు చివరికి విషయాలను సరిచేస్తాడని నమ్మండి</li>
+                <li><strong>వినమ్రత:</strong> దేవుని ముందు ఎవరికీ ప్రత్యేక待遇 లేదు</li>
+            </ul>
+            
+            <p><strong>న్యాయం మరియు దయ యొక్క సమతుల్యత:</strong></p>
+            <ul>
+                <li><strong>న్యాయం అవసరం:</strong> తప్పు ఖాతాలో ఉండాలి</li>
+                <li><strong>దయ అందించబడింది:</strong> క్రీస్తు త్యాగం ద్వారా</li>
+                <li><strong>వ్యక్తిగత ఎంపిక:</strong> దయను అంగీకరించండి లేదా న్యాయాన్ని ఎదుర్కోండి</li>
+                <li><strong>శాశ్వత దృక్పథం:</strong> ఎంపికలకు శాశ్వత పరిణామాలు ఉంటాయి</li>
+                <li><strong>సువార్త ఆశ:</strong> క్రీస్తు మన శిక్షను మోసాడు</li>
+            </ul>
+            
+            <p><strong>ఆధునిక అనువర్తనాలు:</strong></p>
+            <ul>
+                <li><strong>కార్యాలయ నీతి:</strong> అన్ని సహోద్యోగులను న్యాయంగా待遇 చేయండి</li>
+                <li><strong>చర్చి నాయకత్వం:</strong> పక్షపాతం చూపకుండా ఉండండి</li>
+                <li><strong>వ్యక్తిగత సంబంధాలు:</strong> స్థితి ఆధారంగా కాకుండా పాత్ర ఆధారంగా వ్యక్తులను తీర్పు చేయండి</li>
+                <li><strong>సామాజిక న్యాయం:</strong> అందరి న్యాయమైన待遇 కోసం వాదించండి</li>
+                <li><strong>స్వీయ-పరీక్ష:</strong> మన స్వంత పక్షపాతాలు మరియు ప్రాధాన్యతలను తనిఖీ చేయండి</li>
+            </ul>
+            
+            <p><strong>ప్రధాన అంశం:</strong> దేవుని సంపూర్ణ న్యాయం అంటే మినహాయింపు లేదా పక్షపాతం లేకుండా ప్రతి ఒక్కరూ వారి తప్పులకు పరిణామాలను ఎదుర్కొంటారు. ఈ సత్యం పవిత్ర భయం మరియు యేసు క్రీస్తు ద్వారా లభించే దయపై లోతైన కృతజ్ఞత రెండింటినీ ప్రేరేపించాలి, ఎవరు న్యాయం కంటే కృపను పొందేలా మన శిక్షను మోసాడు.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(2)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(2)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "aUpaWgvPx5M";
+            const commentText = `నేను పక్షపాతం లేని క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరైన సమాధానం ఇచ్చాను ✓" : "నా సమాధానం: " + userAnswer + " ✗"}\nసరైన సమాధానం: లేదు (కొలస్సెయులకు 3:25)\nప్రధాన సత్యాలు:\n- దేవుడు అందరి తప్పులకు ప్రతిఫలం ఇస్తాడు\n- పక్షపాతం లేదా పక్షం చూపడు\n- అందరికీ ఒకే ప్రమాణం వర్తిస్తుంది\n- న్యాయం ఖచ్చితమైనది మరియు నిష్పక్షపాతమైనది\nదేవుడు పక్షపాతం చూపడని తెలుసుకోవడం మీ జీవితాన్ని ఎలా ప్రభావితం చేస్తుంది?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // For YouTube Shorts, we open the video and suggest commenting
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Store comment in localStorage for easy copy-paste
+            localStorage.setItem('quizComment', commentText);
+            
+            setTimeout(() => {
+                alert("కామెంట్ సూచన కాపీ చేయబడింది! దయచేసి దానిని యూట్యూబ్ కామెంట్లలో పేస్ట్ చేయండి.\n\nదేవుని నిష్పక్షపాత న్యాయం గౌరవం మరియు ఆయన దయపై కృతజ్ఞత రెండింటినీ ప్రేరేపించాలి!");
+            }, 1000);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>

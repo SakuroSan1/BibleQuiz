@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Quiz: No Favoritism With God</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://c8.alamy.com/comp/2AA8NE1/vector-cartoon-stick-figure-drawing-conceptual-illustration-of-angry-rude-man-or-businessman-walking-on-the-path-to-hell-concept-of-negativism-and-evil-2AA8NE1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>BIBLE QUIZ: NO FAVORITISM WITH GOD</h1>
+        <div class="bible-ref">Colossians 3:25</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://i.ytimg.com/vi/5iYyGBcqOWQ/maxresdefault.jpg" alt="God's Impartial Justice" class="quiz-image">
+        
+        <div class="question">According to Colossians 3:25, anyone who does wrong will be repaid for their wrong, and there is no ______.</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, false)">Forgiveness</div>
+            <div class="option" onclick="checkAnswer(this, true)">Favoritism</div>
+            <div class="option" onclick="checkAnswer(this, false)">Excuse</div>
+            <div class="option" onclick="checkAnswer(this, false)">Mercy</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>Correct Answer:</strong> Favoritism (Colossians 3:25)</p>
+            
+            <p><strong>Colossians 3:25 (NIV):</strong> <em>"Anyone who does wrong will be repaid for their wrong, and there is no favoritism."</em></p>
+            
+            <p><strong>God's Perfect Justice:</strong></p>
+            <ol>
+                <li><strong>Divine Accountability:</strong> Every wrong will be repaid</li>
+                <li><strong>Impartial Judgment:</strong> God shows no partiality</li>
+                <li><strong>Universal Standard:</strong> Same rules apply to everyone</li>
+                <li><strong>Moral Order:</strong> Justice is built into creation</li>
+            </ol>
+            
+            <p><strong>Context in Colossians 3:22-25:</strong></p>
+            <ul>
+                <li>Instructions to slaves about serving their earthly masters</li>
+                <li>Encouragement to work with sincerity and reverence for the Lord</li>
+                <li>Promise of inheritance as reward for serving Christ</li>
+                <li>Warning that wrongdoers will face consequences</li>
+                <li>Emphasis on God's impartial judgment system</li>
+            </ul>
+            
+            <p><strong>What "No Favoritism" Means:</strong></p>
+            <ul>
+                <li><strong>Equal Standards:</strong> Rich and poor judged by same measure</li>
+                <li><strong>No Special Treatment:</strong> Status or position doesn't exempt anyone</li>
+                <li><strong>Pure Justice:</strong> Decisions based on truth, not preferences</li>
+                <li><strong>Universal Application:</strong> Applies to all people in all situations</li>
+                <li><strong>Divine Character:</strong> Reflects God's nature of perfect justice</li>
+            </ul>
+            
+            <p><strong>Biblical Examples of God's Impartiality:</strong></p>
+            <ul>
+                <li><strong>Peter's Revelation:</strong> "God shows no favoritism" (Acts 10:34)</li>
+                <li><strong>James' Warning:</strong> Don't show favoritism to the rich (James 2:1-9)</li>
+                <li><strong>Paul's Teaching:</strong> God judges everyone equally (Romans 2:11)</li>
+                <li><strong>Old Testament:</strong> "Do not pervert justice" (Leviticus 19:15)</li>
+            </ul>
+            
+            <p><strong>Practical Implications for Believers:</strong></p>
+            <ul>
+                <li><strong>Personal Responsibility:</strong> We're accountable for our actions</li>
+                <li><strong>Fair Treatment:</strong> Should reflect God's impartiality in relationships</li>
+                <li><strong>Moral Courage:</strong> Do right even when no one is watching</li>
+                <li><strong>Trust in Justice:</strong> Believe God will ultimately make things right</li>
+                <li><strong>Humility:</strong> No one gets special treatment before God</li>
+            </ul>
+            
+            <p><strong>The Balance of Justice and Mercy:</strong></p>
+            <ul>
+                <li><strong>Justice Demanded:</strong> Wrong must be accounted for</li>
+                <li><strong>Mercy Provided:</strong> Through Christ's sacrifice</li>
+                <li><strong>Personal Choice:</strong> Accept mercy or face justice</li>
+                <li><strong>Eternal Perspective:</strong> Choices have eternal consequences</li>
+                <li><strong>Gospel Hope:</strong> Christ bore our punishment</li>
+            </ul>
+            
+            <p><strong>Modern Applications:</strong></p>
+            <ul>
+                <li><strong>Workplace Ethics:</strong> Treat all colleagues fairly</li>
+                <li><strong>Church Leadership:</strong> Avoid showing partiality</li>
+                <li><strong>Personal Relationships:</strong> Judge people by character, not status</li>
+                <li><strong>Social Justice:</strong> Advocate for fair treatment of all</li>
+                <li><strong>Self-Examination:</strong> Check our own biases and preferences</li>
+            </ul>
+            
+            <p><strong>Key Insight:</strong> God's perfect justice means everyone will face consequences for their wrongs without exception or favoritism. This truth should inspire both holy fear and deep gratitude for the mercy available through Jesus Christ, who bore our punishment so we could receive grace instead of justice.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">Participate in Quiz</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(2)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(2)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "0eA1jj81PgY";
+            const commentText = `I took the No Favoritism Quiz! ${isCorrect ? "I got it right ✓" : "My answer was: " + userAnswer + " ✗"}\nThe correct answer is: Favoritism (Colossians 3:25)\nKey Truths:\n- God repays everyone for their wrongs\n- Shows no favoritism or partiality\n- Same standard applies to all people\n- Justice is certain and impartial\nHow does knowing God shows no favoritism impact how you live?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // For YouTube Shorts, we open the video and suggest commenting
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Store comment in localStorage for easy copy-paste
+            localStorage.setItem('quizComment', commentText);
+            
+            setTimeout(() => {
+                alert("Comment suggestion copied! Paste it in the YouTube comments.\n\nGod's impartial justice should inspire both reverence and gratitude for His mercy!");
+            }, 1000);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
