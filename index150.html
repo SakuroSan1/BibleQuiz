@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Quiz: Don't Let Anyone Judge You</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://cms-imgp.jw-cdn.org/img/p/502015133/univ/art/502015133_univ_lsr_lg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>BIBLE QUIZ: DON'T LET ANYONE JUDGE YOU</h1>
+        <div class="bible-ref">Colossians 2:16</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://us-east-1.graphassets.com/APqS8y7QATaCvy9gijJ3oz/UTZ1HwpoSPRIJbi52TGA" alt="Freedom from Judgment" class="quiz-image">
+        
+        <div class="question">According to Colossians 2:16, in matters of food, drink, festivals and Sabbath days, what should you not let anyone do to you?</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">Judge</div>
+            <div class="option" onclick="checkAnswer(this, false)">Help</div>
+            <div class="option" onclick="checkAnswer(this, false)">Teach</div>
+            <div class="option" onclick="checkAnswer(this, false)">Follow</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>Correct Answer:</strong> Judge (Colossians 2:16)</p>
+            
+            <p><strong>Colossians 2:16 (NIV):</strong> <em>"Therefore do not let anyone judge you by what you eat or drink, or with regard to a religious festival, a New Moon celebration or a Sabbath day."</em></p>
+            
+            <p><strong>Christian Freedom from Legalism:</strong></p>
+            <ol>
+                <li><strong>External Observances:</strong> Food, drink, festivals, Sabbaths</li>
+                <li><strong>Freedom in Christ:</strong> Not bound by ceremonial laws</li>
+                <li><strong>Personal Conviction:</strong> Matters of individual conscience</li>
+                <li><strong>Spiritual Reality:</strong> These were shadows pointing to Christ</li>
+            </ol>
+            
+            <p><strong>Context in Colossians 2:16-17:</strong></p>
+            <ul>
+                <li>Warning against legalistic judgments from others</li>
+                <li>These regulations were shadows of the reality to come</li>
+                <li>The reality is found in Christ</li>
+                <li>Freedom from human regulations and traditions</li>
+                <li>Emphasis on spiritual substance over external forms</li>
+            </ul>
+            
+            <p><strong>What This Freedom Means:</strong></p>
+            <ul>
+                <li><strong>No Condemnation:</strong> Free from others' critical judgments</li>
+                <li><strong>Personal Liberty:</strong> Freedom in non-essential matters</li>
+                <li><strong>Focus on Christ:</strong> Center faith on Jesus, not rules</li>
+                <li><strong>Unity in Diversity:</strong> Different practices can coexist</li>
+                <li><strong>Grace-Based Living:</strong> Not performance-based acceptance</li>
+            </ul>
+            
+            <p><strong>Areas Mentioned Where We Shouldn't Be Judged:</strong></p>
+            <ul>
+                <li><strong>Dietary Choices:</strong> What you eat and drink</li>
+                <li><strong>Religious Festivals:</strong> Celebration of special days</li>
+                <li><strong>New Moon Celebrations:</strong> Monthly observances</li>
+                <li><strong>Sabbath Days:</strong> Weekly rest and worship</li>
+            </ul>
+            
+            <p><strong>Biblical Balance in Christian Liberty:</strong></p>
+            <ul>
+                <li><strong>Freedom with Responsibility:</strong> Don't use freedom to cause others to stumble</li>
+                <li><strong>Love Over Liberty:</strong> Limit freedom for others' sake</li>
+                <li><strong>Essential vs Non-essential:</strong> Distinguish between core doctrines and personal practices</li>
+                <li><strong>Conscience Matters:</strong> Respect different levels of conviction</li>
+                <li><strong>Unity in Essentials:</strong> Agreement on foundational truths</li>
+            </ul>
+            
+            <p><strong>Practical Applications Today:</strong></p>
+            <ul>
+                <li><strong>Worship Styles:</strong> Different music preferences are okay</li>
+                <li><strong>Dietary Practices:</strong> Vegetarian vs non-vegetarian choices</li>
+                <li><strong>Celebration of Holidays:</strong> Christmas, Easter observances</li>
+                <li><strong>Church Traditions:</strong> Various denominational practices</li>
+                <li><strong>Personal Devotions:</strong> Different prayer and study methods</li>
+            </ul>
+            
+            <p><strong>Warning Against Two Extremes:</strong></p>
+            <ul>
+                <li><strong>Legalistic Judgment:</strong> Condemning others for different practices</li>
+                <li><strong>License:</strong> Using freedom as excuse for sin</li>
+                <li><strong>Balance:</strong> Freedom within biblical boundaries</li>
+                <li><strong>Love:</strong> The guiding principle in all matters</li>
+            </ul>
+            
+            <p><strong>Key Insight:</strong> Christian freedom means we're liberated from human judgments about external religious practices while being responsible to use our liberty in ways that honor God and build up others. The focus shifts from rule-keeping to relationship with Christ who fulfilled all regulations and gives us true spiritual freedom.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">Participate in Quiz</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(1)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(1)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "hLNzCz2vCvQ";
+            const commentText = `I took the Don't Judge Me Quiz! ${isCorrect ? "I got it right ✓" : "My answer was: " + userAnswer + " ✗"}\nThe correct answer is: Judge (Colossians 2:16)\nKey Truths:\n- Don't let anyone judge you about food/drink\n- Freedom in festivals and Sabbath observances\n- These were shadows pointing to Christ\n- Christian liberty in non-essential matters\nHow has understanding Christian freedom changed your walk with God?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // For YouTube Shorts, we open the video and suggest commenting
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Store comment in localStorage for easy copy-paste
+            localStorage.setItem('quizComment', commentText);
+            
+            setTimeout(() => {
+                alert("Comment suggestion copied! Paste it in the YouTube comments.\n\nChristian freedom liberates us from human judgments while calling us to responsible living!");
+            }, 1000);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: ఎవరినీ మిమ్ములను తీర్పు చేయనివ్వకుడి</title>
+    <style>
+        body {
+            font-family: 'Gautami', sans-serif;
+            background: url('https://cms-imgp.jw-cdn.org/img/p/502015133/univ/art/502015133_univ_lsr_lg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: ఎవరినీ మిమ్ములను తీర్పు చేయనివ్వకుడి</h1>
+        <div class="bible-ref">కొలస్సెయులకు 2:16</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://us-east-1.graphassets.com/APqS8y7QATaCvy9gijJ3oz/UTZ1HwpoSPRIJbi52TGA" alt="తీర్పు నుండి విముక్తి" class="quiz-image">
+        
+        <div class="question">కొలస్సెయులకు 2:16 ప్రకారం, ఆహారం, పానీయం, పండుగలు మరియు సబ్బాతు దినాల విషయాలలో, ఎవరినీ మీకు ఏమి చేయనివ్వకూడదు?</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">తీర్పు చేయడం</div>
+            <div class="option" onclick="checkAnswer(this, false)">సహాయం చేయడం</div>
+            <div class="option" onclick="checkAnswer(this, false)">బోధించడం</div>
+            <div class="option" onclick="checkAnswer(this, false)">అనుసరించడం</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> తీర్పు చేయడం (కొలస్సెయులకు 2:16)</p>
+            
+            <p><strong>కొలస్సెయులకు 2:16:</strong> <em>"కావున ఆహారమునుగురించియు, పానీయమునుగురించియు, పండుగలను గురించియు, అమావాస్యను గురించియు, సబ్బాతు దినములను గురించియు ఎవరును మిమ్ములను తీర్పు చేయకుండా చూడుడి."</em></p>
+            
+            <p><strong>నియమబద్ధత నుండి క్రైస్తవ స్వేచ్ఛ:</strong></p>
+            <ol>
+                <li><strong>బాహ్య పాటింపులు:</strong> ఆహారం, పానీయం, పండుగలు, సబ్బాతులు</li>
+                <li><strong>క్రీస్తులో స్వేచ్ఛ:</strong> ఉత్సవ సంబంధమైన చట్టాలతో బంధింపబడలేదు</li>
+                <li><strong>వ్యక్తిగత నమ్మకం:</strong> వ్యక్తిగత మనస్సాక్షి విషయాలు</li>
+                <li><strong>ఆధ్యాత్మిక వాస్తవికత:</strong> ఇవి క్రీస్తు వైపు చూపించే నీడలు</li>
+            </ol>
+            
+            <p><strong>కొలస్సెయులకు 2:16-17 లో సందర్భం:</strong></p>
+            <ul>
+                <li>ఇతరుల నుండి నియమబద్ధ తీర్పులకు వ్యతిరేకంగా హెచ్చరిక</li>
+                <li>ఈ నియమాలు రాబోయే వాస్తవికత యొక్క నీడలు</li>
+                <li>వాస్తవికత క్రీస్తులో కనుగొనబడింది</li>
+                <li>మానవ నియమాలు మరియు సంప్రదాయాల నుండి విముక్తి</li>
+                <li>బాహ్య రూపాల కంటే ఆధ్యాత్మిక సారాంశంపై దృష్టి</li>
+            </ul>
+            
+            <p><strong>ఈ స్వేచ్ఛ అంటే ఏమిటి:</strong></p>
+            <ul>
+                <li><strong>నింద లేదు:</strong> ఇతరుల విమర్శనాత్మక తీర్పుల నుండి విముక్తి</li>
+                <li><strong>వ్యక్తిగత స్వాతంత్ర్యం:</strong> అనావశ్యక విషయాలలో స్వేచ్ఛ</li>
+                <li><strong>క్రీస్తుపై దృష్టి:</strong> నియమాలు కాకుండా యేసుపై విశ్వాసాన్ని కేంద్రీకరించండి</li>
+                <li><strong>వైవిధ్యంలో ఐక్యత:</strong> విభిన్న పద్ధతులు సహజీవనం చేయగలవు</li>
+                <li><strong>కృప ఆధారిత జీవితం:</strong> ప్రదర్శన-ఆధారిత అంగీకారం కాదు</li>
+            </ul>
+            
+            <p><strong>మనం తీర్పు చేయబడకూడని ప్రాంతాలు:</strong></p>
+            <ul>
+                <li><strong>ఆహార ఎంపికలు:</strong> మీరు ఏమి తింటారు మరియు తాగుతారు</li>
+                <li><strong>మతపరమైన పండుగలు:</strong> ప్రత్యేక దినాల జరుపుకోలు</li>
+                <li><strong>అమావాస్య జరుపుకోలు:</strong> నెలవారీ పాటింపులు</li>
+                <li><strong>సబ్బాతు దినాలు:</strong> వారానికి విశ్రాంతి మరియు ఆరాధన</li>
+            </ul>
+            
+            <p><strong>క్రైస్తవ స్వాతంత్ర్యంలో బైబిల్ సమతుల్యత:</strong></p>
+            <ul>
+                <li><strong>బాధ్యతతో కూడిన స్వేచ్ఛ:</strong> ఇతరులను ఇబ్బంది పెట్టడానికి స్వేచ్ఛను ఉపయోగించకండి</li>
+                <li><strong>స్వేచ్ఛ కంటే ప్రేమ:</strong> ఇతరుల కోసం స్వేచ్ఛను పరిమితం చేయండి</li>
+                <li><strong>అవసరమైనది vs అనవసరమైనది:</strong> ముఖ్యమైన సిద్ధాంతాలు మరియు వ్యక్తిగత పద్ధతుల మధ్య వ్యత్యాసం చేయండి</li>
+                <li><strong>మనస్సాక్షి విషయాలు:</strong> విభిన్న స్థాయిల నమ్మకాన్ని గౌరవించండి</li>
+                <li><strong>అవసరాలలో ఐక్యత:</strong> మూలాధార సత్యాలపై ఏకాభిప్రాయం</li>
+            </ul>
+            
+            <p><strong>నేటి ప్రాయోగిక అనువర్తనాలు:</strong></p>
+            <ul>
+                <li><strong>ఆరాధన శైలులు:</strong> విభిన్న సంగీత ప్రాధాన్యతలు సరే</li>
+                <li><strong>ఆహార పద్ధతులు:</strong> శాకాహారి vs అశాకాహారి ఎంపికలు</li>
+                <li><strong>పండుగల జరుపుకోలు:</strong> క్రిస్మస్, ఈస్టర్ పాటింపులు</li>
+                <li><strong>చర్చి సంప్రదాయాలు:</strong> వివిధ సంప్రదాయ పద్ధతులు</li>
+                <li><strong>వ్యక్తిగత భక్తి:</strong> విభిన్న ప్రార్థన మరియు అధ్యయన పద్ధతులు</li>
+            </ul>
+            
+            <p><strong>రెండు తీవ్రతలకు వ్యతిరేకంగా హెచ్చరిక:</strong></p>
+            <ul>
+                <li><strong>నియమబద్ధ తీర్పు:</strong> విభిన్న పద్ధతుల కోసం ఇతరులను నిందించడం</li>
+                <li><strong>లైసెన్స్:</strong> పాపానికి అవకాశంగా స్వేచ్ఛను ఉపయోగించడం</li>
+                <li><strong>సమతుల్యత:</strong> బైబిల్ సరిహద్దుల్లో స్వేచ్ఛ</li>
+                <li><strong>ప్రేమ:</strong> అన్ని విషయాలలో మార్గదర్శక సూత్రం</li>
+            </ul>
+            
+            <p><strong>ప్రధాన అంశం:</strong> క్రైస్తవ స్వేచ్ఛ అంటే బాహ్య మతపరమైన పద్ధతుల గురించి మానవ తీర్పుల నుండి మనం విముక్తి పొందాము, అయితే మన స్వాతంత్ర్యాన్ని దేవునికి గౌరవం తెచ్చే మరియు ఇతరులను నిర్మించే మార్గాలలో ఉపయోగించడానికి బాధ్యత వహిస్తాము. దృష్టి నియమాలను పాటించడం నుండి క్రీస్తుతో సంబంధానికి మారుతుంది, ఎవరు అన్ని నియమాలను నెరవేర్చారు మరియు మనకు నిజమైన ఆధ్యాత్మిక స్వేచ్ఛను ఇస్తారు.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(1)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(1)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "z9vjJ1hh5PI";
+            const commentText = `నేను "ఎవరినీ మిమ్ములను తీర్పు చేయనివ్వకుడి" క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరైన సమాధానం ఇచ్చాను ✓" : "నా సమాధానం: " + userAnswer + " ✗"}\nసరైన సమాధానం: తీర్పు చేయడం (కొలస్సెయులకు 2:16)\nప్రధాన సత్యాలు:\n- ఆహారం/పానీయం గురించి ఎవరినీ తీర్పు చేయనివ్వకండి\n- పండుగలు మరియు సబ్బాతు పాటింపులలో స్వేచ్ఛ\n- ఇవి క్రీస్తు వైపు చూపించే నీడలు\n- అనావశ్యక విషయాలలో క్రైస్తవ స్వాతంత్ర్యం\nక్రైస్తవ స్వేచ్ఛను అర్థం చేసుకోవడం మీ దేవునితో నడకను ఎలా మార్చింది?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // For YouTube Shorts, we open the video and suggest commenting
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Store comment in localStorage for easy copy-paste
+            localStorage.setItem('quizComment', commentText);
+            
+            setTimeout(() => {
+                alert("కామెంట్ సూచన కాపీ చేయబడింది! దయచేసి దానిని యూట్యూబ్ కామెంట్లలో పేస్ట్ చేయండి.\n\nక్రైస్తవ స్వేచ్ఛ మానవ తీర్పుల నుండి మనల్ని విముక్తి చేస్తుంది, అయితే బాధ్యతాయుతమైన జీవనానికి మమ్మల్ని పిలుస్తుంది!");
+            }, 1000);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
