@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: క్రీస్తు ప్రథమజుడు</title>
+    <style>
+        body {
+            font-family: 'Gautami', sans-serif;
+            background: url('https://cdn.catholic.com/wp-content/uploads/christ-clouds-soft-edge-900x900.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: క్రీస్తు ప్రథమజుడు</h1>
+        <div class="bible-ref">కొలస్సెయులకు 1:15</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://believer.com/images/glory-hope_jpg.webp" alt="క్రీస్తు ప్రథమజుడు" class="quiz-image">
+        
+        <div class="question">కొలస్సెయులకు 1:15 ప్రకారం, యేసు కనబడని దేవుని స్వరూపుడు, సమస్త సృష్టికిని ______.</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, false)">పాలకుడు</div>
+            <div class="option" onclick="checkAnswer(this, true)">ప్రథమజుడు</div>
+            <div class="option" onclick="checkAnswer(this, false)">సృష్టికర్త</div>
+            <div class="option" onclick="checkAnswer(this, false)">యజమాని</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> ప్రథమజుడు (కొలస్సెయులకు 1:15)</p>
+            
+            <p><strong>కొలస్సెయులకు 1:15:</strong> <em>"అదృశ్యుడైన దేవుని స్వరూపుడును, సమస్త సృష్టికిని ప్రథమజుడును ఆయనే."</em></p>
+            
+            <p><strong>క్రీస్తు సర్వోన్నత స్థానం:</strong></p>
+            <ol>
+                <li><strong>దైవిక స్వరూపం:</strong> దేవుని పరిపూర్ణ ప్రతిబింబం</li>
+                <li><strong>అగ్రత్వం:</strong> సృష్టిపై సర్వోన్నత ర్యాంక్</li>
+                <li><strong>అధికారం:</strong> పాలించే మరియు వారసత్వం పొందే హక్కు</li>
+                <li><strong>శాశ్వత స్వభావం:</strong> సృష్టించబడలేదు కానీ శాశ్వతమైనది</li>
+            </ol>
+            
+            <p><strong>కొలస్సెయులకు 1:15-20 లో సందర్భం:</strong></p>
+            <ul>
+                <li>క్రీస్తు అదృశ్య దేవుని దృశ్యమాన స్వరూపం</li>
+                <li>ఏది సృష్టించబడక ముందే ఆయన ఉన్నాడు</li>
+                <li>ఆయన సమస్త సృష్టిని కలిపి ఉంచుతాడు</li>
+                <li>ఆయన సభకు తల</li>
+                <li>దేవుని పరిపూర్ణత ఆయనలో నివసిస్తుంది</li>
+                <li>ఆయన తన రక్తం ద్వారా ప్రతిదీ సమాధానపరచాడు</li>
+            </ul>
+            
+            <p><strong>"ప్రథమజుడు" అంటే ఏమిటి:</strong></p>
+            <ul>
+                <li><strong>సర్వోన్నత ర్యాంక్:</strong> అత్యున్నత స్థానం మరియు అధికారం</li>
+                <li><strong>వారసత్వ హక్కులు:</strong> అన్ని వస్తువులకు చట్టబద్ధ వారసుడు</li>
+                <li><strong>అగ్రత్వం:</strong> సమయంలో కాకుండా ప్రాముఖ్యతలో మొదటి</li>
+                <li><strong>సృష్టించబడలేదు:</strong> శాశ్వత కుమారుడు, సృష్టి భాగం కాదు</li>
+                <li><strong>సార్వభౌమ హక్కులు:</strong> అన్నిపై పాలించే హక్కు</li>
+            </ul>
+            
+            <p><strong>"ప్రథమజుడు" యొక్క బైబిల్ ప్రాముఖ్యత:</strong></p>
+            <ul>
+                <li><strong>పాత నిబంధన నమూనా:</strong> ప్రథమజుడు రెండు వంతులు మరియు నాయకత్వం పొందాడు</li>
+                <li><strong>మెస్సీయా శీర్షిక:</strong> క్రీస్తు అగ్రత్వాన్ని సూచిస్తుంది</li>
+                <li><strong>రాజకీయ పదజాలం:</strong> రాజులు మరియు పాలకులకు ఉపయోగించబడింది</li>
+                <li><strong>నిబంధన భాష:</strong> వారసత్వం మరియు ఆశీర్వాద హక్కులు</li>
+            </ul>
+            
+            <p><strong>క్రీస్తు సృష్టికి సంబంధం:</strong></p>
+            <ul>
+                <li><strong>సృష్టి ప్రతినిధి:</strong> అన్ని వస్తువులు ఆయన ద్వారా సృష్టించబడ్డాయి</li>
+                <li><strong>సృష్టి లక్ష్యం:</strong> అన్ని వస్తువులు ఆయన కోసం సృష్టించబడ్డాయి</li>
+                <li><strong>సృష్టి నిర్వహకుడు:</strong> అన్ని వస్తువులను కలిపి ఉంచుతాడు</li>
+                <li><strong>సృష్టి ప్రభువు:</strong> సమస్త సృష్టిపై పాలిస్తాడు</li>
+            </ul>
+            
+            <p><strong>వేదాంత అంతర్గతాలు:</strong></p>
+            <ul>
+                <li><strong>క్రీస్తు దేవత్వం:</strong> దేవుడు తండ్రికి సమానం</li>
+                <li><strong>శాశ్వత కుమారత్వం:</strong> ఎల్లప్పుడూ కుమారుడిగా ఉన్నాడు</li>
+                <li><strong>విశ్వ ప్రభుత్వం:</strong> మొత్తం విశ్వంపై అధికారం</li>
+                <li><strong>మధ్యవర్తి పాత్ర:</strong> దేవుడు మరియు సృష్టి మధ్య వారధి</li>
+            </ul>
+            
+            <p><strong>విశ్వాసులకు ప్రాయోగిక అనువర్తనాలు:</strong></p>
+            <ul>
+                <li><strong>ఆరాధన:</strong> క్రీస్తు మన అత్యున్నత ప్రశంసకు అర్హుడు</li>
+                <li><strong>సమర్పణ:</strong> ఆయన సర్వోన్నత అధికారాన్ని అంగీకరించండి</li>
+                <li><strong>భద్రత:</strong> మన జీవితాలు ఆయనలో కలిపి ఉంచబడతాయి</li>
+                <li><strong>ఉద్దేశ్యం:</strong> మనం ఆయన మహిమ మరియు గౌరవం కోసం జీవిస్తాము</li>
+                <li><strong>ఆశ:</strong> ఆయన అన్నింటినీ తన పాలనలోకి తెస్తాడు</li>
+            </ul>
+            
+            <p><strong>ప్రధాన అంశం:</strong> "సమస్త సృష్టికిని ప్రథమజుడు" గా, క్రీస్తు ఉనికిలో ఉన్న ప్రతి దానిపై అధికారం, గౌరవం మరియు వారసత్వం యొక్క సర్వోన్నత స్థానాన్ని కలిగి ఉన్నాడు. ఈ శీర్షిక ఆయన శాశ్వత దేవత్వాన్ని, సార్వభౌమ ప్రభుత్వాన్ని మరియు అగ్రత్వ మహిమను ప్రకటిస్తుంది, అదృశ్య దేవుని పరిపూర్ణ స్వరూపంగా, అన్ని వస్తువులను సృష్టించిన, నిర్వహించిన మరియు ఆయన మహిమ కోసం పాలించేవాడు.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(2)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(2)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "p2stSggn2_8";
+            const commentText = `నేను క్రీస్తు ప్రథమజుడు క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరైన సమాధానం ఇచ్చాను ✓" : "నా సమాధానం: " + userAnswer + " ✗"}\nసరైన సమాధానం: ప్రథమజుడు (కొలస్సెయులకు 1:15)\nప్రధాన సత్యాలు:\n- యేసు అదృశ్య దేవుని స్వరూపుడు\n- సమస్త సృష్టికిని ప్రథమజుడు\n- సర్వోన్నత అధికారం మరియు అగ్రత్వం\n- శాశ్వత కుమారుడు, సృష్టించబడిన వ్యక్తి కాదు\nక్రీస్తుని ప్రథమజుడిగా అర్థం చేసుకోవడం ఆయన ప్రభుత్వంపై మీ దృష్టిని ఎలా ప్రభావితం చేస్తుంది?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // For YouTube Shorts, we open the video and suggest commenting
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Store comment in localStorage for easy copy-paste
+            localStorage.setItem('quizComment', commentText);
+            
+            setTimeout(() => {
+                alert("కామెంట్ సూచన కాపీ చేయబడింది! దయచేసి దానిని యూట్యూబ్ కామెంట్లలో పేస్ట్ చేయండి.\n\nక్రీస్తు స్థానం ప్రథమజుడుగా సమస్త సృష్టిపై ఆయన సర్వోన్నత అధికారాన్ని ప్రకటిస్తుంది!");
+            }, 1000);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>

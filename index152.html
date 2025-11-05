@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Quiz: Christ the Firstborn</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://cdn.catholic.com/wp-content/uploads/christ-clouds-soft-edge-900x900.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>BIBLE QUIZ: CHRIST THE FIRSTBORN</h1>
+        <div class="bible-ref">Colossians 1:15</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://believer.com/images/glory-hope_jpg.webp" alt="Christ the Firstborn" class="quiz-image">
+        
+        <div class="question">According to Colossians 1:15, Jesus is the image of the invisible God, the ______ over all creation.</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, false)">Ruler</div>
+            <div class="option" onclick="checkAnswer(this, true)">Firstborn</div>
+            <div class="option" onclick="checkAnswer(this, false)">Creator</div>
+            <div class="option" onclick="checkAnswer(this, false)">Master</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>Correct Answer:</strong> Firstborn (Colossians 1:15)</p>
+            
+            <p><strong>Colossians 1:15 (NIV):</strong> <em>"The Son is the image of the invisible God, the firstborn over all creation."</em></p>
+            
+            <p><strong>Christ's Supreme Position:</strong></p>
+            <ol>
+                <li><strong>Divine Image:</strong> Perfect representation of God</li>
+                <li><strong>Preeminence:</strong> Supreme rank over creation</li>
+                <li><strong>Authority:</strong> Right to rule and inherit</li>
+                <li><strong>Eternal Nature:</strong> Not created but eternal</li>
+            </ol>
+            
+            <p><strong>Context in Colossians 1:15-20:</strong></p>
+            <ul>
+                <li>Christ is the visible image of invisible God</li>
+                <li>He existed before anything was created</li>
+                <li>He holds all creation together</li>
+                <li>He is the head of the church</li>
+                <li>God's fullness dwells in Him</li>
+                <li>He reconciled everything through His blood</li>
+            </ul>
+            
+            <p><strong>What "Firstborn" Means:</strong></p>
+            <ul>
+                <li><strong>Supreme Rank:</strong> Highest position and authority</li>
+                <li><strong>Inheritance Rights:</strong> Legal heir of all things</li>
+                <li><strong>Preeminence:</strong> First in importance, not time</li>
+                <li><strong>Not Created:</strong> Eternal Son, not part of creation</li>
+                <li><strong>Sovereign Rights:</strong> Right to rule over all</li>
+            </ul>
+            
+            <p><strong>Biblical Significance of "Firstborn":</strong></p>
+            <ul>
+                <li><strong>Old Testament Pattern:</strong> Firstborn received double portion and leadership</li>
+                <li><strong>Messianic Title:</strong> Points to Christ's supremacy</li>
+                <li><strong>Royal Terminology:</strong> Used for kings and rulers</li>
+                <li><strong>Covenant Language:</strong> Inheritance and blessing rights</li>
+            </ul>
+            
+            <p><strong>Christ's Relationship to Creation:</strong></p>
+            <ul>
+                <li><strong>Agent of Creation:</strong> All things created through Him</li>
+                <li><strong>Goal of Creation:</strong> All things created for Him</li>
+                <li><strong>Sustainer of Creation:</strong> Holds all things together</li>
+                <li><strong>Lord of Creation:</strong> Rules over all creation</li>
+            </ul>
+            
+            <p><strong>Theological Implications:</strong></p>
+            <ul>
+                <li><strong>Deity of Christ:</strong> Equal with God the Father</li>
+                <li><strong>Eternal Sonship:</strong> Always existed as Son</li>
+                <li><strong>Cosmic Lordship:</strong> Authority over entire universe</li>
+                <li><strong>Mediatorial Role:</strong> Bridge between God and creation</li>
+            </ul>
+            
+            <p><strong>Practical Applications for Believers:</strong></p>
+            <ul>
+                <li><strong>Worship:</strong> Christ deserves our highest praise</li>
+                <li><strong>Submission:</strong> Acknowledge His supreme authority</li>
+                <li><strong>Security:</strong> Our lives are held together in Him</li>
+                <li><strong>Purpose:</strong> We live for His glory and honor</li>
+                <li><strong>Hope:</strong> He will bring all things under His rule</li>
+            </ul>
+            
+            <p><strong>Key Insight:</strong> As the "firstborn over all creation," Christ holds the supreme position of authority, honor, and inheritance over everything that exists. This title declares His eternal deity, sovereign lordship, and preeminent glory as the perfect image of the invisible God who created, sustains, and rules over all things for His glory.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">Participate in Quiz</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(2)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(2)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "qx1B-vni36w";
+            const commentText = `I took the Christ the Firstborn Quiz! ${isCorrect ? "I got it right ✓" : "My answer was: " + userAnswer + " ✗"}\nThe correct answer is: Firstborn (Colossians 1:15)\nKey Truths:\n- Jesus is the image of invisible God\n- Firstborn over all creation\n- Supreme authority and preeminence\n- Eternal Son, not created being\nHow does understanding Christ as Firstborn impact your view of His lordship?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // For YouTube Shorts, we open the video and suggest commenting
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Store comment in localStorage for easy copy-paste
+            localStorage.setItem('quizComment', commentText);
+            
+            setTimeout(() => {
+                alert("Comment suggestion copied! Paste it in the YouTube comments.\n\nChrist's position as Firstborn declares His supreme authority over all creation!");
+            }, 1000);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
