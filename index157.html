@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: మన పౌరసత్వము స్వర్గములో</title>
+    <style>
+        body {
+            font-family: 'Gautami', sans-serif;
+            background: url('https://exodus90.com/wp-content/uploads/2023/09/prayer.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: మన పౌరసత్వము స్వర్గములో</h1>
+        <div class="bible-ref">ఫిలిప్పీయులకు 3:20</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://www.shutterstock.com/image-photo/thousands-people-flying-earth-heaven-260nw-2671029207.jpg" alt="మన పౌరసత్వము స్వర్గములో" class="quiz-image">
+        
+        <div class="question">ఫిలిప్పీయులకు 3:20 ప్రకారం, మన పౌరసత్వము ______ లో ఉన్నది.</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">స్వర్గములో</div>
+            <div class="option" onclick="checkAnswer(this, false)">యెరూషలేములో</div>
+            <div class="option" onclick="checkAnswer(this, false)">సభలో</div>
+            <div class="option" onclick="checkAnswer(this, false)">దేవుని రాజ్యములో</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> స్వర్గములో (ఫిలిప్పీయులకు 3:20)</p>
+            
+            <p><strong>ఫిలిప్పీయులకు 3:20:</strong> <em>"మన పౌరసత్వము స్వర్గములో ఉన్నది. అక్కడనుండి రక్షకుడైన ప్రభువైన యేసు క్రీస్తు వచ్చుటను మనము ఆతురతతో కాచుకొనియున్నాము..."</em></p>
+            
+            <p><strong>స్వర్గీయ పౌరసత్వం:</strong></p>
+            <ol>
+                <li><strong>ఆధ్యాత్మిక గుర్తింపు:</strong> మన నిజమైన ఇల్లు స్వర్గంలో ఉంది</li>
+                <li><strong>శాశ్వత దృక్పథం:</strong> భవిష్యత్ ఆశతో జీవించడం</li>
+                <li><strong>ద్వంద్వ వాస్తవికత:</strong> భూమిపై ఉన్నాము కానీ స్వర్గానికి చెందినవారం</li>
+                <li><strong>క్రీస్తు-కేంద్రీకృత:</strong> మన రక్షకుడి తిరుగురాకకు అనుసంధానించబడింది</li>
+            </ol>
+            
+            <p><strong>ఫిలిప్పీయులకు 3:17-21 లో సందర్భం:</strong></p>
+            <ul>
+                <li>పౌలు భౌమిక-మనస్కులను మరియు స్వర్గీయ-మనస్కులను పోల్చాడు</li>
+                <li>సిలువకు శత్రువులు భౌమిక కోరికలను కలిగి ఉంటారు</li>
+                <li>విశ్వాసుల పౌరసత్వం స్వర్గంలో ఉంటుంది</li>
+                <li>మనం స్వర్గం నుండి యేసు తిరుగురాక కోసం ఎదురు చూస్తున్నాము</li>
+                <li>ఆయన మన భౌమిక శరీరాలను రూపాంతరం చేస్తాడు</li>
+            </ul>
+            
+            <p><strong>"స్వర్గంలో పౌరసత్వం" అంటే ఏమిటి:</strong></p>
+            <ul>
+                <li><strong>చట్టపరమైన స్థితి:</strong> మనం స్వర్గం నమోదిత పౌరులం</li>
+                <li><strong>నమ్మకదారితనం:</strong> మన అంతిమ విధేయత స్వర్గానికి</li>
+                <li><strong>హక్కులు & ప్రత్యేక హక్కులు:</strong> స్వర్గీయ ఆశీర్వాదాలకు ప్రాప్యత</li>
+                <li><strong>బాధ్యతలు:</strong> భూమిపై స్వర్గానికి ప్రతినిధిగా ఉండటం</li>
+                <li><strong>రక్షణ:</strong> స్వర్గం అధికార పరిధి మరియు సంరక్షణలో</li>
+            </ul>
+            
+            <p><strong>పౌరసత్వం యొక్క బైబిల్ ప్రాముఖ్యత:</strong></p>
+            <ul>
+                <li><strong>రోమన్ సందర్భం:</strong> పౌలు రోమన్ కాలనీకి వ్రాసాడు, ఇక్కడ పౌరసత్వం విలువైనది</li>
+                <li><strong>స్వర్గీయ ప్రత్యేక హక్కులు:</strong> రోమన్ పౌరసత్వ హక్కుల కంటే మెరుగైనవి</li>
+                <li><strong>శాశ్వత భద్రత:</strong> రద్దు చేయలేము లేదా కోల్పోలేము</li>
+                <li><strong>గుర్తింపు మార్కర్:</strong> మనం నిజంగా ఎవరో నిర్వచిస్తుంది</li>
+            </ul>
+            
+            <p><strong>విశ్వాసులకు ప్రాయోగిక అంతర్గతాలు:</strong></p>
+            <ul>
+                <li><strong>విభిన్న విలువలు:</strong> భూమి ప్రమాణాలు కాకుండా స్వర్గం ప్రమాణాల ప్రకారం జీవించండి</li>
+                <li><strong>శాశ్వత దృక్పథం:</strong> తాత్కాలిక ఇబ్బందులు vs శాశ్వత మహిమ</li>
+                <li><strong>మిషన్ మనస్తత్వం:</strong> మనం స్వర్గానికి రాయబారులం</li>
+                <li><strong>బాధలో ఆశ:</strong> ఈ ప్రపంచం మన అంతిమ ఇల్లు కాదు</li>
+                <li><strong>శుద్ధ జీవితం:</strong> మన స్వర్గీయ రాజును బాగా ప్రతిబింబించండి</li>
+            </ul>
+            
+            <p><strong>ఆతురతతో ఎదురు చూడడం:</strong></p>
+            <ul>
+                <li><strong>రక్షకుడి తిరుగురాక:</strong> స్వర్గం నుండి యేసు కోసం ఎదురు చూడటం</li>
+                <li><strong>రూపాంతరం:</strong> ఆయన మన శరీరాలను మారుస్తాడు</li>
+                <li><strong>మహిమీకరణ:</strong> ఆయన మహిమమయ శరీరం వలె చేయబడతాం</li>
+                <li><strong>అంతిమ విమోచన:</strong> ఆయన రాకడ వద్ద పూర్తి రక్షణ</li>
+            </ul>
+            
+            <p><strong>భౌమిక-మనస్తత్వంతో వ్యతిరేకత:</strong></p>
+            <ul>
+                <li><strong>సిలువకు శత్రువులు:</strong> భౌమిక విషయాలపై దృష్టి సారించండి</li>
+                <li><strong>వారి విధి:</strong> నాశనం</li>
+                <li><strong>వారి దేవుడు:</strong> వారి కడుపు (ఆకలి)</li>
+                <li><strong>వారి మహిమ:</strong> వారి అపమానం</li>
+                <li><strong>వారి మనస్సు:</strong> భౌమిక విషయాలపై</li>
+            </ul>
+            
+            <p><strong>ఆధునిక అనువర్తనాలు:</strong></p>
+            <ul>
+                <li><strong>సాంస్కృతిక నిశ్చితార్థం:</strong> ప్రపంచంలో ఉన్నాము కానీ దానికి చెందినవారం కాదు</li>
+                <li><strong>రాజకీయ విధేయత:</strong> దేవుని రాజ్యానికి అంతిమ నమ్మకదారితనం</li>
+                <li><strong>భౌతిక సంపద:</strong> తాత్కాలిక స్టీవర్డ్షిప్, యాజమాన్యం కాదు</li>
+                <li><strong>సామాజిక గుర్తింపు:</strong> సామాజిక స్థితి ద్వారా కాకుండా క్రీస్తు ద్వారా నిర్వచించబడింది</li>
+                <li><strong>భవిష్యత్ ఆశ:</strong> ప్రస్తుత ప్రాధాన్యతలు మరియు ఎంపికలను రూపొందిస్తుంది</li>
+            </ul>
+            
+            <p><strong>ప్రధాన అంశం:</strong> మన స్వర్గీయ పౌరసత్వం భూమిపై మనం ఎలా జీవిస్తామో మారుస్తుంది - మనం మన నిజమైన స్వదేశానికి ప్రతినిధిగా రాయబారులం అవుతాము, మన శాశ్వత గమ్యస్థానాన్ని ప్రతిబిం�బించే విలువలు మరియు ప్రాధాన్యతలతో జీవిస్తాము, తాత్కాలిక భౌమిక అస్తిత్వం కాకుండా, మనం మన శాశ్వత ఇంటికి తీసుకెళ్లే మన రక్షకుడి తిరుగురాక కోసం ఆతురతగా ఎదురు చూస్తున్నాము.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(1)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(1)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "jfqE4FsOuMw";
+            const commentText = `నేను స్వర్గీయ పౌరసత్వం క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరైన సమాధానం ఇచ్చాను ✓" : "నా సమాధానం: " + userAnswer + " ✗"}\nసరైన సమాధానం: స్వర్గములో (ఫిలిప్పీయులకు 3:20)\nప్రధాన సత్యాలు:\n- మన పౌరసత్వం స్వర్గంలో ఉంది\n- మనం అక్కడ నుండి యేసు తిరుగురాక కోసం ఎదురు చూస్తున్నాము\n- ఆయన మన శరీరాలను మారుస్తాడు\n- మనం భూమిపై స్వర్గీయ రాయబారులం\nమీ పౌరసత్వం స్వర్గంలో ఉందని తెలుసుకోవడం మీరు ఈరోజు ఎలా జీవిస్తారో ఎలా మారుస్తుంది?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // For YouTube Shorts, we open the video and suggest commenting
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Store comment in localStorage for easy copy-paste
+            localStorage.setItem('quizComment', commentText);
+            
+            setTimeout(() => {
+                alert("కామెంట్ సూచన కాపీ చేయబడింది! దయచేసి దానిని యూట్యూబ్ కామెంట్లలో పేస్ట్ చేయండి.\n\nస్వర్గీయ పౌరసత్వం భౌమిక జీవనానికి మనకు శాశ్వత దృక్పథాన్ని ఇస్తుంది!");
+            }, 1000);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>

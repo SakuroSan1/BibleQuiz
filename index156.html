@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Quiz: Our Citizenship is in Heaven</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://exodus90.com/wp-content/uploads/2023/09/prayer.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>BIBLE QUIZ: OUR CITIZENSHIP IS IN HEAVEN</h1>
+        <div class="bible-ref">Philippians 3:20</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://www.shutterstock.com/image-photo/thousands-people-flying-earth-heaven-260nw-2671029207.jpg" alt="Our Citizenship is in Heaven" class="quiz-image">
+        
+        <div class="question">According to Philippians 3:20, our citizenship is in ______.</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">Heaven</div>
+            <div class="option" onclick="checkAnswer(this, false)">Jerusalem</div>
+            <div class="option" onclick="checkAnswer(this, false)">The Church</div>
+            <div class="option" onclick="checkAnswer(this, false)">God's Kingdom</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>Correct Answer:</strong> Heaven (Philippians 3:20)</p>
+            
+            <p><strong>Philippians 3:20 (NIV):</strong> <em>"But our citizenship is in heaven. And we eagerly await a Savior from there, the Lord Jesus Christ..."</em></p>
+            
+            <p><strong>Heavenly Citizenship:</strong></p>
+            <ol>
+                <li><strong>Spiritual Identity:</strong> Our true home is in heaven</li>
+                <li><strong>Eternal Perspective:</strong> Living with future hope</li>
+                <li><strong>Dual Reality:</strong> On earth but belonging to heaven</li>
+                <li><strong>Christ-Centered:</strong> Connected to our Savior's return</li>
+            </ol>
+            
+            <p><strong>Context in Philippians 3:17-21:</strong></p>
+            <ul>
+                <li>Paul contrasts earthly-minded and heavenly-minded people</li>
+                <li>Enemies of the cross have earthly desires</li>
+                <li>Believers' citizenship is in heaven</li>
+                <li>We await Jesus' return from heaven</li>
+                <li>He will transform our earthly bodies</li>
+            </ul>
+            
+            <p><strong>What "Citizenship in Heaven" Means:</strong></p>
+            <ul>
+                <li><strong>Legal Status:</strong> We are registered citizens of heaven</li>
+                <li><strong>Loyalty:</strong> Our ultimate allegiance is to heaven</li>
+                <li><strong>Rights & Privileges:</strong> Access to heavenly blessings</li>
+                <li><strong>Responsibilities:</strong> Representing heaven on earth</li>
+                <li><strong>Protection:</strong> Under heaven's jurisdiction and care</li>
+            </ul>
+            
+            <p><strong>Biblical Significance of Citizenship:</strong></p>
+            <ul>
+                <li><strong>Roman Context:</strong> Paul wrote to Roman colony where citizenship was prized</li>
+                <li><strong>Heavenly Privileges:</strong> Better than Roman citizenship rights</li>
+                <li><strong>Eternal Security:</strong> Cannot be revoked or lost</li>
+                <li><strong>Identity Marker:</strong> Defines who we truly are</li>
+            </ul>
+            
+            <p><strong>Practical Implications for Believers:</strong></p>
+            <ul>
+                <li><strong>Different Values:</strong> Live by heaven's standards, not earth's</li>
+                <li><strong>Eternal Perspective:</strong> Temporary troubles vs eternal glory</li>
+                <li><strong>Mission Mindset:</strong> We are ambassadors for heaven</li>
+                <li><strong>Hope in Suffering:</strong> This world is not our final home</li>
+                <li><strong>Pure Living:</strong> Represent our heavenly King well</li>
+            </ul>
+            
+            <p><strong>The Eager Expectation:</strong></p>
+            <ul>
+                <li><strong>Savior's Return:</strong> Waiting for Jesus from heaven</li>
+                <li><strong>Transformation:</strong> He will change our bodies</li>
+                <li><strong>Glorification:</strong> Made like His glorious body</li>
+                <li><strong>Final Redemption:</strong> Complete salvation at His coming</li>
+            </ul>
+            
+            <p><strong>Contrast with Earthly Mindedness:</strong></p>
+            <ul>
+                <li><strong>Enemies of Cross:</strong> Focus on earthly things</li>
+                <li><strong>Their Destiny:</strong> Destruction</li>
+                <li><strong>Their God:</strong> Their stomach (appetites)</li>
+                <li><strong>Their Glory:</strong> Their shame</li>
+                <li><strong>Their Mind:</strong> On earthly things</li>
+            </ul>
+            
+            <p><strong>Modern Applications:</strong></p>
+            <ul>
+                <li><strong>Cultural Engagement:</strong> In the world but not of it</li>
+                <li><strong>Political Allegiance:</strong> Ultimate loyalty to God's kingdom</li>
+                <li><strong>Material Possessions:</strong> Temporary stewardship, not ownership</li>
+                <li><strong>Social Identity:</strong> Defined by Christ, not social status</li>
+                <li><strong>Future Hope:</strong> Shapes present priorities and choices</li>
+            </ul>
+            
+            <p><strong>Key Insight:</strong> Our heavenly citizenship transforms how we live on earth - we become ambassadors representing our true homeland, living with values and priorities that reflect our eternal destination rather than temporary earthly existence, all while eagerly awaiting our Savior's return to take us to our permanent home.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">Participate in Quiz</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(1)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(1)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "nW_G3a-9K0E";
+            const commentText = `I took the Heavenly Citizenship Quiz! ${isCorrect ? "I got it right ✓" : "My answer was: " + userAnswer + " ✗"}\nThe correct answer is: Heaven (Philippians 3:20)\nKey Truths:\n- Our citizenship is in heaven\n- We await Jesus' return from there\n- He will transform our bodies\n- We are heavenly ambassadors on earth\nHow does knowing your citizenship is in heaven change how you live today?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // For YouTube Shorts, we open the video and suggest commenting
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Store comment in localStorage for easy copy-paste
+            localStorage.setItem('quizComment', commentText);
+            
+            setTimeout(() => {
+                alert("Comment suggestion copied! Paste it in the YouTube comments.\n\nHeavenly citizenship gives us eternal perspective for earthly living!");
+            }, 1000);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
