@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: ప్రతి మోకాలు మోపవలెను</title>
+    <style>
+        body {
+            font-family: 'Gautami', sans-serif;
+            background: url('https://i0.wp.com/www.cruciformcoc.com/wp-content/uploads/2019/05/Cross.jpg?fit=1000%2C1000&ssl=1') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: ప్రతి మోకాలు మోపవలెను</h1>
+        <div class="bible-ref">ఫిలిప్పీయులకు 2:10-11</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://i.swncdn.com/media/950w/via/10962-istockgetty-images-plusnatalimis.jpg" alt="ప్రతి మోకాలు మోపవలెను" class="quiz-image">
+        
+        <div class="question">ఫిలిప్పీయులకు 2:10-11 ప్రకారం, యేసు నామమునకు స్వర్గమందును, భూమియందును, భూమి క్రిందను ఉన్న ప్రతి మోకాలు మోపవలెను, ప్రతి నాలుకయు యేసు క్రీస్తు ______ అని ఒప్పుకొనవలెను.</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, false)">రక్షకుడు</div>
+            <div class="option" onclick="checkAnswer(this, true)">ప్రభువు</div>
+            <div class="option" onclick="checkAnswer(this, false)">రాజు</div>
+            <div class="option" onclick="checkAnswer(this, false)">మెస్సీయ</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> ప్రభువు (ఫిలిప్పీయులకు 2:10-11)</p>
+            
+            <p><strong>ఫిలిప్పీయులకు 2:10-11:</strong> <em>"యేసు నామమునకు స్వర్గమందును, భూమియందును, భూమి క్రిందను ఉన్న ప్రతి మోకాలు మోపవలెను, ప్రతి నాలుకయు యేసు క్రీస్తు ప్రభువని ఒప్పుకొని దేవుడైన తండ్రికి మహిమ కలిగించవలెను."</em></p>
+            
+            <p><strong>క్రీస్తు యొక్క సార్వత్రిక ప్రభుత్వం:</strong></p>
+            <ol>
+                <li><strong>విశ్వవ్యాప్త అధికారం:</strong> సమస్త సృష్టి ఆయన ప్రభుత్వాన్ని అంగీకరిస్తుంది</li>
+                <li><strong>స్వేచ్ఛా & బలవంతపు ఆరాధన:</strong> కొందరు స్వేచ్ఛగా మోకాలిల్లుతారు, మరికొందరు బలవంతంగా</li>
+                <li><strong>దైవిక మహిమ:</strong> దేవుడు తండ్రికి మహిమను తెస్తుంది</li>
+                <li><strong>భవిష్యవాణీ నెరవేర్పు:</strong> యెషయా భవిష్యవాణిని నెరవేరుస్తుంది</li>
+            </ol>
+            
+            <p><strong>ఫిలిప్పీయులకు 2:5-11 లో సందర్భం:</strong></p>
+            <ul>
+                <li>క్రీస్తు వినమ్రత మరియు అవతారం</li>
+                <li>సిలువ మరణం వరకు ఆయన విధేయత</li>
+                <li>దేవుడు ఆయనను అత్యున్నత స్థానానికి ఎత్తాడు</li>
+                <li>ప్రతి పేరు కంటే ఉన్నతమైన పేరు ఇవ్వబడింది</li>
+                <li>సార్వత్రిక ఆరాధన మరియు అంగీకారం</li>
+                <li>దేవుడు తండ్రికి అంతిమ మహిమ</li>
+            </ul>
+            
+            <p><strong>ఆరాధన యొక్క మూడు రంగాలు:</strong></p>
+            <ul>
+                <li><strong>స్వర్గం:</strong> దేవదూతలు మరియు స్వర్గీయ జీవులు</li>
+                <li><strong>భూమి:</strong> అన్ని జీవించే మానవులు</li>
+                <li><strong>భూమి క్రింద:</strong> దయ్యాలు మరియు గతించిన ఆత్మలు</li>
+                <li><strong>సార్వత్రిక పరిధి:</strong> మినహాయింపులు లేవు, అందరూ మోకాలిల్లాలి</li>
+            </ul>
+            
+            <p><strong>"ప్రభువు" (క్యూరియోస్) యొక్క ప్రాముఖ్యత:</strong></p>
+            <ul>
+                <li><strong>దైవిక శీర్షిక:</strong> గ్రీకు పాత నిబంధనలో యెహోవా కోసం ఉపయోగించబడింది</li>
+                <li><strong>సామ్రాజ్య సందర్భం:</strong> రోమన్ ప్రపంచంలో సీజర్ను "ప్రభువు" అని పిలిచేవారు</li>
+                <li><strong>క్రైస్తవ అంగీకారం:</strong> ప్రారంభ క్రైస్తవ సిద్ధాంతం "యేసు ప్రభువు"</li>
+                <li><strong>సంపూర్ణ అధికారం:</strong> సమస్త సృష్టిపై సర్వోన్నత పాలకుడు</li>
+            </ul>
+            
+            <p><strong>పాత నిబంధన నెరవేర్పు:</strong></p>
+            <ul>
+                <li><strong>యెషయా 45:23:</strong> "నా ముందు ప్రతి మోకాలు మోపును"</li>
+                <li><strong>యేసుకు వర్తింపజేయబడింది:</strong> యెహోవా తనకోసం దావా చేసినది, యేసు పొందుతాడు</li>
+                <li><strong>దైవిక సమానత్వం:</strong> యేసు తండ్రితో దైవిక గౌరవాలను పంచుకుంటాడు</li>
+                <li><strong>భవిష్యవాణీ నిర్ధారణ:</strong> పాత నిబంధన క్రీస్తు ప్రభుత్వాన్ని సూచిస్తుంది</li>
+            </ul>
+            
+            <p><strong>విశ్వాసులకు ప్రాయోగిక అంతర్గతాలు:</strong></p>
+            <ul>
+                <li><strong>ప్రస్తుత సమర్పణ:</strong> మనం ఇప్పుడు స్వేచ్ఛగా మోకాలిల్లుతాము</li>
+                <li><strong>సువార్త ప్రచార త్వరితత్వం:</strong> ఇతరులు చివరికి మోకాలిల్లుతారు</li>
+                <li><strong>ఆరాధన జీవనశైలి:</strong> జీవితంలోని ప్రతి ప్రాంతం ఆయన ప్రభుత్వంలో</li>
+                <li><strong>సాక్ష్యంలో ధైర్యం:</strong> క్రీస్తు అంతిమ విజయం ఖచ్చితం</li>
+                <li><strong>ఛద్దివేదనలో ఆశ:</strong> శత్రువులు కూడా ఆయనను అంగీకరిస్తారు</li>
+            </ul>
+            
+            <p><strong>వేదాంత ప్రాముఖ్యత:</strong></p>
+            <ul>
+                <li><strong>క్రీస్తు దేవత్వం:</strong> దేవుడు మాత్రమే అలాంటి ఆరాధనను పొందుతాడు</li>
+                <li><strong>త్రియేక దేవుని మహిమ:</strong> కుమారుని ఉన్నతీకరణ తండ్రిని మహిమపరుస్తుంది</li>
+                <li><strong>అంతిమ నిశ్చితత్వం:</strong> అంతిమ విజయం హామీ ఇవ్వబడింది</li>
+                <li><strong>రక్షణాత్మక అవసరం:</strong> రక్షణ కోసం అంగీకారం అత్యవసరం (రోమీయులు 10:9)</li>
+            </ul>
+            
+            <p><strong>ఆధునిక అనువర్తనాలు:</strong></p>
+            <ul>
+                <li><strong>సాంస్కృతిక నిశ్చితార్థం:</strong> అన్ని రంగాలపై క్రీస్తు ప్రభుత్వం</li>
+                <li><strong>వ్యక్తిగత భక్తి:</strong> ఆయన అధికారానికి రోజువారీ సమర్పణ</li>
+                <li><strong>సామూహిక ఆరాధన:</strong> ఆయనను ప్రభువుగా గౌరవించడానికి సమావేశం</li>
+                <li><strong>నైతిక జీవితం:</strong> ఆయన ప్రభుత్వంలో నైతిక నిర్ణయాలు</li>
+                <li><strong>శాశ్వత దృక్పథం:</strong> అంతిమ తీర్పు వెలుగులో జీవించడం</li>
+            </ul>
+            
+            <p><strong>ప్రధాన అంశం:</strong> యేసును ప్రభువుగా సార్వత్రిక అంగీకారం దేవుని విమోచన ప్రణాళిక యొక్క పరాకాష్టను సూచిస్తుంది - సిలువపై క్రీస్తు అంతిమ అవమానం నుండి ఆయన సర్వోన్నత ఉన్నతీకరణ వరకు, ప్రతి జీవి స్వేచ్ఛగా లేదా అస్వేచ్ఛగా ఆయన సంపూర్ణ సార్వభౌమాధికారాన్ని అంగీకరిస్తుంది, ఈ గొప్ప రక్షణను నిర్వహించిన దేవుడు తండ్రికి అంతిమ మహిమను తెస్తుంది.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(2)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(2)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "OfO6lTNtAzI";
+            const commentText = `నేను "ప్రతి మోకాలు మోపవలెను" క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరైన సమాధానం ఇచ్చాను ✓" : "నా సమాధానం: " + userAnswer + " ✗"}\nసరైన సమాధానం: ప్రభువు (ఫిలిప్పీయులకు 2:10-11)\nప్రధాన సత్యాలు:\n- ప్రతి మోకాలు యేసుకు మోపుతుంది\n- ప్రతి నాలుక ఆయన ప్రభువని ఒప్పుకుంటుంది\n- సమస్త సృష్టి నుండి సార్వత్రిక ఆరాధన\n- దేవుడు తండ్రికి మహిమను తెస్తుంది\nసమస్త సృష్టి యేసును ఆరాధిస్తుందని తెలుసుకోవడం మీ రోజువారీ జీవితాన్ని ఎలా ప్రభావితం చేస్తుంది?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // For YouTube Shorts, we open the video and suggest commenting
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Store comment in localStorage for easy copy-paste
+            localStorage.setItem('quizComment', commentText);
+            
+            setTimeout(() => {
+                alert("కామెంట్ సూచన కాపీ చేయబడింది! దయచేసి దానిని యూట్యూబ్ కామెంట్లలో పేస్ట్ చేయండి.\n\nక్రీస్తు సార్వత్రిక ప్రభుత్వం ప్రతి జీవి చివరికి ఆయన సార్వభౌమాధికారాన్ని అంగీకరిస్తుందని హామీ ఇస్తుంది!");
+            }, 1000);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
