@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: క్రీస్తు కోసం శ్రమపడే సదుపాయం</title>
+    <style>
+        body {
+            font-family: 'Gautami', sans-serif;
+            background: url('https://i0.wp.com/www.cruciformcoc.com/wp-content/uploads/2019/05/Cross.jpg?fit=1000%2C1000&ssl=1') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: క్రీస్తు కోసం శ్రమపడే సదుపాయం</h1>
+        <div class="bible-ref">ఫిలిప్పీయులకు 1:29</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://www.joshua1.com/cdn/shop/articles/shutterstock_2137637503.jpg?v=1652805967" alt="క్రీస్తు కోసం శ్రమపడుట" class="quiz-image">
+        
+        <div class="question">ఫిలిప్పీయులకు 1:29 ప్రకారం, క్రీస్తునందు విశ్వాసముంచుటమాత్రమే గాక ఆయన పక్షమున ______ ఆయన పక్షమున మీకు అనుగ్రహింపబడెను.</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, false)">సేవ చేయుట</div>
+            <div class="option" onclick="checkAnswer(this, true)">శ్రమపడుట</div>
+            <div class="option" onclick="checkAnswer(this, false)">ప్రార్థించుట</div>
+            <div class="option" onclick="checkAnswer(this, false)">పని చేయుట</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> శ్రమపడుట (ఫిలిప్పీయులకు 1:29)</p>
+            
+            <p><strong>ఫిలిప్పీయులకు 1:29:</strong> <em>"క్రీస్తునందు విశ్వాసముంచుటమాత్రమే గాక ఆయన పక్షమున శ్రమపడుటయు ఆయన పక్షమున మీకు అనుగ్రహింపబడెను."</em></p>
+            
+            <p><strong>శ్రమ యొక్క దైవిక మంజూరు:</strong></p>
+            <ol>
+                <li><strong>ద్వంద్వ బహుమానం:</strong> విశ్వాసం మరియు శ్రమ రెండూ దేవునిచే మంజూరు చేయబడ్డాయి</li>
+                <li><strong>క్రీస్తు-కేంద్రీకృతం:</strong> శ్రమ ప్రత్యేకంగా క్రీస్తు కోసం</li>
+                <li><strong>సదుపాయం దృక్పథం:</strong> శ్రమ శాపం కాదు, బహుమానం</li>
+                <li><strong>క్రీస్తుతో గుర్తింపు:</strong> ఆయన యాతనలలో భాగస్వామ్యం</li>
+            </ol>
+            
+            <p><strong>ఫిలిప్పీయులకు 1:27-30 లో సందర్భం:</strong></p>
+            <ul>
+                <li>వ్యతిరేకత ఉన్నప్పటికీ సువార్తకు తగినట్లుగా జీవించడానికి పిలుపు</li>
+                <li>ఒకే ఆత్మలో నిలబడి విశ్వాసం కోసం పోరాడటం</li>
+                <li>మిమ్మల్ని వ్యతిరేకించేవారి నుండి భయపడకూడదు</li>
+                <li>విశ్వాసులకు రక్షణకు సాక్ష్యంగా మరియు ప్రత్యర్థులకు నిందలకు శ్రమ</li>
+                <li>ఫిలిప్పీయులు పౌలులో చూసిన మరియు ఇప్పుడు అతని గురించి విన్న అదే పోరాటం</li>
+            </ul>
+            
+            <p><strong>"అనుగ్రహింపబడెను" (ఎచరిస్తే) అంటే ఏమిటి:</strong></p>
+            <ul>
+                <li><strong>దైవిక బహుమానం:</strong> "కృప" (చారిస్) అనే పదం నుండి వచ్చింది</li>
+                <li><strong>సదుపాయం భాష:</strong> రాజకీయ అనుకూల్యాలు మరియు గౌరవాలకు ఉపయోగించబడింది</li>
+                <li><strong>శిక్ష కాదు:</strong> శాపంగా కాకుండా ఆశీర్వాదంగా ఫ్రేమ్ చేయబడింది</li>
+                <li><strong>ఉద్దేశ్యపూర్వక శ్రమ:</strong> అర్థం మరియు దైవిక ఉద్దేశ్యం ఉంది</li>
+            </ul>
+            
+            <p><strong>రెండు రకాల మంజూరు:</strong></p>
+            <ul>
+                <li><strong>విశ్వసించడం:</strong> విశ్వాసం స్వయంగా దేవుని బహుమానం (ఎఫెసీయులకు 2:8-9)</li>
+                <li><strong>శ్రమపడడం:</strong> క్రీస్తు పేరు కోసం ఛద్దివేదన మరియు కష్టాలు</li>
+                <li><strong>కనెక్ట్ అయిన అనుభవం:</strong> నిజమైన విశ్వాసం తరచుగా శ్రమకు దారి తీస్తుంది</li>
+                <li><strong>పూర్తి ప్యాకేజీ:</strong> రెండూ క్రైస్తవ పిలుపులో భాగం</li>
+            </ul>
+            
+            <p><strong>శ్రమ యొక్క బైబిల్ వేదాంతం:</strong></p>
+            <ul>
+                <li><strong>క్రీస్తు ఉదాహరణ:</strong> ఆయన మొదట శ్రమపడ్డాడు (1 పేతురు 2:21)</li>
+                <li><strong>అపోస్తలుల నమూనా:</strong> అన్ని అపోస్తలులు క్రీస్తు కోసం శ్రమపడ్డారు</li>
+                <li><strong>క్రీస్తుతో భాగస్వామ్యం:</strong> ఆయన యాతనలలో భాగస్వామ్యం (ఫిలిప్పీయులకు 3:10)</li>
+                <li><strong>సువార్త ముందుకు సాగడం:</strong> శ్రమ తరచుగా సువార్త వ్యాప్తితో కలిసి ఉంటుంది</li>
+                <li><strong>భవిష్యత్ మహిమ:</strong> ప్రస్తుత శ్రమ vs శాశ్వత మహిమ (రోమీయులు 8:18)</li>
+            </ul>
+            
+            <p><strong>విశ్వాసులకు ప్రాయోగిక అంతర్గతాలు:</strong></p>
+            <ul>
+                <li><strong>మారిన దృక్పథం:</strong> శ్రమను శిక్షగా కాకుండా సదుపాయంగా చూడండి</li>
+                <li><strong>సాక్ష్యంలో ధైర్యం:</strong> క్రీస్తు కోసం వ్యతిరేకతను ఎదుర్కోవడానికి సంసిద్ధత</li>
+                <li><strong>క్రీస్తుతో గుర్తింపు:</strong> పంచుకున్న శ్రమ ద్వారా లోతైన ఐక్యత</li>
+                <li><strong>శాశ్వత దృక్పథం:</strong> తాత్కాలిక శ్రమ vs శాశ్వత బహుమానం</li>
+                <li><strong>సామాజిక మద్దతు:</strong> ఛద్దివేదనలో కలిసి నిలబడటం</li>
+            </ul>
+            
+            <p><strong>ఆధునిక అనువర్తనాలు:</strong></p>
+            <ul>
+                <li><strong>మత స్వేచ్ఛ సమస్యలు:</strong> క్రైస్తవత్వాన్ని వ్యతిరేకించే చోట నిలబడటం</li>
+                <li><strong>సామాజిక ఒత్తిడి:</strong> లౌకిక సంస్కృతిలో బైబిల్ విలువలను నిర్వహించడం</li>
+                <li><strong>కార్యాలయ సాక్ష్యం:</strong> క్రైస్తవ సూత్రాల కోసం వివక్షను ఎదుర్కోవడం</li>
+                <li><strong>కుటుంబ వ్యతిరేకత:</strong> కుటుంబం విశ్వాసాన్ని తిరస్కరించినప్పుడు ఓర్పు</li>
+                <li><strong>వ్యక్తిగత త్యాగం:</strong> సువార్త మినిస్ట్రీ కోసం సౌకర్యాలను వదులుకోవడం</li>
+            </ul>
+            
+            <p><strong>క్రైస్తవ శ్రమ యొక్క విరోధాభాసం:</strong></p>
+            <ul>
+                <li><strong>బలహీనతలో బలం:</strong> మన బలహీనతలో దేవుని శక్తి పరిపూర్ణమైంది</li>
+                <li><strong>దుఃఖంలో ఆనందం:</strong> ఛద్దివేదన మధ్యలో ఆనందించడం (అపో. 5:41)</li>
+                <li><strong>మరణం ద్వారా జీవితం:</strong> స్వయంగా చనిపోవడం నిజమైన జీవితాన్ని తెస్తుంది</li>
+                <li><strong>అపమానం ద్వారా గౌరవం:</strong> క్రీస్తు పేరు కోసం అవమానాన్ని మోయడం</li>
+            </ul>
+            
+            <p><strong>ప్రధాన అంశం:</strong> క్రైస్తవ శ్రమ అర్థంలేని దురదృష్టం కాదు, కానీ క్రీస్తుతో మన గుర్తింపును లోతుగా చేసే, మన విశ్వాసాన్ని బలపరిచే, సువార్తను ముందుకు తీసుకెళ్లే మరియు శాశ్వత మహిమ కోసం మనల్ని సిద్ధం చేసే దేవుని నుండి వచ్చే కృపాబహుమానం. ఇది మన నిజమైన విశ్వాసాన్ని నిర్ధారించే ఆశ్చర్యకరమైన సదుపాయం మరియు క్రీస్తు పేరుతో శ్రమపడిన చరిత్రలోని విశ్వాసులందరితో మనల్ని ఏకం చేస్తుంది.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(2)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(2)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "3SmAzBfRuJ0";
+            const commentText = `నేను క్రీస్తు కోసం శ్రమపడే క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరైన సమాధానం ఇచ్చాను ✓" : "నా సమాధానం: " + userAnswer + " ✗"}\nసరైన సమాధానం: శ్రమపడుట (ఫిలిప్పీయులకు 1:29)\nప్రధాన సత్యాలు:\n- క్రీస్తు కోసం శ్రమపడడం బహుమానంగా మంజూరు చేయబడింది\n- విశ్వాసం మరియు శ్రమ రెండూ దేవుని నుండి వస్తాయి\n- శ్రమ మనల్ని క్రీస్తుతో గుర్తించేలా చేస్తుంది\n- ఇది శిక్ష కాదు, సదుపాయం\nశ్రమను బహుమానంగా అర్థం చేసుకోవడం కష్టాలపై మీ దృక్పథాన్ని ఎలా మార్చింది?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // For YouTube Shorts, we open the video and suggest commenting
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Store comment in localStorage for easy copy-paste
+            localStorage.setItem('quizComment', commentText);
+            
+            setTimeout(() => {
+                alert("కామెంట్ సూచన కాపీ చేయబడింది! దయచేసి దానిని యూట్యూబ్ కామెంట్లలో పేస్ట్ చేయండి.\n\nక్రీస్తు కోసం శ్రమపడడం మనలో ఆయనతో ఐక్యతను లోతుగా చేసే దైవిక బహుమానం!");
+            }, 1000);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>

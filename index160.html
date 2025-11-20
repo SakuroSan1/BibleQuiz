@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Quiz: The Privilege of Suffering for Christ</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://i0.wp.com/www.cruciformcoc.com/wp-content/uploads/2019/05/Cross.jpg?fit=1000%2C1000&ssl=1') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>BIBLE QUIZ: THE PRIVILEGE OF SUFFERING FOR CHRIST</h1>
+        <div class="bible-ref">Philippians 1:29</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://www.joshua1.com/cdn/shop/articles/shutterstock_2137637503.jpg?v=1652805967" alt="Suffering for Christ" class="quiz-image">
+        
+        <div class="question">According to Philippians 1:29, it has been granted to you on behalf of Christ not only to believe in him, but also to ______ for him.</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, false)">Serve</div>
+            <div class="option" onclick="checkAnswer(this, true)">Suffer</div>
+            <div class="option" onclick="checkAnswer(this, false)">Pray</div>
+            <div class="option" onclick="checkAnswer(this, false)">Work</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>Correct Answer:</strong> Suffer (Philippians 1:29)</p>
+            
+            <p><strong>Philippians 1:29 (NIV):</strong> <em>"For it has been granted to you on behalf of Christ not only to believe in him, but also to suffer for him."</em></p>
+            
+            <p><strong>The Divine Grant of Suffering:</strong></p>
+            <ol>
+                <li><strong>Dual Gift:</strong> Both faith and suffering are granted by God</li>
+                <li><strong>Christ-Centered:</strong> Suffering is specifically for Christ's sake</li>
+                <li><strong>Privilege Perspective:</strong> Suffering is a gift, not a curse</li>
+                <li><strong>Identification with Christ:</strong> Shares in His sufferings</li>
+            </ol>
+            
+            <p><strong>Context in Philippians 1:27-30:</strong></p>
+            <ul>
+                <li>Call to live worthy of the gospel despite opposition</li>
+                <li>Standing firm in one spirit contending for the faith</li>
+                <li>Not being frightened by those who oppose you</li>
+                <li>Suffering as evidence of salvation for believers and condemnation for opponents</li>
+                <li>Same struggle the Philippians saw in Paul and now hear about him</li>
+            </ul>
+            
+            <p><strong>What "Granted" (Echaristhē) Means:</strong></p>
+            <ul>
+                <li><strong>Divine Gift:</strong> From the same word as "grace" (charis)</li>
+                <li><strong>Privilege Language:</strong> Used for royal favors and honors</li>
+                <li><strong>Not Punishment:</strong> Framed as a blessing, not a curse</li>
+                <li><strong>Purposeful Suffering:</strong> Has meaning and divine purpose</li>
+            </ul>
+            
+            <p><strong>The Twofold Grant:</strong></p>
+            <ul>
+                <li><strong>To Believe:</strong> Faith itself is God's gift (Ephesians 2:8-9)</li>
+                <li><strong>To Suffer:</strong> Persecution and hardship for Christ's name</li>
+                <li><strong>Connected Experience:</strong> Genuine faith often leads to suffering</li>
+                <li><strong>Complete Package:</strong> Both are part of the Christian calling</li>
+            </ul>
+            
+            <p><strong>Biblical Theology of Suffering:</strong></p>
+            <ul>
+                <li><strong>Christ's Example:</strong> He suffered first (1 Peter 2:21)</li>
+                <li><strong>Apostolic Pattern:</strong> All apostles suffered for Christ</li>
+                <li><strong>Fellowship with Christ:</strong> Sharing in His sufferings (Philippians 3:10)</li>
+                <li><strong>Gospel Advance:</strong> Suffering often accompanies gospel spread</li>
+                <li><strong>Future Glory:</strong> Present suffering vs eternal glory (Romans 8:18)</li>
+            </ul>
+            
+            <p><strong>Practical Implications for Believers:</strong></p>
+            <ul>
+                <li><strong>Changed Perspective:</strong> View suffering as privilege, not punishment</li>
+                <li><strong>Courage in Witness:</strong> Willingness to face opposition for Christ</li>
+                <li><strong>Identification with Christ:</strong> Deeper union through shared suffering</li>
+                <li><strong>Eternal Perspective:</strong> Temporary suffering vs eternal reward</li>
+                <li><strong>Community Support:</strong> Standing together in persecution</li>
+            </ul>
+            
+            <p><strong>Modern Applications:</strong></p>
+            <ul>
+                <li><strong>Religious Freedom Issues:</strong> Standing firm where Christianity is opposed</li>
+                <li><strong>Social Pressure:</strong> Maintaining biblical values in secular culture</li>
+                <li><strong>Workplace Witness:</strong> Facing discrimination for Christian principles</li>
+                <li><strong>Family Opposition:</strong> Persevering when family rejects faith</li>
+                <li><strong>Personal Sacrifice:</strong> Giving up comforts for gospel ministry</li>
+            </ul>
+            
+            <p><strong>The Paradox of Christian Suffering:</strong></p>
+            <ul>
+                <li><strong>Strength in Weakness:</strong> God's power perfected in our weakness</li>
+                <li><strong>Joy in Sorrow:</strong> Rejoicing amid persecution (Acts 5:41)</li>
+                <li><strong>Life through Death:</strong> Dying to self brings true life</li>
+                <li><strong>Honor through Shame:</strong> Bearing disgrace for Christ's name</li>
+            </ul>
+            
+            <p><strong>Key Insight:</strong> Christian suffering is not meaningless misfortune but a gracious gift from God that deepens our identification with Christ, strengthens our faith, advances the gospel, and prepares us for eternal glory. It's the surprising privilege that confirms our genuine faith and unites us with believers throughout history who have suffered for the name of Jesus.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">Participate in Quiz</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(2)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(2)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "3lRARZLG7jw";
+            const commentText = `I took the Suffering for Christ Quiz! ${isCorrect ? "I got it right ✓" : "My answer was: " + userAnswer + " ✗"}\nThe correct answer is: Suffer (Philippians 1:29)\nKey Truths:\n- Suffering for Christ is granted as a gift\n- Both faith and suffering come from God\n- Suffering identifies us with Christ\n- It's a privilege, not a punishment\nHow has understanding suffering as a gift changed your perspective on hardships?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // For YouTube Shorts, we open the video and suggest commenting
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Store comment in localStorage for easy copy-paste
+            localStorage.setItem('quizComment', commentText);
+            
+            setTimeout(() => {
+                alert("Comment suggestion copied! Paste it in the YouTube comments.\n\nSuffering for Christ is a divine gift that deepens our union with Him!");
+            }, 1000);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
