@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Quiz: Shield of Faith</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://thumbs.dreamstime.com/b/armor-god-ephesians-97570992.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>BIBLE QUIZ: SHIELD OF FAITH</h1>
+        <div class="bible-ref">Ephesians 6:16</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://www.gracexstrength.com/wp-content/uploads/2019/10/Screen-Shot-2019-10-30-at-4.51.46-pm.png" alt="Shield of Faith" class="quiz-image">
+        
+        <div class="question">According to Ephesians 6:16, at all times carry faith as your ______ to extinguish all the flaming arrows of the evil one.</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, false)">Sword</div>
+            <div class="option" onclick="checkAnswer(this, true)">Shield</div>
+            <div class="option" onclick="checkAnswer(this, false)">Armor</div>
+            <div class="option" onclick="checkAnswer(this, false)">Helmet</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>Correct Answer:</strong> Shield (Ephesians 6:16)</p>
+            
+            <p><strong>Ephesians 6:16 (NIV):</strong> <em>"In addition to all this, take up the shield of faith, with which you can extinguish all the flaming arrows of the evil one."</em></p>
+            
+            <p><strong>The Shield of Faith:</strong></p>
+            <ol>
+                <li><strong>Defensive Weapon:</strong> Protects against spiritual attacks</li>
+                <li><strong>Active Faith:</strong> Must be taken up and used</li>
+                <li><strong>Complete Protection:</strong> Extinguishes ALL flaming arrows</li>
+                <li><strong>Essential Equipment:</strong> Part of God's full armor</li>
+            </ol>
+            
+            <p><strong>Context in Ephesians 6:10-18:</strong></p>
+            <ul>
+                <li>Paul's description of the full armor of God</li>
+                <li>Spiritual battle against evil forces</li>
+                <li>Six pieces of spiritual armor</li>
+                <li>Shield of faith is the fourth piece mentioned</li>
+                <li>Emphasis on standing firm against devil's schemes</li>
+            </ul>
+            
+            <p><strong>Roman Military Context:</strong></p>
+            <ul>
+                <li><strong>Scutum:</strong> Large rectangular shield used by Roman soldiers</li>
+                <li><strong>Flaming Arrows:</strong> Arrows dipped in pitch and set on fire</li>
+                <li><strong>Protection:</strong> Shield could extinguish arrows and provide cover</li>
+                <li><strong>Turtle Formation:</strong> Soldiers interlocked shields for maximum protection</li>
+            </ul>
+            
+            <p><strong>What "Flaming Arrows" Represent:</strong></p>
+            <ul>
+                <li><strong>Doubts:</strong> Attacks on God's character and promises</li>
+                <li><strong>Temptations:</strong> Enticements to sin and compromise</li>
+                <li><strong>Fear:</strong> Anxiety about future and circumstances</li>
+                <li><strong>Discouragement:</strong> Feelings of failure and hopelessness</li>
+                <li><strong>Accusations:</strong> Condemnation about past sins</li>
+            </ul>
+            
+            <p><strong>How Faith Functions as a Shield:</strong></p>
+            <ul>
+                <li><strong>Trust in God:</strong> Confidence in His character and promises</li>
+                <li><strong>Biblical Truth:</strong> Faith based on God's Word</li>
+                <li><strong>Active Defense:</strong> Must be consciously used</li>
+                <li><strong>Complete Coverage:</strong> Protects entire person from attacks</li>
+                <li><strong>Community Aspect:</strong> Can protect others when used collectively</li>
+            </ul>
+            
+            <p><strong>Practical Applications:</strong></p>
+            <ul>
+                <li><strong>Daily Preparation:</strong> Consciously take up faith each day</li>
+                <li><strong>Scripture Memory:</strong> God's promises as basis for faith</li>
+                <li><strong>Prayer:</strong> Activating faith through communication with God</li>
+                <li><strong>Worship:</strong> Focusing on God's character builds faith</li>
+                <li><strong>Community:</strong> Strengthening faith through fellowship</li>
+            </ul>
+            
+            <p><strong>The Six Pieces of Armor:</strong></p>
+            <ul>
+                <li><strong>Belt of Truth:</strong> God's truth as foundation</li>
+                <li><strong>Breastplate of Righteousness:</strong> Christ's righteousness protecting heart</li>
+                <li><strong>Gospel of Peace:</strong> Readiness to share and stand on gospel</li>
+                <li><strong>Shield of Faith:</strong> Protection against attacks</li>
+                <li><strong>Helmet of Salvation:</strong> Assurance protecting mind</li>
+                <li><strong>Sword of the Spirit:</strong> God's Word as offensive weapon</li>
+            </ul>
+            
+            <p><strong>Modern Spiritual Warfare:</strong></p>
+            <ul>
+                <li><strong>Cultural Pressures:</strong> Faith against secular ideologies</li>
+                <li><strong>Personal Struggles:</strong> Faith in God's goodness amid suffering</li>
+                <li><strong>Relational Conflicts:</strong> Faith for forgiveness and reconciliation</li>
+                <li><strong>Ministry Challenges:</strong> Faith for gospel effectiveness</li>
+                <li><strong>Internal Battles:</strong> Faith against sinful desires and thoughts</li>
+            </ul>
+            
+            <p><strong>Key Insight:</strong> The shield of faith is not passive belief but active trust in God that we must deliberately take up and use to defend against the devil's multifaceted attacks. When wielded effectively, it doesn't just block but completely extinguishes every fiery assault, leaving the enemy powerless against our confident trust in God's character, promises, and power.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">Participate in Quiz</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(2)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(2)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "aXE0vWVWghY";
+            const commentText = `I took the Shield of Faith Quiz! ${isCorrect ? "I got it right ✓" : "My answer was: " + userAnswer + " ✗"}\nThe correct answer is: Shield (Ephesians 6:16)\nKey Truths:\n- Faith is our shield against spiritual attacks\n- It extinguishes all flaming arrows from evil one\n- Must be actively taken up and used\n- Part of God's full armor for spiritual battle\nHow do you use the shield of faith in your daily spiritual battles?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // For YouTube Shorts, we open the video and suggest commenting
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Store comment in localStorage for easy copy-paste
+            localStorage.setItem('quizComment', commentText);
+            
+            setTimeout(() => {
+                alert("Comment suggestion copied! Paste it in the YouTube comments.\n\nThe shield of faith actively protects us from every spiritual attack when we trust in God!");
+            }, 1000);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>

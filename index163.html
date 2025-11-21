@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: విశ్వాసమను డాలు</title>
+    <style>
+        body {
+            font-family: 'Gautami', sans-serif;
+            background: url('https://thumbs.dreamstime.com/b/armor-god-ephesians-97570992.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: విశ్వాసమను డాలు</h1>
+        <div class="bible-ref">ఎఫెసీయులకు 6:16</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://www.gracexstrength.com/wp-content/uploads/2019/10/Screen-Shot-2019-10-30-at-4.51.46-pm.png" alt="విశ్వాసమను డాలు" class="quiz-image">
+        
+        <div class="question">ఎఫెసీయులకు 6:16 ప్రకారం, ఇవన్నియుగాక విశ్వాసమను ______ పట్టుకొనుడి; దానితో మీరు దుష్టుని అగ్నిబాణములన్నిటిని ఆర్పుటకు శక్తిమంతులవుదురు.</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, false)">కత్తి</div>
+            <div class="option" onclick="checkAnswer(this, true)">డాలు</div>
+            <div class="option" onclick="checkAnswer(this, false)">కవచము</div>
+            <div class="option" onclick="checkAnswer(this, false)">శిరస్త్రాణము</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> డాలు (ఎఫెసీయులకు 6:16)</p>
+            
+            <p><strong>ఎఫెసీయులకు 6:16:</strong> <em>"ఇవన్నియుగాక విశ్వాసమను డాలు పట్టుకొనుడి; దానితో మీరు దుష్టుని అగ్నిబాణములన్నిటిని ఆర్పుటకు శక్తిమంతులవుదురు."</em></p>
+            
+            <p><strong>విశ్వాసమను డాలు:</strong></p>
+            <ol>
+                <li><strong>రక్షణ ఆయుధం:</strong> ఆధ్యాత్మిక దాడుల నుండి రక్షిస్తుంది</li>
+                <li><strong>సక్రియ విశ్వాసం:</strong> తీసుకోవాలి మరియు ఉపయోగించాలి</li>
+                <li><strong>సంపూర్ణ రక్షణ:</strong> అన్ని అగ్నిబాణాలను ఆర్పుతుంది</li>
+                <li><strong>అవసరమైన పరికరం:</strong> దేవుని పూర్తి కవచంలో భాగం</li>
+            </ol>
+            
+            <p><strong>ఎఫెసీయులకు 6:10-18 లో సందర్భం:</strong></p>
+            <ul>
+                <li>దేవుని పూర్తి కవచం గురించి పౌలు వివరణ</li>
+                <li>దుష్ట శక్తులకు వ్యతిరేకంగా ఆధ్యాత్మిక యుద్ధం</li>
+                <li>ఆరు ముక్కల ఆధ్యాత్మిక కవచం</li>
+                <li>విశ్వాసమను డాలు ప్రస్తావించబడిన నాల్గవ ముక్క</li>
+                <li>పిశాచం యొక్క పథకాలకు వ్యతిరేకంగా నిలబడటంపై దృష్టి</li>
+            </ul>
+            
+            <p><strong>రోమన్ సైనిక సందర్భం:</strong></p>
+            <ul>
+                <li><strong>స్కుటమ్:</strong> రోమన్ సైనికులు ఉపయోగించే పెద్ద దీర్ఘచతురస్రాకార డాలు</li>
+                <li><strong>అగ్నిబాణాలు:</strong> పిచ్చులో ముంచి నిప్పులో వేసిన బాణాలు</li>
+                <li><strong>రక్షణ:</strong> డాలు బాణాలను ఆర్పగలదు మరియు కవచాన్ని అందించగలదు</li>
+                <li><strong>టర్టిల్ ఫార్మేషన్:</strong> గరిష్ట రక్షణ కోసం సైనికులు డాల్లను ఇంటర్లాక్ చేసారు</li>
+            </ul>
+            
+            <p><strong>"అగ్నిబాణాలు" సూచిస్తున్నది:</strong></p>
+            <ul>
+                <li><strong>సందేహాలు:</strong> దేవుని స్వభావం మరియు వాగ్దానాలపై దాడులు</li>
+                <li><strong>ప్రలోభాలు:</strong> పాపం మరియు రాజీకి ప్రలోభాలు</li>
+                <li><strong>భయం:</strong> భవిష్యత్తు మరియు పరిస్థితుల గురించి ఆందోళన</li>
+                <li><strong>నిరుత్సాహం:</strong> వైఫల్యం మరియు నిరాశ యొక్క భావాలు</li>
+                <li><strong>నిందలు:</strong> గత పాపాల గురించి నింద</li>
+            </ul>
+            
+            <p><strong>విశ్వాసం డాలుగా ఎలా పని చేస్తుంది:</strong></p>
+            <ul>
+                <li><strong>దేవునిపై నమ్మకం:</strong> ఆయన స్వభావం మరియు వాగ్దానాలలో విశ్వాసం</li>
+                <li><strong>బైబిల్ సత్యం:</strong> దేవుని వచనంపై ఆధారపడిన విశ్వాసం</li>
+                <li><strong>సక్రియ రక్షణ:</strong> తప్పనిసరిగా ఉపయోగించాలి</li>
+                <li><strong>సంపూర్ణ కవరేజ్:</strong> దాడుల నుండి మొత్తం వ్యక్తిని రక్షిస్తుంది</li>
+                <li><strong>సామాజిక అంశం:</strong> సామూహికంగా ఉపయోగించినప్పుడు ఇతరులను రక్షించగలదు</li>
+            </ul>
+            
+            <p><strong>ప్రాయోగిక అనువర్తనాలు:</strong></p>
+            <ul>
+                <li><strong>రోజువారీ తయారీ:</strong> ప్రతి రోజు విశ్వాసాన్ని తీసుకోండి</li>
+                <li><strong>లేఖనం జ్ఞాపకార్థం:</strong> విశ్వాసం కోసం ఆధారంగా దేవుని వాగ్దానాలు</li>
+                <li><strong>ప్రార్థన:</strong> దేవునితో సంభాషణ ద్వారా విశ్వాసాన్ని సక్రియం చేయడం</li>
+                <li><strong>ఆరాధన:</strong> దేవుని స్వభావంపై దృష్టి సారించడం విశ్వాసాన్ని నిర్మిస్తుంది</li>
+                <li><strong>సమాజం:</strong> సహవాసం ద్వారా విశ్వాసాన్ని బలపరచడం</li>
+            </ul>
+            
+            <p><strong>కవచం యొక్క ఆరు ముక్కలు:</strong></p>
+            <ul>
+                <li><strong>సత్యపు నడికట్టు:</strong> ఆధారంగా దేవుని సత్యం</li>
+                <li><strong>నీతి యొక్క వక్షస్త్రాణం:</strong> గుండెను రక్షించే క్రీస్తు నీతి</li>
+                <li><strong>సమాధానపు సువార్త:</strong> సువార్తను పంచుకోవడానికి మరియు దానిపై నిలబడటానికి సిద్ధత</li>
+                <li><strong>విశ్వాసమను డాలు:</strong> దాడుల నుండి రక్షణ</li>
+                <li><strong>రక్షణ యొక్క శిరస్త్రాణం:</strong> మనస్సును రక్షించే హామీ</li>
+                <li><strong>ఆత్మ యొక్క కత్తి:</strong> దాడి ఆయుధంగా దేవుని వచనం</li>
+            </ul>
+            
+            <p><strong>ఆధునిక ఆధ్యాత్మిక యుద్ధం:</strong></p>
+            <ul>
+                <li><strong>సాంస్కృతిక ఒత్తిళ్లు:</strong> లౌకిక భావజాలాలకు వ్యతిరేకంగా విశ్వాసం</li>
+                <li><strong>వ్యక్తిగత సంఘర్షణలు:</strong> బాధ మధ్యలో దేవుని మంచితనంలో విశ్వాసం</li>
+                <li><strong>సంబంధ సంఘర్షణలు:</strong> క్షమాపణ మరియు సమాధానం కోసం విశ్వాసం</li>
+                <li><strong>మినిస్ట్రీ సవాళ్లు:</strong> సువార్త ప్రభావం కోసం విశ్వాసం</li>
+                <li><strong>అంతర్గత యుద్ధాలు:</strong> పాపపు కోరికలు మరియు ఆలోచనలకు వ్యతిరేకంగా విశ్వాసం</li>
+            </ul>
+            
+            <p><strong>ప్రధాన అంశం:</strong> విశ్వాసమను డాలు నిష్క్రియ విశ్వాసం కాదు, కానీ దేవునిపై సక్రియ నమ్మకం, మనం ఉద్దేశపూర్వకంగా తీసుకోవాలి మరియు పిశాచం యొక్క బహుముఖ దాడుల నుండి రక్షించడానికి ఉపయోగించాలి. సమర్థవంతంగా ఉపయోగించినప్పుడు, అది నిరోధించదు కానీ ప్రతి అగ్ని దాడిని పూర్తిగా ఆర్పుతుంది, దేవుని స్వభావం, వాగ్దానాలు మరియు శక్తిలో మన నమ్మకంతో శత్రువుని శక్తిహీనంగా చేస్తుంది.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(2)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(2)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "neoCW2K-Lk8";
+            const commentText = `నేను విశ్వాసమను డాలు క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరైన సమాధానం ఇచ్చాను ✓" : "నా సమాధానం: " + userAnswer + " ✗"}\nసరైన సమాధానం: డాలు (ఎఫెసీయులకు 6:16)\nప్రధాన సత్యాలు:\n- విశ్వాసం ఆధ్యాత్మిక దాడుల నుండి మన డాలు\n- ఇది దుష్టుని అన్ని అగ్నిబాణాలను ఆర్పుతుంది\n- తప్పనిసరిగా సక్రియంగా తీసుకోవాలి మరియు ఉపయోగించాలి\n- ఆధ్యాత్మిక యుద్ధం కోసం దేవుని పూర్తి కవచంలో భాగం\nమీరు మీ రోజువారీ ఆధ్యాత్మిక యుద్ధాలలో విశ్వాసమను డాలును ఎలా ఉపయోగిస్తారు?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // For YouTube Shorts, we open the video and suggest commenting
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Store comment in localStorage for easy copy-paste
+            localStorage.setItem('quizComment', commentText);
+            
+            setTimeout(() => {
+                alert("కామెంట్ సూచన కాపీ చేయబడింది! దయచేసి దానిని యూట్యూబ్ కామెంట్లలో పేస్ట్ చేయండి.\n\nవిశ్వాసమను డాలు మనం దేవునిపై నమ్మకం ఉంచినప్పుడు ప్రతి ఆధ్యాత్మిక దాడి నుండి మనల్ని సక్రియంగా రక్షిస్తుంది!");
+            }, 1000);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
