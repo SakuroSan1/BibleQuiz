@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: ఆత్మతో నిండియుండుడి</title>
+    <style>
+        body {
+            font-family: 'Gautami', sans-serif;
+            background: url('https://i0.wp.com/from2005toeternity.wordpress.com/wp-content/uploads/2025/09/power-in-the-presence-of-god.jpg?fit=1200%2C800&ssl=1&w=640') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: ఆత్మతో నిండియుండుడి</h1>
+        <div class="bible-ref">ఎఫెసీయులకు 5:18</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://guideposts.org/wp-content/uploads/2019/03/praying_out_loud-1024x576.jpg.optimal.jpg" alt="ఆత్మతో నిండియుండుడి" class="quiz-image">
+        
+        <div class="question">ఎఫెసీయులకు 5:18 ప్రకారం, ద్రాక్షసారాయముతో మత్తెక్కకుడి, అది అసంయమమునకు దారితీయును; కాని ______తో నిండియుండుడి.</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">పరిశుద్ధాత్మ</div>
+            <div class="option" onclick="checkAnswer(this, false)">దేవుని వచనము</div>
+            <div class="option" onclick="checkAnswer(this, false)">క్రీస్తు ప్రేమ</div>
+            <div class="option" onclick="checkAnswer(this, false)">దేవుని శాంతి</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> పరిశుద్ధాత్మ (ఎఫెసీయులకు 5:18)</p>
+            
+            <p><strong>ఎఫెసీయులకు 5:18:</strong> <em>"ద్రాక్షసారాయముతో మత్తెక్కకుడి, అది అసంయమమునకు దారితీయును; కాని ఆత్మతో నిండియుండుడి."</em></p>
+            
+            <p><strong>దైవిక వ్యతిరేకత:</strong></p>
+            <ol>
+                <li><strong>నెగటివ్ ఆదేశం:</strong> మద్యపాన మత్తును తప్పించుకోండి</li>
+                <li><strong>పాజిటివ్ ఆదేశం:</strong> ఆధ్యాత్మిక పరిపూర్ణతను అనుసరించండి</li>
+                <li><strong>ప్రత్యామ్నాయ నియంత్రణ:</strong> ఆత్మ-నియంత్రణ vs మద్యం-నియంత్రణ</li>
+                <li><strong>విభిన్న ఫలితాలు:</strong> అసంయమం vs నీతి</li>
+            </ol>
+            
+            <p><strong>ఎఫెసీయులకు 5:15-21 లో సందర్భం:</strong></p>
+            <ul>
+                <li>జ్ఞానులుగా జీవించండి, అజ్ఞానులుగా కాదు</li>
+                <li>ప్రతి అవకాశాన్ని ఉత్తమంగా ఉపయోగించుకోండి</li>
+                <li>ప్రభువు ఇచ్ఛ ఏమిటో అర్థం చేసుకోండి</li>
+                <li>వ్యతిరేకత: ద్రాక్షసారాయం మత్తు vs ఆత్మ నిండడం</li>
+                <li>ఆత్మ-నిండిన ఫలితాలు: మాట్లాడటం, పాడటం, కృతజ్ఞత, సమర్పణ</li>
+            </ul>
+            
+            <p><strong>"నిండియుండుడి" అంటే ఏమిటి:</strong></p>
+            <ul>
+                <li><strong>నిరంతర చర్య:</strong> ప్రెజెంట్ ఇంపరేటివ్ - నిండి ఉండండి</li>
+                <li><strong>ప్యాసివ్ వాయిస్:</strong> దేవునిచే నిండబడటానికి అనుమతించండి</li>
+                <li><strong>పూర్తి నియంత్రణ:</strong> మద్యపానం మందుల వ్యక్తిని నియంత్రించినట్లు</li>
+                <li><strong>బహుళ నింపులు:</strong> ఒకసారి సంఘటన కాదు కానీ నిరంతర అనుభవం</li>
+                <li><strong>సామాజిక అంశం:</strong> "మీరు అందరూ" నిండి ఉండండి - సామూహిక అనుభవం</li>
+            </ul>
+            
+            <p><strong>ద్రాక్షసారాయం మరియు ఆత్మ మధ్య వ్యతిరేకత:</strong></p>
+            <ul>
+                <li><strong>ద్రాక్షసారాయం:</strong> నియంత్రణ కోల్పోవడానికి దారితీసే బాహ్య పదార్థం</li>
+                <li><strong>ఆత్మ:</strong> క్రీస్తు వంటి నియంత్రణకు దారితీసే అంతర్గత సాన్నిధ్యం</li>
+                <li><strong>మద్యపాన మత్తు:</strong> అసంయమానికి దారి తీస్తుంది (అసోటియా - అనియంత్రిత జీవితం)</li>
+                <li><strong>ఆత్మ-నిండడం:</strong> ఆరాధన, కృతజ్ఞత, పరస్పర సమర్పణకు దారితీస్తుంది</li>
+            </ul>
+            
+            <p><strong>ఆత్మ-నిండిన నాలుగు ఫలితాలు (వి. 19-21):</strong></p>
+            <ul>
+                <li><strong>ఆరాధనాత్మక ప్రసంగం:</strong> కీర్తనలు, స్తోత్రాలు, ఆధ్యాత్మిక పాటలతో ఒకరికొకరు మాట్లాడటం</li>
+                <li><strong>హృదయ గీతం:</strong> ప్రభువుకి మీ హృదయం నుండి పాడటం మరియు సంగీతం చేయడం</li>
+                <li><strong>నిరంతర కృతజ్ఞత:</strong> ప్రతిదానికి ఎల్లప్పుడూ దేవునికి ధన్యవాదాలు చెప్పడం</li>
+                <li><strong>పరస్పర సమర్పణ:</strong> క్రీస్తు కోసం భయభక్తులతో ఒకరికొకరు లోబడుట</li>
+            </ul>
+            
+            <p><strong>ఆత్మతో ఎలా నిండి ఉండాలి:</strong></p>
+            <ul>
+                <li><strong>లొంగిపోవడం:</strong> దేవునికి నియంత్రణను సమర్పించుకోవడం</li>
+                <li><strong>విధేయత:</strong> దేవుని ఇచ్ఛలో నడవడం</li>
+                <li><strong>ప్రార్థన:</strong> ఆత్మ పరిపూర్ణత కోసం అడగడం (లూకా 11:13)</li>
+                <li><strong>వచనం:</strong> క్రీస్తు వచనం సమృద్ధిగా నివసించటానికి అనుమతించడం (కొలస్సెయులకు 3:16)</li>
+                <li><strong>అంగీకారం:</strong> ఆత్మ పనికి అడ్డంకులను తీసివేయడం</li>
+            </ul>
+            
+            <p><strong>చారిత్రక సందర్భం:</strong></p>
+            <ul>
+                <li><strong>డయోనిసస్ ఆరాధన:</strong> ఎఫెసస్లో ఆరాధనలో మద్యపానం చేర్చబడింది</li>
+                <li><strong>రోమన్ సంస్కృతి:</strong> సామాజిక సమావేశాలలో మద్యపానం సాధారణం</li>
+                <li><strong>క్రైస్తవ ప్రత్యామ్నాయం:</strong> బదులుగా ఆత్మ-శక్తీకృత జరుపుకోలు</li>
+                <li><strong>వ్యతిరేక సాక్ష్యం:</strong> విభిన్న "మత్తు" ద్వారా క్రైస్తవులు గుర్తించబడ్డారు</li>
+            </ul>
+            
+            <p><strong>ఆధునిక అనువర్తనాలు:</strong></p>
+            <ul>
+                <li><strong>వ్యసన పునరుద్ధరణ:</strong> పదార్థ దుర్వినియోగంపై ఆత్మ శక్తి</li>
+                <li><strong>ఆరాధన పునరుద్ధరణ:</strong> ఆత్మ-ప్రేరిత సామూహిక ఆరాధన</li>
+                <li><strong>సంబంధ ఆరోగ్యం:</strong> ఆత్మ-ఎనేబుల్ చేయబడిన పరస్పర సమర్పణ</li>
+                <li><strong>భావోద్వేగ ఆరోగ్యం:</strong> ఆత్మ-ఉత్పత్తి చేసిన ఆనందం మరియు కృతజ్ఞత</li>
+                <li><strong>సాంస్కృతిక సాక్ష్యం:</strong> విలక్షణమైన క్రైస్తవ జీవనశైలి</li>
+            </ul>
+            
+            <p><strong>ప్రధాన అంశం:</strong> ఆత్మతో నిండి ఉండటం అసాధారణమైన భావోద్వేగ అనుభవాల గురించి కాదు, కానీ దేవుని నియంత్రణకు రోజువారీ సమర్పణ గురించి, ఫలితంగా ఆరాధన, కృతజ్ఞత మరియు ప్రేమపూర్వక సంబంధాలతో గుర్తించబడిన రూపాంతరం జీవితం - లౌకిక మత్తును వర్ణించే స్వార్థపూరిత తృప్తికి ఖచ్చితంగా వ్యతిరేకం.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(1)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(1)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "6mz-DE0XY3I";
+            const commentText = `నేను "ఆత్మతో నిండియుండుడి" క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరైన సమాధానం ఇచ్చాను ✓" : "నా సమాధానం: " + userAnswer + " ✗"}\nసరైన సమాధానం: పరిశుద్ధాత్మ (ఎఫెసీయులకు 5:18)\nప్రధాన సత్యాలు:\n- ద్రాక్షసారాయంతో మత్తెక్కకండి\n- బదులుగా ఆత్మతో నిండి ఉండండి\n- ఆత్మ-నియంత్రణ vs మద్యం-నియంత్రణ\n- ఆరాధన, కృతజ్ఞత మరియు సమర్పణకు దారితీస్తుంది\nఆత్మతో నిండి ఉండటం మీ క్రైస్తవ నడకను ఎలా రూపాంతరం చేసింది?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // For YouTube Shorts, we open the video and suggest commenting
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Store comment in localStorage for easy copy-paste
+            localStorage.setItem('quizComment', commentText);
+            
+            setTimeout(() => {
+                alert("కామెంట్ సూచన కాపీ చేయబడింది! దయచేసి దానిని యూట్యూబ్ కామెంట్లలో పేస్ట్ చేయండి.\n\nఆత్మ నిండడం దేవుని నియంత్రణను తెస్తుంది మరియు మనలో క్రీస్తు వంటి లక్షణాలను ఉత్పత్తి చేస్తుంది!");
+            }, 1000);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
