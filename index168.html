@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Quiz: When Did Wise Men Visit?</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://images.squarespace-cdn.com/content/v1/5356aa98e4b0e10db1993391/1409780771560-7422GR2MOOQOKOI2BCY7/King+of+Kings+-+800.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>BIBLE QUIZ: WHEN DID WISE MEN VISIT?</h1>
+        <div class="bible-ref">Matthew 2:1-18</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://www.shutterstock.com/image-photo/cartoon-artistic-image-small-1st-260nw-2660716965.jpg" alt="Wise Men timeline" class="quiz-image">
+        
+        <div class="question">According to the biblical evidence in Matthew 2, approximately how long after Jesus' birth did the Wise Men (Magi) visit Him?</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, false)">Immediately after birth (same night as shepherds)</div>
+            <div class="option" onclick="checkAnswer(this, false)">About 40 days later (at His temple presentation)</div>
+            <div class="option" onclick="checkAnswer(this, true)">Approximately 1-2 years after birth</div>
+            <div class="option" onclick="checkAnswer(this, false)">When Jesus was 12 years old (at the temple)</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>Correct Answer:</strong> Approximately 1-2 years after birth</p>
+            
+            <p><strong>Key Bible Evidence:</strong></p>
+            
+            <p><strong>1. Greek Terminology Distinction:</strong></p>
+            <ul>
+                <li><strong>Luke 2:12:</strong> Shepherds find "a baby (βρέφος - brephos) wrapped in cloths and lying in a manger"</li>
+                <li><strong>Matthew 2:11:</strong> Wise Men find "the young child (παιδίον - paidion) with Mary his mother"</li>
+                <li><strong>Significance:</strong> "Brephos" = newborn infant; "Paidion" = young child/toddler</li>
+            </ul>
+            
+            <p><strong>2. Herod's Age Calculation:</strong></p>
+            <ul>
+                <li><strong>Matthew 2:7:</strong> Herod asked Wise Men "when the star had appeared"</li>
+                <li><strong>Matthew 2:16:</strong> Herod ordered killing of boys "two years old and under"</li>
+                <li><strong>Significance:</strong> Herod used star's appearance to estimate Jesus' age (1-2 years)</li>
+            </ul>
+            
+            <p><strong>3. Location Difference:</strong></p>
+            <ul>
+                <li><strong>Luke 2:7:</strong> Jesus laid in manger (stable) at birth</li>
+                <li><strong>Matthew 2:11:</strong> Wise Men visit Jesus in a "house"</li>
+                <li><strong>Significance:</strong> Family moved from temporary to permanent housing</li>
+            </ul>
+            
+            <p><strong>4. Travel Time Considerations:</strong></p>
+            <ul>
+                <li><strong>Distance:</strong> Wise Men came from "the East" (likely Persia/Babylon)</li>
+                <li><strong>Journey:</strong> Over 1,000 miles by camel caravan</li>
+                <li><strong>Time:</strong> Several months to a year for such travel</li>
+                <li><strong>Preparation:</strong> Time to observe star, interpret meaning, plan journey</li>
+            </ul>
+            
+            <p><strong>Complete Timeline of Jesus' Early Years:</strong></p>
+            <ol>
+                <li><strong>Birth Night:</strong> Shepherds visit stable in Bethlehem (Luke 2:8-20)</li>
+                <li><strong>8th Day:</strong> Circumcision at temple (Luke 2:21)</li>
+                <li><strong>40th Day:</strong> Presentation at temple - Simeon & Anna (Luke 2:22-38)</li>
+                <li><strong>Months Later:</strong> Return to Bethlehem, move to house</li>
+                <li><strong>1-2 Years After Birth:</strong> Wise Men visit house in Bethlehem (Matthew 2:1-12)</li>
+                <li><strong>After Visit:</strong> Escape to Egypt (Matthew 2:13-15)</li>
+                <li><strong>After Herod's Death:</strong> Return to Nazareth (Matthew 2:19-23)</li>
+                <li><strong>Age 12:</strong> Visit temple with parents (Luke 2:41-52)</li>
+            </ol>
+            
+            <p><strong>Why Christmas Nativity Scenes Are Inaccurate:</strong></p>
+            <ul>
+                <li><strong>Combined Events:</strong> Show shepherds and wise men together</li>
+                <li><strong>Wrong Location:</strong> Show wise men at stable instead of house</li>
+                <li><strong>Wrong Time:</strong> Show all events happening on one night</li>
+                <li><strong>Wrong Age:</strong> Show Jesus as newborn when wise men visited</li>
+            </ul>
+            
+            <p><strong>Historical & Cultural Context:</strong></p>
+            <ul>
+                <li><strong>Jewish Purification:</strong> 40-day period after childbirth (Leviticus 12)</li>
+                <li><strong>Census Stay:</strong> Families often stayed with relatives after census</li>
+                <li><strong>House Structure:</strong> Animals on lower level, family above</li>
+                <li><strong>Travel Limitations:</strong> Newborns couldn't travel immediately</li>
+            </ul>
+            
+            <p><strong>What Jesus Was Probably Like When Wise Men Arrived:</strong></p>
+            <ul>
+                <li><strong>Walking:</strong> Could have been toddling (12-24 months)</li>
+                <li><strong>Talking:</strong> Simple words and phrases</li>
+                <li><strong>Recognizing:</strong> Could interact with visitors</li>
+                <li><strong>Family Setting:</strong> Living in settled home environment</li>
+            </ul>
+            
+            <p><strong>Herod's Evil Plan & Timeline:</strong></p>
+            <ol>
+                <li>Wise Men arrive in Jerusalem asking about newborn king</li>
+                <li>Herod consults religious leaders about Messiah's birthplace</li>
+                <li>Herod sends Wise Men to Bethlehem with deceptive request</li>
+                <li>Wise Men warned in dream not to return to Herod</li>
+                <li>Joseph warned to flee to Egypt with family</li>
+                <li>Herod realizes he's been tricked by Wise Men</li>
+                <li>Herod orders massacre of Bethlehem boys 2 years and under</li>
+                <li>Jesus' family stays in Egypt until Herod's death</li>
+            </ol>
+            
+            <p><strong>Prophetic Fulfillments:</strong></p>
+            <ul>
+                <li><strong>Jeremiah 31:15:</strong> "Rachel weeping for her children" fulfilled in massacre</li>
+                <li><strong>Hosea 11:1:</strong> "Out of Egypt I called my son" fulfilled in return</li>
+                <li><strong>Isaiah 60:3:</strong> "Nations will come to your light" - Gentile recognition</li>
+                <li><strong>Psalm 72:10-11:</strong> Kings bringing gifts to Messiah</li>
+            </ul>
+            
+            <p><strong>Theological Significance:</strong></p>
+            <ul>
+                <li><strong>Progressive Revelation:</strong> Different groups recognized Messiah at different times</li>
+                <li><strong>Gentile Inclusion:</strong> Wise Men as first Gentile worshippers</li>
+                <li><strong>Universal Kingship:</strong> Jesus recognized by both Jews (shepherds) and Gentiles (wise men)</li>
+                <li><strong>Sacrificial Foreshadowing:</strong> Myrrh gift pointed to Jesus' death</li>
+            </ul>
+            
+            <p><strong>Key Insight:</strong> The Wise Men did NOT visit baby Jesus in the manger on Christmas night. They visited "the young child" Jesus approximately 1-2 years after His birth, in a house in Bethlehem. This timeline is supported by: 1) Greek terminology difference (paidion vs brephos), 2) Herod's command to kill boys 2 years and under, 3) the location change from stable to house, and 4) the travel time from the East. Understanding this correct timeline helps us appreciate the biblical narrative's accuracy and recognize how common Christmas traditions have conflated separate events.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">Participate in Quiz</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(3)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(3)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "_mk79gdfLpc";
+            const commentText = `I took the "When Did Wise Men Visit?" Quiz! ${isCorrect ? "I got it right ✓" : "My answer was: " + userAnswer + " ✗"}\nThe correct answer is: Approximately 1-2 years after birth\nKey Evidence:\n- Greek: "young child" not "newborn"\n- Herod killed boys 2 years & under\n- Wise Men visited in a HOUSE, not stable\n- Travel from East took months\nDid you know Wise Men didn't visit on Christmas night?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // For YouTube Shorts, we open the video and suggest commenting
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Store comment in localStorage for easy copy-paste
+            localStorage.setItem('quizComment', commentText);
+            
+            setTimeout(() => {
+                alert("Comment suggestion copied! Paste it in the YouTube comments.\n\nThis corrects a major Christmas misconception - Wise Men visited 1-2 years AFTER Jesus' birth, not on Christmas night!");
+            }, 1000);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>

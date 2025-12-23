@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: జ్ఞానులు ఎప్పుడు సందర్శించారు?</title>
+    <style>
+        body {
+            font-family: 'Gautami', sans-serif;
+            background: url('https://images.squarespace-cdn.com/content/v1/5356aa98e4b0e10db1993391/1409780771560-7422GR2MOOQOKOI2BCY7/King+of+Kings+-+800.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: జ్ఞానులు ఎప్పుడు సందర్శించారు?</h1>
+        <div class="bible-ref">మత్తయి 2:1-18</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://www.shutterstock.com/image-photo/cartoon-artistic-image-small-1st-260nw-2660716965.jpg" alt="జ్ఞానులు కాలక్రమం" class="quiz-image">
+        
+        <div class="question">మత్తయి 2లోని బైబిల్ ఆధారాల ప్రకారం, యేసు పుట్టిన దాదాపు ఎంత కాలం తర్వాత జ్ఞానులు (మాగి) ఆయనను సందర్శించారు?</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, false)">పుట్టిన వెంటనే (గొర్రెల కాపరుల అదే రాత్రి)</div>
+            <div class="option" onclick="checkAnswer(this, false)">దాదాపు 40 రోజుల తర్వాత (దేవాలయ ప్రదర్శన సమయంలో)</div>
+            <div class="option" onclick="checkAnswer(this, true)">పుట్టిన 1-2 సంవత్సరాల తర్వాత</div>
+            <div class="option" onclick="checkAnswer(this, false)">యేసు 12 సంవత్సరాలు వయస్సులో ఉన్నప్పుడు (దేవాలయంలో)</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> పుట్టిన 1-2 సంవత్సరాల తర్వాత</p>
+            
+            <p><strong>ముఖ్యమైన బైబిల్ ఆధారాలు:</strong></p>
+            
+            <p><strong>1. గ్రీకు పదాల వ్యత్యాసం:</strong></p>
+            <ul>
+                <li><strong>లూకా 2:12:</strong> గొర్రెల కాపరులు "శిశువును (βρέφος - బ్రెఫోస్) బట్టలలో చుట్టి తొట్టిలో పడుకొని ఉన్నట్టు" కనుగొన్నారు</li>
+                <li><strong>మత్తయి 2:11:</strong> జ్ఞానులు "చిన్న బాలుడును (παιδίον - పైడియోన్) ఆయన తల్లియైన మరియతోకూడ" కనుగొన్నారు</li>
+                <li><strong>ప్రాముఖ్యత:</strong> "బ్రెఫోస్" = క్రొత్తగా పుట్టిన శిశువు; "పైడియోన్" = చిన్న బాలుడు/టాడ్లర్</li>
+            </ul>
+            
+            <p><strong>2. హేరోదు వయస్సు లెక్కింపు:</strong></p>
+            <ul>
+                <li><strong>మత్తయి 2:7:</strong> హేరోదు జ్ఞానులను "నక్షత్రము కనబడిన కాలము ఏమని" అడిగాడు</li>
+                <li><strong>మత్తయి 2:16:</strong> హేరోదు "రెండు సంవత్సరములు లోపుగా" ఉన్న అబ్బాయిలను చంపమని ఆదేశించాడు</li>
+                <li><strong>ప్రాముఖ్యత:</strong> హేరోదు నక్షత్రం కనిపించిన సమయాన్ని ఉపయోగించి యేసు వయస్సును అంచనా వేశాడు (1-2 సంవత్సరాలు)</li>
+            </ul>
+            
+            <p><strong>3. స్థాన వ్యత్యాసం:</strong></p>
+            <ul>
+                <li><strong>లూకా 2:7:</strong> యేసు పుట్టినప్పుడు తొట్టిలో (గుర్రపు షెడ్) పడుకున్నాడు</li>
+                <li><strong>మత్తయి 2:11:</strong> జ్ఞానులు యేసును "ఇంటిలో" సందర్శించారు</li>
+                <li><strong>ప్రాముఖ్యత:</strong> కుటుంబం తాత్కాలిక నుండి శాశ్వత గృహాలకు తరలించబడింది</li>
+            </ul>
+            
+            <p><strong>4. ప్రయాణ సమయం పరిగణనలు:</strong></p>
+            <ul>
+                <li><strong>దూరం:</strong> జ్ఞానులు "తూర్పు" నుండి వచ్చారు (బహుశా పర్షియా/బాబిలోన్)</li>
+                <li><strong>యాత్ర:</strong> ఒంటె కారవాన్ ద్వారా 1,000 మైళ్లకు పైగా</li>
+                <li><strong>సమయం:</strong> అలాంటి ప్రయాణం కోసం చాలా నెలల నుండి ఒక సంవత్సరం వరకు</li>
+                <li><strong>సిద్ధత:</strong> నక్షత్రాన్ని గమనించడం, అర్థాన్ని వ్యాఖ్యానించడం, ప్రయాణాన్ని ప్రణాళిక చేయడం సమయం</li>
+            </ul>
+            
+            <p><strong>యేసు ప్రారంభ సంవత్సరాల పూర్తి కాలక్రమం:</strong></p>
+            <ol>
+                <li><strong>పుట్టిన రాత్రి:</strong> గొర్రెల కాపరులు బేత్లెహేమ్లోని గుర్రపు షెడ్లో సందర్శించారు (లూకా 2:8-20)</li>
+                <li><strong>8వ రోజు:</strong> దేవాలయంలో సున్నతి (లూకా 2:21)</li>
+                <li><strong>40వ రోజు:</strong> దేవాలయంలో ప్రదర్శన - సిమియోన్ & అన్నా (లూకా 2:22-38)</li>
+                <li><strong>నెలల తర్వాత:</strong> బేత్లెహేమ్కు తిరిగి రావడం, ఇంటికి తరలించడం</li>
+                <li><strong>పుట్టిన 1-2 సంవత్సరాల తర్వాత:</strong> జ్ఞానులు బేత్లెహేమ్లోని ఇంట్లో సందర్శించారు (మత్తయి 2:1-12)</li>
+                <li><strong>సందర్శన తర్వాత:</strong> ఐగుప్తుకు పారిపోవడం (మత్తయి 2:13-15)</li>
+                <li><strong>హేరోదు మరణం తర్వాత:</strong> నాజరేత్కు తిరిగి రావడం (మత్తయి 2:19-23)</li>
+                <li><strong>12 సంవత్సరాలు వయస్సు:</strong> తల్లిదండ్రులతో దేవాలయాన్ని సందర్శించడం (లూకా 2:41-52)</li>
+            </ol>
+            
+            <p><strong>క్రిస్మస్ నేటివిటీ దృశ్యాలు ఎందుకు తప్పు:</strong></p>
+            <ul>
+                <li><strong>కలిపిన సంఘటనలు:</strong> గొర్రెల కాపరులు మరియు జ్ఞానులను కలిపి చూపుతాయి</li>
+                <li><strong>తప్పు స్థానం:</strong> జ్ఞానులను గుర్రపు షెడ్లో కాకుండా ఇంట్లో చూపుతాయి</li>
+                <li><strong>తప్పు సమయం:</strong> అన్ని సంఘటనలు ఒక రాత్రిలో జరుగుతున్నట్లు చూపుతాయి</li>
+                <li><strong>తప్పు వయస్సు:</strong> జ్ఞానులు సందర్శించినప్పుడు యేసును క్రొత్తగా పుట్టినట్లు చూపుతాయి</li>
+            </ul>
+            
+            <p><strong>చారిత్రక & సాంస్కృతిక సందర్భం:</strong></p>
+            <ul>
+                <li><strong>యూదు శుద్ధీకరణ:</strong> ప్రసవం తర్వాత 40-రోజుల కాలం (లేవీయకాండము 12)</li>
+                <li><strong>జనాభా లెక్కల నివాసం:</strong> కుటుంబాలు తరచుగా జనాభా లెక్కల తర్వాత బంధువులతో ఉండేవి</li>
+                <li><strong>గృహ నిర్మాణం:</strong> దిగువ స్థాయిలో జంతువులు, పైన కుటుంబం</li>
+                <li><strong>ప్రయాణ పరిమితులు:</strong> క్రొత్తగా పుట్టిన పిల్లలు వెంటనే ప్రయాణం చేయలేరు</li>
+            </ul>
+            
+            <p><strong>జ్ఞానులు వచ్చినప్పుడు యేసు బహుశా ఎలా ఉండేవాడు:</strong></p>
+            <ul>
+                <li><strong>నడవడం:</strong> టాడ్లింగ్ చేస్తున్నాడు (12-24 నెలలు)</li>
+                <li><strong>మాట్లాడటం:</strong> సాధారణ పదాలు మరియు పదబంధాలు</li>
+                <li><strong>గుర్తించడం:</strong> సందర్శకులతో సంభాషించగలడు</li>
+                <li><strong>కుటుంబ సెట్టింగ్:</strong> స్థిరమైన ఇంటి వాతావరణంలో నివసిస్తున్నాడు</li>
+            </ul>
+            
+            <p><strong>హేరోదు దుష్ట ప్రణాళిక & కాలక్రమం:</strong></p>
+            <ol>
+                <li>జ్ఞానులు క్రొత్తగా పుట్టిన రాజును గురించి అడగడానికి యెరూషలేముకు వస్తారు</li>
+                <li>హేరోదు మెస్సీయా పుట్టిన స్థలం గురించి మతపరమైన నాయకులను సంప్రదించాడు</li>
+                <li>హేరోదు మోసపూరిత అభ్యర్థనతో జ్ఞానులను బేత్లెహేమ్కు పంపాడు</li>
+                <li>జ్ఞానులు హేరోదుకు తిరిగి రాకూడదని స్వప్నంలో హెచ్చరించబడ్డారు</li>
+                <li>కుటుంబంతో ఐగుప్తుకు పారిపోవడానికి యోసేపు హెచ్చరించబడ్డాడు</li>
+                <li>హేరోదు తనను జ్ఞానులు మోసం చేశారని గ్రహించాడు</li>
+                <li>హేరోదు బేత్లెహేమ్ అబ్బాయిలను 2 సంవత్సరాలు మరియు దిగువన చంపమని ఆదేశించాడు</li>
+                <li>యేసు కుటుంబం హేరోదు మరణం వరకు ఐగుప్తులో ఉండిపోయింది</li>
+            </ol>
+            
+            <p><strong>భవిష్యత్ సంపూర్ణతలు:</strong></p>
+            <ul>
+                <li><strong>యిర్మీయా 31:15:</strong> "రాహేల్ తన పిల్లల కోసం ఏడుస్తోంది" హత్యలో సంపూర్ణమైంది</li>
+                <li><strong>హోషేయ 11:1:</strong> "నా కుమారుని నేను ఐగుప్తునుండి పిలిచితిని" తిరిగి రావడంలో సంపూర్ణమైంది</li>
+                <li><strong>యెషయా 60:3:</strong> "జనాంగాలు మీ వెలుగుకు వస్తాయి" - అన్యజాతి గుర్తింపు</li>
+                <li><strong>కీర్తనల గ్రంథము 72:10-11:</strong> రాజులు మెస్సీయాకు బహుమతులు తెస్తారు</li>
+            </ul>
+            
+            <p><strong>వేదాంత ప్రాముఖ్యత:</strong></p>
+            <ul>
+                <li><strong>ప్రగతిశీల వెల్లడి:</strong> వివిధ సమూహాలు వేర్వేరు సమయాల్లో మెస్సీయాను గుర్తించాయి</li>
+                <li><strong>అన్యజాతి చేరిక:</strong> మొదటి అన్యజాతి ఆరాధకులుగా జ్ఞానులు</li>
+                <li><strong>సార్వత్రిక రాజప్రతినిధిత్వం:</strong> యూదులచే (గొర్రెల కాపరులు) మరియు అన్యజాతులచే (జ్ఞానులు) యేసు గుర్తించబడ్డాడు</li>
+                <li><strong>త్యాగ పూర్వచిహ్నం:</strong> సాంబ్రాణి నూనె బహుమతి యేసు మరణాన్ని సూచిస్తుంది</li>
+            </ul>
+            
+            <p><strong>ప్రధాన అంశం:</strong> జ్ఞానులు క్రిస్మస్ రాత్రి శిశువు యేసును తొట్టిలో సందర్శించలేదు. వారు "చిన్న బాలుడు" యేసును అతని పుట్టుకకు దాదాపు 1-2 సంవత్సరాల తర్వాత, బేత్లెహేమ్లోని ఇంట్లో సందర్శించారు. ఈ కాలక్రమం దీని ద్వారా మద్దతు ఇవ్వబడింది: 1) గ్రీకు పదాల వ్యత్యాసం (పైడియోన్ vs బ్రెఫోస్), 2) హేరోదు 2 సంవత్సరాలు మరియు దిగువన ఉన్న అబ్బాయిలను చంపమని ఆదేశించడం, 3) గుర్రపు షెడ్ నుండి ఇంటికి స్థానం మార్పు, మరియు 4) తూర్పు నుండి ప్రయాణ సమయం. ఈ సరైన కాలక్రమాన్ని అర్థం చేసుకోవడం బైబిల్ కథనం యొక్క ఖచ్చితత్వాన్ని ప్రశంసించడంలో మాకు సహాయపడుతుంది మరియు సాధారణ క్రిస్మస్ సంప్రదాయాలు ప్రత్యేక సంఘటనలను ఎలా కలపలేదో గుర్తించడంలో సహాయపడుతుంది.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(3)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(3)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "jJAkPHis08w";
+            const commentText = `నేను "జ్ఞానులు ఎప్పుడు సందర్శించారు?" క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరైన సమాధానం ఇచ్చాను ✓" : "నా సమాధానం: " + userAnswer + " ✗"}\nసరైన సమాధానం: పుట్టిన 1-2 సంవత్సరాల తర్వాత\nప్రధాన ఆధారాలు:\n- గ్రీకు: "చిన్న బాలుడు" కాదు "క్రొత్తగా పుట్టిన"\n- హేరోదు 2 సంవత్సరాలు & దిగువన అబ్బాయిలను చంపాడు\n- జ్ఞానులు ఇంట్లో సందర్శించారు, గుర్రపు షెడ్లో కాదు\n- తూర్పు నుండి ప్రయాణం నెలలు పట్టింది\nజ్ఞానులు క్రిస్మస్ రాత్రి సందర్శించలేదని మీకు తెలుసా?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // For YouTube Shorts, we open the video and suggest commenting
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Store comment in localStorage for easy copy-paste
+            localStorage.setItem('quizComment', commentText);
+            
+            setTimeout(() => {
+                alert("కామెంట్ సూచన కాపీ చేయబడింది! దయచేసి దానిని యూట్యూబ్ కామెంట్లలో పేస్ట్ చేయండి.\n\nఇది ఒక పెద్ద క్రిస్మస్ అపారదర్శకతను సరిచేస్తుంది - జ్ఞానులు యేసు పుట్టిన 1-2 సంవత్సరాల తర్వాత సందర్శించారు, క్రిస్మస్ రాత్రి కాదు!");
+            }, 1000);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
