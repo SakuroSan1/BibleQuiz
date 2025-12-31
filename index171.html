@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: యేసు సున్నతి & నామకరణం</title>
+    <style>
+        body {
+            font-family: 'Gautami', sans-serif;
+            background: url('https://www.jesus-story.net/wp-content/uploads/2019/01/Temple_reconstr.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: యేసు సున్నతి & నామకరణం</h1>
+        <div class="bible-ref">లూకా 2:21</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://i.pinimg.com/564x/3e/4f/3f/3e4f3f5c5c5e5c5c5c5c5c5c5c5c5c5c.jpg" alt="యూదు సున్నతి ఉత్సవం" class="quiz-image">
+        
+        <div class="question">లూకా 2:21 ప్రకారం, శిశువు యేసు ఎప్పుడు సున్నతి పొందాడు మరియు యేసు అనే పేరు పెట్టబడ్డాడు?</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, false)">ఆయన పుట్టిన రాత్రి (గొర్రెల కాపరులు హాజరులో)</div>
+            <div class="option" onclick="checkAnswer(this, true)">ఆయన పుట్టిన 8వ రోజున</div>
+            <div class="option" onclick="checkAnswer(this, false)">40 రోజుల వయస్సులో (దేవాలయ ప్రదర్శన సమయంలో)</div>
+            <div class="option" onclick="checkAnswer(this, false)">1 సంవత్సరం వయస్సులో (జ్ఞానులు సందర్శించినప్పుడు)</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> ఆయన పుట్టిన 8వ రోజున (లూకా 2:21)</p>
+            
+            <p><strong>లూకా 2:21:</strong> <em>"ఎనిమిదవ దినమందు ఆ బాలునకు సున్నతి చేయుటకు వచ్చినప్పుడు, ఆయనకు యేసు అను పేరు పెట్టిరి; ఆయన గర్భమందు ఉండక పూర్వము దేవదూతచేత పెట్టబడిన పేరు అదియే."</em></p>
+            
+            <p><strong>8వ రోజు సున్నతి కోసం బైబిల్ ఆదేశం:</strong></p>
+            <ul>
+                <li><strong>ఆదికాండము 17:12:</strong> "మీ మధ్యనున్న ప్రతి పురుష శిశువు ఎనిమిదవ దినమందు సున్నతి చేయబడవలెను."</li>
+                <li><strong>లేవీయకాండము 12:3:</strong> "ఎనిమిదవ దినమందు ఆ బాలునకు సున్నతి చేయవలెను."</li>
+                <li><strong>నిబంధన చిహ్నం:</strong> అబ్రాహాము నిబంధనకు సున్నతి చిహ్నంగా (ఆదికాండము 17:11)</li>
+            </ul>
+            
+            <p><strong>యేసు మొదటి 40 రోజుల పూర్తి కాలక్రమం:</strong></p>
+            <ol>
+                <li><strong>రోజు 1 (పుట్టుక):</strong> బేత్లెహేమ్లో పుట్టారు, తొట్టిలో పడుకున్నారు (లూకా 2:6-7)</li>
+                <li><strong>అదే రాత్రి:</strong> గొర్రెల కాపరులు సందర్శించి వార్తను పంచుకున్నారు (లూకా 2:8-20)</li>
+                <li><strong>రోజు 8:</strong> సున్నతి పొందారు మరియు అధికారికంగా యేసు అని పేరు పెట్టబడ్డారు (లూకా 2:21)</li>
+                <li><strong>రోజు 40:</strong> యెరూషలేము దేవాలయంలో ప్రదర్శించబడ్డారు (లూకా 2:22-24)</li>
+                <li><strong>రోజు 40:</strong> సిమియోన్ భవిష్యత్తు మరియు అన్నా సాక్ష్యం (లూకా 2:25-38)</li>
+            </ol>
+            
+            <p><strong>ఎందుకు 8వ రోజు? వైద్య & వేదాంత ప్రాముఖ్యత:</strong></p>
+            <ul>
+                <li><strong>విటమిన్ K పీక్:</strong> రక్తం గడ్డకట్టే కారకం విటమిన్ K 8వ రోజు పీక్ చేస్తుంది</li>
+                <li><strong>ప్రోథ్రాంబిన్ స్థాయిలు:</strong> 8వ రోజు అత్యధికం (సాధారణంలో 110%)</li>
+                <li><strong>దైవిక జ్ఞానం:</strong> దేవుని ఆదేశం సంపూర్ణ జీవసంబంధమైన సమయంతో సమలేఖనం చేయబడింది</li>
+                <li><strong>స్వస్థపరచడం:</strong> ఈ అభివృద్ధి దశలో వేగవంతమైన హీలింగ్</li>
+            </ul>
+            
+            <p><strong>"యేసు" పేరు - అర్థం & ప్రాముఖ్యత:</strong></p>
+            <ul>
+                <li><strong>హీబ్రూ:</strong> యేషువా/యెహోషువ (יֵשׁוּעַ/יְהוֹשֻׁעַ)</li>
+                <li><strong>అర్థం:</strong> "యహ్వే రక్షిస్తాడు" లేదా "ప్రభువు రక్షణ"</li>
+                <li><strong>దేవదూత యొక్క మరియకు ప్రకటన:</strong> "నీవు ఆయనకు యేసు అను పేరు పెట్టవలెను" (లూకా 1:31)</li>
+                <li><strong>దేవదూత యొక్క యోసేపుకు వివరణ:</strong> "నీవు ఆయనకు యేసు అను పేరు పెట్టవలెను, ఆయనే తన ప్రజలను వారి పాపములనుండి రక్షించును గనుక" (మత్తయి 1:21)</li>
+            </ul>
+            
+            <p><strong>సున్నతి & నామకరణం కోసం యూదు సంప్రదాయాలు (బ్రిట్ మిలా):</strong></p>
+            <ul>
+                <li><strong>మోహెల్:</strong> ప్రత్యేకంగా శిక్షణ పొందిన సున్నతి చేసేవాడు</li>
+                <li><strong>సాండెక్:</strong> ఉత్సవ సమయంలో బేబీని పట్టుకునే గాడ్ఫాదర్</li>
+                <li><strong>ఆశీర్వాదాలు:</strong> నిర్దిష్ట ప్రార్థనలు మరియు ఆశీర్వాదాలు చదవబడతాయి</li>
+                <li><strong>నామకరణం:</strong> పిల్లల హీబ్రూ పేరు యొక్క అధికారిక ప్రకటన</li>
+                <li><strong>జరుపుకోలు:</strong> ఉత్సవ భోజనం (సెయుడత్ మిట్జ్వా) ఉత్సవం తర్వాత</li>
+            </ul>
+            
+            <p><strong>యేసు సున్నతి యొక్క వేదాంత ప్రాముఖ్యత:</strong></p>
+            <ul>
+                <li><strong>నియమం పూర్తి:</strong> యేసు శిశుత్వం నుండే యూదు ధర్మశాస్త్రానికి లోబడ్డాడు</li>
+                <li><strong>నిబంధన గుర్తింపు:</strong> అబ్రాహాము వంశస్థులతో గుర్తించబడ్డాడు</li>
+                <li><strong>విమోచన పని:</strong> "ధర్మశాస్త్రము క్రింద ఉన్నవారిని విడిపించవలెనని ధర్మశాస్త్రము క్రింద పుట్టెను" (గలతీయులు 4:4-5)</li>
+                <li><strong>నిజమైన ఇశ్రాయేలు:</strong> సంపూర్ణ నిబంధన విధేయతను ప్రతిబింబించాడు</li>
+                <li><strong>ఆధ్యాత్మిక సున్నతి:</strong> హృదయం యొక్క సున్నతికి సూచించింది (రోమీయులు 2:29)</li>
+            </ul>
+            
+            <p><strong>40వ రోజు దేవాలయంలో ఏమి జరిగింది?</strong></p>
+            <ul>
+                <li><strong>శుద్ధీకరణ అర్పణ:</strong> ప్రసవం తర్వాత మరియ యొక్క శుద్ధీకరణ (లేవీయకాండము 12:6-8)</li>
+                <li><strong>పేద వ్యక్తి యొక్క అర్పణ:</strong> "రెండు పావురములుగాని రెండు పిచ్చుకపిల్లలుగాని" (లూకా 2:24)</li>
+                <li><strong>మొదటిదాని విమోచన:</strong> యేసు మొదటిదానిగా ప్రదర్శించబడ్డాడు (నిర్గమకాండము 13:2)</li>
+                <li><strong>సిమియోన్ యొక్క గుర్తింపు:</strong> యేసును మెస్సీయాగా గుర్తించారు (లూకా 2:25-35)</li>
+                <li><strong>అన్నా యొక్క ప్రకటన:</strong> విమోచన కోసం ఎదురుచూస్తున్న అందరికీ యేసు గురించి మాట్లాడారు (లూకా 2:36-38)</li>
+            </ul>
+            
+            <p><strong>సమయంలో ముఖ్యమైన వ్యత్యాసాలు:</strong></p>
+            <ul>
+                <li><strong>సున్నతి vs ప్రదర్శన:</strong> విభిన్న సంఘటనలు (రోజు 8 vs రోజు 40)</li>
+                <li><strong>నామకరణం vs నమోదు:</strong> సున్నతిలో పేరు పెట్టబడింది, జనాభా లెక్కలలో కాదు</li>
+                <li><strong>గొర్రెల కాపరులు vs సిమియోన్:</strong> విభిన్న సంఘటనలను విభిన్న సమూహాలు చూశారు</li>
+                <li><strong>బేత్లెహేమ్ vs యెరూషలేము:</strong> విభిన్న వేడుకల కోసం విభిన్న స్థానాలు</li>
+            </ul>
+            
+            <p><strong>మొదటి శతాబ్దం యూదియా యొక్క సాంస్కృతిక సందర్భం:</strong></p>
+            <ul>
+                <li><strong>కుటుంబ జరుపుకోలు:</strong> సున్నతి ముఖ్యమైన కుటుంబ/సంఘ సంఘటన</li>
+                <li><strong>మతపరమైన బాధ్యత:</strong> భక్తిగల యూదులచే తీసుకున్న ఆజ్ఞ</li>
+                <li><strong>నిబంధన నిబద్ధత:</strong> దేవుని నిబంధన ప్రజలకు చెందిన సూచన</li>
+                <li><strong>భవిష్యత్తు నిరీక్షణ:</strong> మెస్సీయా అన్ని ధర్మశాస్త్రాన్ని పూర్తిగా నెరవేర్చాలని భావించారు</li>
+            </ul>
+            
+            <p><strong>న్యూ టెస్టమెంట్ పూర్తి & రూపాంతరం:</strong></p>
+            <ul>
+                <li><strong>కొలస్సెయులు 2:11-12:</strong> క్రీస్తు ద్వారా ఆధ్యాత్మిక సున్నతి</li>
+                <li><strong>రోమీయులు 2:28-29:</strong> నిజమైన సున్నతి హృదయంలో ఉంటుంది</li>
+                <li><strong>ఫిలిప్పీయులు 3:3:</strong> మనం ఆత్మ ద్వారా ఆరాధిస్తాము, శారీరక సున్నతి ద్వారా కాదు</li>
+                <li><strong>అపొస్తలుల కార్యములు 15:</strong> అన్యజాతి విశ్వాసులకు సున్నతి అవసరం లేదు</li>
+                <li><strong>గలతీయులు 5:6:</strong> ప్రేమ ద్వారా వ్యక్తమయ్యే విశ్వాసం ముఖ్యం</li>
+            </ul>
+            
+            <p><strong>ప్రధాన అంశం:</strong> శిశువు యేసు ఆయన పుట్టిన 8వ రోజున సున్నతి పొందాడు మరియు అధికారికంగా "యేసు" అని పేరు పెట్టబడ్డాడు, మోషే ధర్మశాస్త్రానికి సంపూర్ణ విధేయతలో (ఆదికాండము 17:12, లేవీయకాండము 12:3). ఈ సంఘటన యూదు ప్రజలతో ఆయన పూర్తి గుర్తింపును మరియు ఆయన భౌమిక జీవితం ప్రారంభం నుండే దేవుని నిబంధనకు ఆయన సమర్పణను ప్రదర్శించింది. "యేసు" (యేషువా - "ప్రభువు రక్షిస్తాడు") పేరు దైవికంగా నియమించబడింది మరియు ఆయన గర్భధారణకు ముందు దేవదూతలచే ప్రకటించబడింది, ఆయన ప్రజలను వారి పాపాల నుండి రక్షించడం యొక్క ఆయన మిషన్ను ఖచ్చితంగా ప్రతిబింబిస్తుంది. ఈ ప్రారంభ విధేయత ఆయన జీవితం మరియు మినిస్ట్రీ అంతటా ధర్మశాస్త్రం యొక్క సంపూర్ణ పూర్తికి పూర్వచిహ్నం.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(2)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(2)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "G-rP8vLFo_4";
+            const commentText = `నేను "యేసు సున్నతి & నామకరణం" క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరైన సమాధానం ఇచ్చాను ✓" : "నా సమాధానం: " + userAnswer + " ✗"}\nసరైన సమాధానం: ఆయన పుట్టిన 8వ రోజున (లూకా 2:21)\nప్రధాన వాస్తవాలు:\n- యూదు ధర్మశాస్త్రం 8వ రోజు సున్నతిని అవసరం చేసింది\n- యేసు సున్నతి ఉత్సవంలో పేరు పెట్టబడ్డాడు\n- పేరు అర్థం "ప్రభువు రక్షిస్తాడు"\n- పుట్టినప్పటి నుండే దేవుని ధర్మశాస్త్రానికి యేసు సమర్పణను చూపించింది\nయేసు యూదు సంప్రదాయం ప్రకారం సున్నతి పొందాడని మీకు తెలుసా?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // For YouTube Shorts, we open the video and suggest commenting
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Store comment in localStorage for easy copy-paste
+            localStorage.setItem('quizComment', commentText);
+            
+            setTimeout(() => {
+                alert("కామెంట్ సూచన కాపీ చేయబడింది! దయచేసి దానిని యూట్యూబ్ కామెంట్లలో పేస్ట్ చేయండి.\n\nయేసు సున్నతి 8వ రోజు ఆయన ప్రారంభం నుండే దేవుని ధర్మశాస్త్రానికి ఆయన సంపూర్ణ విధేయతను చూపుతుంది!");
+            }, 1000);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
