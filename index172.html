@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Quiz: Anger Management</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHHosEL4A2uC8ncP6RnDDGMULMgy0cXnnEHA&s') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>BIBLE QUIZ: ANGER MANAGEMENT</h1>
+        <div class="bible-ref">Ephesians 4:26</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNZQSWoG_FV6z7_ln86yT2TFZJgY6ywWTrew&s" alt="Anger Management" class="quiz-image">
+        
+        <div class="question">According to Ephesians 4:26, "In your anger do not ______."</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">Sin</div>
+            <div class="option" onclick="checkAnswer(this, false)">Yell</div>
+            <div class="option" onclick="checkAnswer(this, false)">Fight</div>
+            <div class="option" onclick="checkAnswer(this, false)">Hate</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>Correct Answer:</strong> Sin (Ephesians 4:26)</p>
+            
+            <p><strong>Ephesians 4:26 (NIV):</strong> <em>"In your anger do not sin: Do not let the sun go down while you are still angry."</em></p>
+            
+            <p><strong>Key Truths About Anger:</strong></p>
+            <ol>
+                <li><strong>Anger is not sin:</strong> It's an emotion God created</li>
+                <li><strong>Anger can lead to sin:</strong> When mismanaged or held too long</li>
+                <li><strong>Time limit:</strong> Don't let sun go down on your anger</li>
+                <li><strong>Resolution required:</strong> Deal with anger promptly</li>
+            </ol>
+            
+            <p><strong>The Full Verse & Context:</strong></p>
+            <ul>
+                <li><strong>Ephesians 4:26-27:</strong> "In your anger do not sin: Do not let the sun go down while you are still angry, and do not give the devil a foothold."</li>
+                <li><strong>Connected to Ephesians 4:25-32:</strong> Part of instructions for Christian living</li>
+                <li><strong>Context:</strong> Speaking truth, controlling anger, honest work, helpful speech</li>
+            </ul>
+            
+            <p><strong>Three Types of Anger in Scripture:</strong></p>
+            <ul>
+                <li><strong>Righteous Anger:</strong> Anger at sin/injustice (Jesus cleansing temple - John 2:13-17)</li>
+                <li><strong>Sinful Anger:</strong> Self-centered, uncontrolled anger (Cain - Genesis 4:5-8)</li>
+                <li><strong>Slow-burning Anger:</strong> Harbored resentment (Jonah - Jonah 4:1-4)</li>
+            </ul>
+            
+            <p><strong>Why "Don't Let the Sun Go Down":</strong></p>
+            <ul>
+                <li><strong>Prevents bitterness:</strong> Unresolved anger turns to bitterness</li>
+                <li><strong>Protects relationships:</strong> Prompt reconciliation</li>
+                <li><strong>Guards heart:</strong> Anger affects sleep and health</li>
+                <li><strong>Spiritual protection:</strong> Prevents devil's foothold</li>
+            </ul>
+            
+            <p><strong>Biblical Examples of Anger Management:</strong></p>
+            <ul>
+                <li><strong>Jesus:</strong> Righteous anger at temple corruption (Matthew 21:12-13)</li>
+                <li><strong>Moses:</strong> Sinful anger when striking rock (Numbers 20:10-12)</li>
+                <li><strong>David:</strong> Controlled anger toward Nabal (1 Samuel 25:32-34)</li>
+                <li><strong>Joseph:</strong> Forgiveness instead of anger toward brothers (Genesis 45:4-8)</li>
+            </ul>
+            
+            <p><strong>Practical Steps for Godly Anger Management:</strong></p>
+            <ul>
+                <li><strong>Pause & Pray:</strong> Before reacting (Psalm 4:4)</li>
+                <li><strong>Identify Root Cause:</strong> What's really bothering you?</li>
+                <li><strong>Express Appropriately:</strong> Use "I feel" statements</li>
+                <li><strong>Seek Resolution:</strong> Before day ends (Matthew 5:23-24)</li>
+                <li><strong>Forgive:</strong> As God forgave you (Ephesians 4:32)</li>
+            </ul>
+            
+            <p><strong>What Anger Reveals About Our Hearts:</strong></p>
+            <ul>
+                <li><strong>Idols:</strong> Anger often signals something we worship besides God</li>
+                <li><strong>Expectations:</strong> Unmet expectations lead to frustration</li>
+                <li><strong>Insecurity:</strong> Anger as defense mechanism</li>
+                <li><strong>Pride:</strong> Thinking we deserve better treatment</li>
+            </ul>
+            
+            <p><strong>Ephesians 4:26 in Greek:</strong></p>
+            <ul>
+                <li><strong>"Orgizesthe":</strong> Present imperative - "Be angry" (it's a command!)</li>
+                <li><strong>"Kai":</strong> "And" or "But" - connective</li>
+                <li><strong>"Me hamartanete":</strong> "Do not sin" - present imperative negative</li>
+                <li><strong>Significance:</strong> Anger itself is permitted, but sinning in anger is forbidden</li>
+            </ul>
+            
+            <p><strong>Related Scriptures on Anger:</strong></p>
+            <ul>
+                <li><strong>James 1:19-20:</strong> "Everyone should be quick to listen, slow to speak and slow to become angry, because human anger does not produce the righteousness that God desires."</li>
+                <li><strong>Proverbs 29:11:</strong> "Fools give full vent to their rage, but the wise bring calm in the end."</li>
+                <li><strong>Proverbs 15:1:</strong> "A gentle answer turns away wrath, but a harsh word stirs up anger."</li>
+                <li><strong>Ecclesiastes 7:9:</strong> "Do not be quickly provoked in your spirit, for anger resides in the lap of fools."</li>
+                <li><strong>Colossians 3:8:</strong> "But now you must also rid yourselves of all such things as these: anger, rage, malice..."</li>
+            </ul>
+            
+            <p><strong>The Danger of Unresolved Anger:</strong></p>
+            <ul>
+                <li><strong>Gives devil foothold:</strong> Ephesians 4:27 warning</li>
+                <li><strong>Leads to bitterness:</strong> Hebrews 12:15</li>
+                <li><strong>Affects prayer:</strong> Mark 11:25</li>
+                <li><strong>Damages relationships:</strong> Proverbs 22:24-25</li>
+                <li><strong>Harms health:</strong> Proverbs 14:30</li>
+            </ul>
+            
+            <p><strong>Key Insight:</strong> Ephesians 4:26 doesn't say "Don't be angry." It says "In your anger do not sin." This recognizes anger as a legitimate human emotion that God created. The key is managing anger righteously - expressing it appropriately, dealing with it promptly (before sunset), and not allowing it to fester into sin. This verse, along with the warning about giving the devil a foothold in verse 27, shows that properly managed anger is part of healthy Christian living, while mismanaged anger opens doors to spiritual attack and relational destruction.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">Participate in Quiz</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(1)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(1)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "F-jIPwv0dxs";
+            const commentText = `I took the "Anger Management" Quiz! ${isCorrect ? "I got it right ✓" : "My answer was: " + userAnswer + " ✗"}\nThe correct answer is: Sin (Ephesians 4:26)\nKey Truths:\n- Anger itself is not sin\n- But don't sin in your anger\n- Don't let sun go down on anger\n- Prevents devil's foothold\nHow do you practice biblical anger management?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // For YouTube Shorts, we open the video and suggest commenting
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Store comment in localStorage for easy copy-paste
+            localStorage.setItem('quizComment', commentText);
+            
+            setTimeout(() => {
+                alert("Comment suggestion copied! Paste it in the YouTube comments.\n\nBiblical anger management means feeling anger but responding righteously!");
+            }, 1000);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>

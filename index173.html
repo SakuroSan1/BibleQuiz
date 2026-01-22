@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: కోప నియంత్రణ</title>
+    <style>
+        body {
+            font-family: 'Gautami', sans-serif;
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHHosEL4A2uC8ncP6RnDDGMULMgy0cXnnEHA&s') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: కోప నియంత్రణ</h1>
+        <div class="bible-ref">ఎఫెసీయులకు 4:26</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNZQSWoG_FV6z7_ln86yT2TFZJgY6ywWTrew&s" alt="కోప నియంత్రణ" class="quiz-image">
+        
+        <div class="question">ఎఫెసీయులకు 4:26 ప్రకారం, "మీ కోపములో ______ చేయకుడి."</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">పాపము</div>
+            <div class="option" onclick="checkAnswer(this, false)">అరవడం</div>
+            <div class="option" onclick="checkAnswer(this, false)">పోరాటం</div>
+            <div class="option" onclick="checkAnswer(this, false)">ద్వేషం</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> పాపము (ఎఫెసీయులకు 4:26)</p>
+            
+            <p><strong>ఎఫెసీయులకు 4:26:</strong> <em>"మీ కోపములో పాపము చేయకుడి; కోపముతో సూర్యుడు అస్తమించుట లేదుగాని."</em></p>
+            
+            <p><strong>కోపం గురించి ప్రధాన సత్యాలు:</strong></p>
+            <ol>
+                <li><strong>కోపం పాపం కాదు:</strong> ఇది దేవుని సృష్టించిన భావోద్వేగం</li>
+                <li><strong>కోపం పాపానికి దారి తీయవచ్చు:</strong> తప్పుగా నిర్వహించినప్పుడు లేదా చాలా కాలం పట్టినప్పుడు</li>
+                <li><strong>సమయ పరిమితి:</strong> మీ కోపంతో సూర్యుడు అస్తమించనివ్వకండి</li>
+                <li><strong>పరిష్కారం అవసరం:</strong> కోపాన్ని తక్షణం ఎదుర్కోండి</li>
+            </ol>
+            
+            <p><strong>పూర్తి వచనం & సందర్భం:</strong></p>
+            <ul>
+                <li><strong>ఎఫెసీయులకు 4:26-27:</strong> "మీ కోపములో పాపము చేయకుడి; కోపముతో సూర్యుడు అస్తమించుట లేదుగాని, పిశాచమునకు ఆస్పదము కలుగ జేయకుడి."</li>
+                <li><strong>ఎఫెసీయులకు 4:25-32కి అనుసంధానించబడింది:</strong> క్రైస్తవ జీవనానికి సూచనల భాగం</li>
+                <li><strong>సందర్భం:</strong> సత్యం మాట్లాడటం, కోపాన్ని నియంత్రించడం, నిజాయితీపర పని, సహాయక ప్రసంగం</li>
+            </ul>
+            
+            <p><strong>లేఖనంలో మూడు రకాల కోపం:</strong></p>
+            <ul>
+                <li><strong>నీతియుత కోపం:</strong> పాపం/అన్యాయం మీద కోపం (యేసు దేవాలయాన్ని శుభ్రపరచడం - యోహాను 2:13-17)</li>
+                <li><strong>పాపపూరిత కోపం:</strong> స్వార్థపూరిత, అనియంత్రిత కోపం (కయిను - ఆదికాండము 4:5-8)</li>
+                <li><strong>నెమ్మదిగా మండే కోపం:</strong> కలిగిన కసి (యోనా - యోనా 4:1-4)</li>
+            </ul>
+            
+            <p><strong>"సూర్యుడు అస్తమించనివ్వకండి" ఎందుకు:</strong></p>
+            <ul>
+                <li><strong>కటువు నిరోధిస్తుంది:</strong> పరిష్కారం కాని కోపం కటువుగా మారుతుంది</li>
+                <li><strong>సంబంధాలను రక్షిస్తుంది:</strong> తక్షణ సమాధానం</li>
+                <li><strong>హృదయాన్ని కాపాడుతుంది:</strong> కోపం నిద్ర మరియు ఆరోగ్యాన్ని ప్రభావితం చేస్తుంది</li>
+                <li><strong>ఆధ్యాత్మిక రక్షణ:</strong> పిశాచం యొక్క ఆస్పదాన్ని నిరోధిస్తుంది</li>
+            </ul>
+            
+            <p><strong>బైబిల్ కోప నియంత్రణ ఉదాహరణలు:</strong></p>
+            <ul>
+                <li><strong>యేసు:</strong> దేవాలయ భ్రష్టాచారం మీద నీతియుత కోపం (మత్తయి 21:12-13)</li>
+                <li><strong>మోషే:</strong> రాయిని కొట్టినప్పుడు పాపపూరిత కోపం (సంఖ్యాకాండము 20:10-12)</li>
+                <li><strong>దావీదు:</strong> నాబాలు వైపు నియంత్రిత కోపం (1 సమూయేలు 25:32-34)</li>
+                <li><strong>యోసేపు:</strong> సోదరుల పట్ల కోపం బదులుగా క్షమాపణ (ఆదికాండము 45:4-8)</li>
+            </ul>
+            
+            <p><strong>దైవిక కోప నియంత్రణ కోసం ఆచరణాత్మక దశలు:</strong></p>
+            <ul>
+                <li><strong>పాజ్ & ప్రే:</strong> ప్రతిస్పందించడానికి ముందు (కీర్తనల గ్రంథము 4:4)</li>
+                <li><strong>రూట్ కారణాన్ని గుర్తించండి:</strong> నిజంగా ఏమి బాధించుచున్నది?</li>
+                <li><strong>సరిగ్గా వ్యక్తపరచండి:</strong> "నాకు అనిపిస్తుంది" స్టేట్మెంట్లను ఉపయోగించండి</li>
+                <li><strong>పరిష్కారం కోసం వెతకండి:</strong> రోజు ముగిసే ముందు (మత్తయి 5:23-24)</li>
+                <li><strong>క్షమించండి:</strong> దేవుడు మిమ్మల్ని క్షమించినట్లు (ఎఫెసీయులకు 4:32)</li>
+            </ul>
+            
+            <p><strong>మన హృదయాల గురించి కోపం ఏమి వెల్లడిస్తుంది:</strong></p>
+            <ul>
+                <li><strong>విగ్రహాలు:</strong> కోపం తరచుగా దేవునికి మించి మనం ఆరాధించే దానిని సూచిస్తుంది</li>
+                <li><strong>అంచనాలు:</strong> నెరవేరని అంచనాలు నిరాశకు దారి తీస్తాయి</li>
+                <li><strong>అసురక్షితత:</strong> రక్షణ యంత్రాంగంగా కోపం</li>
+                <li><strong>గర్వం:</strong> మనకు మంచి చికిత్స అర్హమని భావించడం</li>
+            </ul>
+            
+            <p><strong>గ్రీకులో ఎఫెసీయులకు 4:26:</strong></p>
+            <ul>
+                <li><strong>"ఆర్గిజెస్తే":</strong> ప్రెజెంట్ ఇంపరేటివ్ - "కోపంగా ఉండండి" (ఇది ఒక ఆదేశం!)</li>
+                <li><strong>"కై":</strong> "మరియు" లేదా "కానీ" - కనెక్టివ్</li>
+                <li><strong>"మే హమర్టనెటే":</strong> "పాపం చేయకండి" - ప్రెజెంట్ ఇంపరేటివ్ నెగటివ్</li>
+                <li><strong>ప్రాముఖ్యత:</strong> కోపం స్వయంగా అనుమతించబడింది, కానీ కోపంలో పాపం చేయడం నిషేధించబడింది</li>
+            </ul>
+            
+            <p><strong>కోపం గురించి సంబంధిత లేఖనాలు:</strong></p>
+            <ul>
+                <li><strong>యాకోబు 1:19-20:</strong> "ప్రతివాడును వినుటకు త్వరపడవలెను, మాటలాడుటకు నిదానించవలెను, కోపపడుటకు నిదానించవలెను. మనుష్యుని కోపము దేవుని నీతిని కలుగ జేయదు గనుక."</li>
+                <li><strong>సామెతలు 29:11:</strong> "మూర్ఖుడు తన కోపమంతయు వెల్లడిచేయును, జ్ఞాని దానిని అణచి వేయును."</li>
+                <li><strong>సామెతలు 15:1:</strong> "సున్నితమైన మాట కోపమును తొలగించును, కఠినమైన మాట కోపమును రేపును."</li>
+                <li><strong>ప్రసంగి 7:9:</strong> "నీ ఆత్మలో త్వరగా కోపపడకుము, కోపము మూర్ఖుల ఒడిలో ఉండును."</li>
+                <li><strong>కొలస్సెయులు 3:8:</strong> "ఇప్పుడు మీరును వీనన్నిటిని విడిచివేయవలెను; అవి కోపము, రోషము, దుర్భావము..."</li>
+            </ul>
+            
+            <p><strong>పరిష్కారం కాని కోపం ప్రమాదం:</strong></p>
+            <ul>
+                <li><strong>పిశాచానికి ఆస్పదం ఇస్తుంది:</strong> ఎఫెసీయులకు 4:27 హెచ్చరిక</li>
+                <li><strong>కటువుకు దారి తీస్తుంది:</strong> హెబ్రీయులకు 12:15</li>
+                <li><strong>ప్రార్థనను ప్రభావితం చేస్తుంది:</strong> మార్కు 11:25</li>
+                <li><strong>సంబంధాలను హాని చేస్తుంది:</strong> సామెతలు 22:24-25</li>
+                <li><strong>ఆరోగ్యానికి హాని:</strong> సామెతలు 14:30</li>
+            </ul>
+            
+            <p><strong>ప్రధాన అంశం:</strong> ఎఫెసీయులకు 4:26 "కోపపడకండి" అని చెప్పదు. ఇది "మీ కోపములో పాపము చేయకుడి" అని చెప్పుచున్నది. ఇది దేవుడు సృష్టించిన చెల్లుబాటు అయ్యే మానవ భావోద్వేగంగా కోపాన్ని గుర్తిస్తుంది. కీ నియంత్రణ కోపం నీతిగా - దానిని సరిగ్గా వ్యక్తపరచడం, దానిని తక్షణం (సూర్యాస్తమయం ముందు) ఎదుర్కోవడం మరియు అది పాపంగా మారడానికి అనుమతించకుండా ఉండటం. ఈ వచనం, 27 వ వచనంలో పిశాచానికి ఆస్పదం ఇవ్వడం గురించి హెచ్చరికతో పాటు, సరిగ్గా నిర్వహించబడిన కోపం ఆరోగ్యకరమైన క్రైస్తవ జీవితంలో భాగమని చూపిస్తుంది, అయితే తప్పుగా నిర్వహించబడిన కోపం ఆధ్యాత్మిక దాడి మరియు సంబంధ విధ్వంసం తలుపులు తెరుస్తుంది.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(1)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(1)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "viosuvM4OQY";
+            const commentText = `నేను "కోప నియంత్రణ" క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరైన సమాధానం ఇచ్చాను ✓" : "నా సమాధానం: " + userAnswer + " ✗"}\nసరైన సమాధానం: పాపము (ఎఫెసీయులకు 4:26)\nప్రధాన సత్యాలు:\n- కోపం స్వయంగా పాపం కాదు\n- కానీ మీ కోపంలో పాపం చేయకండి\n- కోపంతో సూర్యుడు అస్తమించనివ్వకండి\n- పిశాచం యొక్క ఆస్పదాన్ని నిరోధిస్తుంది\nమీరు బైబిల్ కోప నియంత్రణను ఎలా ఆచరిస్తారు?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // For YouTube Shorts, we open the video and suggest commenting
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Store comment in localStorage for easy copy-paste
+            localStorage.setItem('quizComment', commentText);
+            
+            setTimeout(() => {
+                alert("కామెంట్ సూచన కాపీ చేయబడింది! దయచేసి దానిని యూట్యూబ్ కామెంట్లలో పేస్ట్ చేయండి.\n\nబైబిల్ కోప నియంత్రణ అంటే కోపాన్ని అనుభవించడం కానీ నీతిగా ప్రతిస్పందించడం!");
+            }, 1000);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
