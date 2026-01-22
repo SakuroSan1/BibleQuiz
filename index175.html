@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>బైబిల్ క్విజ్: నిర్భయముతో దేవుని సన్నిధికి చేరుకోండి</title>
+    <style>
+        body {
+            font-family: 'Gautami', sans-serif;
+            background: url('https://www.thegoodbook.co.uk/downloads/fyheb_01.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>బైబిల్ క్విజ్: నిర్భయముతో దేవుని సన్నిధికి చేరుకోండి</h1>
+        <div class="bible-ref">ఎఫెసీయులకు 3:12</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://media.swncdn.com/cms/CW/faith/67838-man-arms-out-gettyimages-itref.1200w.tn.jpg" alt="నిర్భయముతో దేవుని సన్నిధికి చేరుకోవడం" class="quiz-image">
+        
+        <div class="question">ఎఫెసీయులకు 3:12 ప్రకారం, _____ ద్వారా క్రీస్తు యేసులో మనము ధైర్యముతోను నిర్భయముతోను దేవుని సన్నిధికి చేరుకొనవచ్చును.</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">విశ్వాసము</div>
+            <div class="option" onclick="checkAnswer(this, false)">ప్రార్థన</div>
+            <div class="option" onclick="checkAnswer(this, false)">క్రియలు</div>
+            <div class="option" onclick="checkAnswer(this, false)">ప్రేమ</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>సరైన సమాధానం:</strong> విశ్వాసము (ఎఫెసీయులకు 3:12)</p>
+            
+            <p><strong>ఎఫెసీయులకు 3:12:</strong> <em>"మనము ఆయనలో ఉండి ఆయనయందు విశ్వాసముచేత ధైర్యముతోను నిర్భయముతోను ఆయన సన్నిధికి చేరుకొనవచ్చును."</em></p>
+            
+            <p><strong>అద్భుతమైన ప్రత్యేక హక్కు:</strong></p>
+            <ol>
+                <li><strong>ప్రత్యక్ష ప్రవేశం:</strong> మనం దేవునిని వ్యక్తిగతంగా చేరుకోవచ్చు</li>
+                <li><strong>స్వేచ్ఛ:</strong> అడ్డంకులు లేదా నిర్బంధాలు లేవు</li>
+                <li><strong>ఆత్మవిశ్వాసం:</strong> ధైర్యం మరియు హామీ</li>
+                <li><strong>క్రీస్తు ద్వారా:</strong> యేసులో మాత్రమే సాధ్యం</li>
+            </ol>
+            
+            <p><strong>ఎఫెసీయులకు 3:1-21 లో సందర్భం:</strong></p>
+            <ul>
+                <li><strong>పౌలు ప్రార్థన:</strong> ఆధ్యాత్మిక బలం మరియు అవగాహన కోసం</li>
+                <li><strong>రహస్యం వెల్లడైంది:</strong> అన్యజాతులు క్రీస్తులో చేర్చబడ్డారు</li>
+                <li><strong>దేవుని ఉద్దేశ్యం:</strong> సభ ద్వారా ఆయన జ్ఞానాన్ని ప్రదర్శించడం</li>
+                <li><strong>గ్రహించే శక్తి:</strong> క్రీస్తు ప్రేమను అర్థం చేసుకోవడం</li>
+                <li><strong>దోక్సోలాజీ:</strong> మనం అడిగిన దానికంటే ఎక్కువ చేయగల దేవునికి స్తుతి</li>
+            </ul>
+            
+            <p><strong>రెండు ముఖ్యమైన గ్రీకు పదాలు:</strong></p>
+            <ul>
+                <li><strong>Παρρησία (పర్రేసియా):</strong> "స్వేచ్ఛ, ధైర్యం, ఆత్మవిశ్వాసం"</li>
+                <li><strong>Προσαγωγή (ప్రోసాగోగే):</strong> "ప్రవేశం, సమీపం, పరిచయం"</li>
+                <li><strong>ప్రాముఖ్యత:</strong> రాజకీయ అధివేశనానికి చట్టపరమైన పదం - మనకు రాజప్రతినిధి ప్రవేశం ఉంది!</li>
+            </ul>
+            
+            <p><strong>పాత నిబంధన vs క్రొత్త నిబంధన ప్రవేశం:</strong></p>
+            <ul>
+                <li><strong>పా.ని:</strong> సంవత్సరానికి ఒకసారి మాత్రమే ప్రధాన యాజకుడు అతి పవిత్ర స్థలంలోకి</li>
+                <li><strong>పా.ని:</strong> ప్రజలను దేవుని సన్నిధి నుండి వేరు చేస్తున్న తెర</li>
+                <li><strong>క్రొ.ని:</strong> అన్ని విశ్వాసులకు క్రీస్తు ద్వారా 24/7 ప్రవేశం ఉంది</li>
+                <li><strong>క్రొ.ని:</strong> యేసు మరణంతో తెర చింపివేయబడింది (మత్తయి 27:51)</li>
+                <li><strong>క్రొ.ని:</strong> మనమందరం యాజకులు (1 పేతురు 2:9)</li>
+            </ul>
+            
+            <p><strong>"దేవుని సన్నిధికి చేరుకోవడం" ఆచరణాత్మకంగా అంటే ఏమిటి:</strong></p>
+            <ul>
+                <li><strong>ప్రార్థన:</strong> కృప సింహాసనానికి ధైర్యంగా రండి (హెబ్రీయులకు 4:16)</li>
+                <li><strong>ఆరాధన:</strong> ఆయన ముందరి ప్రాంగణములకు స్తోత్రముతో ప్రవేశించుడి (కీర్తనల గ్రంథము 100:4)</li>
+                <li><strong>అంగీకారం:</strong> శుద్ధీకరణ కోసం చేరుకోండి (1 యోహాను 1:9)</li>
+                <li><strong>అర్జీ:</strong> ఆత్మవిశ్వాసంతో అడగండి (మత్తయి 7:7)</li>
+                <li><strong>కృతజ్ఞత:</strong> కృతజ్ఞతతో ప్రవేశించండి (కీర్తనల గ్రంథము 95:2)</li>
+            </ul>
+            
+            <p><strong>విశ్వాసం ఎందుకు అవసరం:</strong></p>
+            <ul>
+                <li><strong>హెబ్రీయులకు 11:6:</strong> "విశ్వాసము లేనివాడు దేవునికి ప్రియుడు కాడు"</li>
+                <li><strong>విశ్వాసం కనెక్ట్ చేస్తుంది:</strong> క్రీస్తు పనికి మనల్ని లింక్ చేస్తుంది</li>
+                <li><strong>విశ్వాసం స్వీకరిస్తుంది:</strong> క్రీస్తు సాధించిన దాన్ని అంగీకరిస్తుంది</li>
+                <li><strong>విశ్వాసం నమ్ముతుంది:</strong> యేసు నీతిపై ఆధారపడుతుంది, మన స్వంతది కాదు</li>
+                <li><strong>విశ్వాసం ప్రవేశిస్తుంది:</strong> క్రీస్తు యొక్క "తలుపు" ద్వారా ప్రవేశిస్తుంది (యోహాను 10:9)</li>
+            </ul>
+            
+            <p><strong>క్రీస్తు ప్రేమ యొక్క నాలుగు కొలతలు (ఎఫెసీయులకు 3:17-19):</strong></p>
+            <ul>
+                <li><strong>వెడల్పు:</strong> అన్ని ప్రజలు, జాతులు, సంస్కృతులను చేర్చుకుంటుంది</li>
+                <li><strong>పొడవు:</strong> శాశ్వత భూతకాలం నుండి శాశ్వత భవిష్యత్తు వరకు</li>
+                <li><strong>ఎత్తు:</strong> అత్యున్నత స్వర్గాలను చేరుకుంటుంది</li>
+                <li><strong>లోతు:</strong> అత్యల్ప మానవ పరిస్థితికి దిగుతుంది</li>
+                <li><strong>ఫలితం:</strong> "జ్ఞానమును మించిన ఈ ప్రేమను" తెలుసుకోండి</li>
+            </ul>
+            
+            <p><strong>ఆత్మవిశ్వాసం vs ఊహాజనితత్వం:</strong></p>
+            <ul>
+                <li><strong>ఆత్మవిశ్వాసం:</strong> క్రీస్తు పూర్తి చేసిన పనిపై ఆధారపడి ఉంటుంది</li>
+                <li><strong>ఊహాజనితత్వం:</strong> స్వీయ-నీతిపై ఆధారపడి ఉంటుంది</li>
+                <li><strong>ఆత్మవిశ్వాసం:</strong> యేసులో వినయపూర్వక నమ్మకం</li>
+                <li><strong>ఊహాజనితత్వం:</strong> అహంకారపూర్వక స్వీయ-నమ్మకం</li>
+                <li><strong>కీ:</strong> ఆత్మవిశ్వాసం క్రీస్తులో ఉంటుంది, మనలో కాదు</li>
+            </ul>
+            
+            <p><strong>విశ్వాసుల కోసం పౌలు ప్రార్థన (ఎఫెసీయులకు 3:14-21):</strong></p>
+            <ul>
+                <li><strong>బలం:</strong> "ఆయన ఆత్మవలన బలపరచబడి"</li>
+                <li><strong>నివాసం:</strong> "విశ్వాసముచేత క్రీస్తు మీ హృదయములయందు నివసించును"</li>
+                <li><strong>వేరూని & పునాది పడిన:</strong> "ప్రేమయందు వేరూనియు పునాదిపడినవారై"</li>
+                <li><strong>గ్రహణశక్తి:</strong> "ఎంత వెడల్పుగాను పొడుగుగాను ఎత్తుగాను లోతుగాను ఉన్నదో గ్రహించుటకు"</li>
+                <li><strong>నిండిన:</strong> "దేవుని సమస్త సంపూర్ణతతో నిండియుందురు"</li>
+                <li><strong>దోక్సోలాజీ:</strong> "సభయందు ఆయనకు మహిమ కలుగునుగాక"</li>
+            </ul>
+            
+            <p><strong>దేవునికి ప్రవేశం గురించి సంబంధిత లేఖనాలు:</strong></p>
+            <ul>
+                <li><strong>హెబ్రీయులకు 10:19-22:</strong> "యేసు రక్తముచేత అతి పవిత్ర స్థలములో ప్రవేశించుటకు మనకు ధైర్యము కలిగియున్నది"</li>
+                <li><strong>రోమీయులు 5:2:</strong> "ఈ కృపలోనికి విశ్వాసముచేత ప్రవేశము పొందితిమి"</li>
+                <li><strong>1 పేతురు 3:18:</strong> "క్రీస్తు... మిమ్మును దేవునియొద్దకు తీసికొని రావలెనని"</li>
+                <li><strong>యోహాను 14:6:</strong> "నా ద్వారా గాక మరి ఎవడును తండ్రియొద్దకు రాడు"</li>
+                <li><strong>హెబ్రీయులకు 4:16:</strong> "కృపా సింహాసనము సమీపముగా ధైర్యముగా వత్తము"</li>
+            </ul>
+            
+            <p><strong>ఆచరణాత్మక అనువర్తనాలు:</strong></p>
+            <ul>
+                <li><strong>రోజువారీ సమీపం:</strong> ప్రతి రోజు దేవుని సన్నిధిని చేరుకోవడం ప్రారంభించండి</li>
+                <li><strong>సంక్షోభ ప్రవేశం:</strong> ఇబ్బంది సమయాల్లో దేవుని వైపు పరుగెత్తండి</li>
+                <li><strong>ఆనందదాయక ప్రవేశం:</strong> స్తుతి మరియు కృతజ్ఞతతో రండి</li>
+                <li><strong>సామూహిక ప్రవేశం:</strong> సభ కుటుంబంగా కలిసి చేరుకోండి</li>
+                <li><strong>ఆత్మవిశ్వాసంతో కూడిన ప్రార్థన:</strong> ఆయన ఇచ్ఛ ప్రకారం ధైర్యంగా అడగండి</li>
+            </ul>
+            
+            <p><strong>ప్రధాన అంశం:</strong> ఎఫెసీయులకు 3:12 క్రైస్తవ జీవితంలో అత్యంత విలువైన ప్రత్యేక హక్కులలో ఒకటి వెల్లడిస్తుంది - క్రీస్తు యేసులో విశ్వాసం ద్వారా, మనం స్వేచ్ఛ (అడ్డంకులు లేవు) మరియు ఆత్మవిశ్వాసం (భయం లేదు) రెండింటితో సర్వశక్తిమంతుడైన దేవునిని చేరుకోవచ్చు. ఈ ప్రవేశం మన ప్రదర్శన, మతపరమైన ఆచారాలు లేదా వ్యక్తిగత నీతిపై ఆధారపడి ఉండదు, కానీ యేసులో మన విశ్వాస-యూనియన్పై మాత్రమే. మనం "ఆయనలో" ఉన్నందున, మనం తండ్రి ముందు ఆయన సంపూర్ణ స్థితిని పంచుకుంటాము, మనకు పరలోకం యొక్క సింహాసన గదికి 24/7 ప్రవేశాన్ని ఇస్తుంది. ఈ సత్యం ప్రార్థనను బాధ్యత నుండి ఆనందంగా మారుస్తుంది మరియు ఆరాధనను బాధ్యత నుండి సంతోషకరమైన ప్రత్యేక హక్కుగా మారుస్తుంది.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">క్విజ్‌లో పాల్గొనండి</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(1)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(1)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "xdc9U1cOwsk";
+            const commentText = `నేను "నిర్భయముతో దేవుని సన్నిధికి చేరుకోండి" క్విజ్ తీసుకున్నాను! ${isCorrect ? "నేను సరైన సమాధానం ఇచ్చాను ✓" : "నా సమాధానం: " + userAnswer + " ✗"}\nసరైన సమాధానం: విశ్వాసము (ఎఫెసీయులకు 3:12)\nప్రధాన సత్యాలు:\n- క్రీస్తులో విశ్వాసం ద్వారా మనం దేవునిని చేరుకుంటాము\n- స్వేచ్ఛ మరియు ఆత్మవిశ్వాసంతో\n- దేవుని సన్నిధికి 24/7 ప్రవేశం\n- యేసు పనిపై ఆధారపడి ఉంటుంది, మనది కాదు\nమీరు నిర్భయంగా దేవునిని చేరుకోగలరని తెలుసుకోవడం మీ ప్రార్థన జీవితాన్ని ఎలా మారుస్తుంది?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // For YouTube Shorts, we open the video and suggest commenting
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Store comment in localStorage for easy copy-paste
+            localStorage.setItem('quizComment', commentText);
+            
+            setTimeout(() => {
+                alert("కామెంట్ సూచన కాపీ చేయబడింది! దయచేసి దానిని యూట్యూబ్ కామెంట్లలో పేస్ట్ చేయండి.\n\nక్రీస్తులో విశ్వాసం ద్వారా, దేవుని సింహాసన గదికి ఆత్మవిశ్వాసంతో 24/7 ప్రవేశం మనకు ఉంది!");
+            }, 1000);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>

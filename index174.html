@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Quiz: Approach God with Confidence</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://www.thegoodbook.co.uk/downloads/fyheb_01.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .quiz-container {
+            background-color: rgba(40, 40, 80, 0.85);
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 0 25px rgba(100, 100, 200, 0.6);
+            border: 2px solid #4b0082;
+        }
+        h1 {
+            color: #add8e6;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+        }
+        .bible-ref {
+            font-style: italic;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #4b0082;
+            border-radius: 10px;
+            margin: 15px auto;
+            box-shadow: 0 0 15px rgba(100, 100, 200, 0.6);
+        }
+        .question {
+            font-size: 20px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 25px 0;
+        }
+        .option {
+            background-color: rgba(50, 50, 100, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 1px solid #483d8b;
+            color: #fff8e6;
+        }
+        .option:hover {
+            background-color: rgba(70, 70, 130, 0.6);
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(150, 150, 255, 0.4);
+        }
+        .correct {
+            background-color: rgba(50, 205, 50, 0.6) !important;
+            font-weight: bold;
+            border-color: #2e8b57;
+        }
+        .incorrect {
+            background-color: rgba(220, 20, 60, 0.6) !important;
+            border-color: #dc143c;
+        }
+        .feedback-icon {
+            position: absolute;
+            right: 15px;
+            font-size: 22px;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #4b0082;
+            text-align: left;
+            display: none;
+            border-radius: 5px;
+            color: #fff8e6;
+        }
+        .participate-btn {
+            background: linear-gradient(135deg, #4b0082, #483d8b);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(100, 100, 200, 0.4);
+            transition: all 0.3s;
+        }
+        .participate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(150, 150, 255, 0.6);
+        }
+        .timer {
+            font-size: 34px;
+            color: #add8e6;
+            margin: 15px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(100, 150, 200, 0.8);
+            font-family: 'Courier New', monospace;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid #add8e6;
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { 
+                opacity: 1;
+                box-shadow: 0 0 10px rgba(100, 150, 200, 0.5);
+            }
+            to { 
+                opacity: 0.7;
+                box-shadow: 0 0 20px rgba(100, 150, 200, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>BIBLE QUIZ: APPROACH GOD WITH CONFIDENCE</h1>
+        <div class="bible-ref">Ephesians 3:12</div>
+        <div class="timer" id="timer">30</div>
+        
+        <img src="https://media.swncdn.com/cms/CW/faith/67838-man-arms-out-gettyimages-itref.1200w.tn.jpg" alt="Approaching God with confidence" class="quiz-image">
+        
+        <div class="question">According to Ephesians 3:12, through _____ in Christ Jesus we may approach God with freedom and confidence.</div>
+        
+        <div class="options">
+            <div class="option" onclick="checkAnswer(this, true)">Faith</div>
+            <div class="option" onclick="checkAnswer(this, false)">Prayer</div>
+            <div class="option" onclick="checkAnswer(this, false)">Works</div>
+            <div class="option" onclick="checkAnswer(this, false)">Love</div>
+        </div>
+        
+        <div class="explanation" id="explanation">
+            <p><strong>Correct Answer:</strong> Faith (Ephesians 3:12)</p>
+            
+            <p><strong>Ephesians 3:12 (NIV):</strong> <em>"In him and through faith in him we may approach God with freedom and confidence."</em></p>
+            
+            <p><strong>The Amazing Privilege:</strong></p>
+            <ol>
+                <li><strong>Direct Access:</strong> We can approach God personally</li>
+                <li><strong>Freedom:</strong> No barriers or restrictions</li>
+                <li><strong>Confidence:</strong> Boldness and assurance</li>
+                <li><strong>Through Christ:</strong> Only possible in Jesus</li>
+            </ol>
+            
+            <p><strong>Context in Ephesians 3:1-21:</strong></p>
+            <ul>
+                <li><strong>Paul's Prayer:</strong> For spiritual strength and understanding</li>
+                <li><strong>Mystery Revealed:</strong> Gentiles included in Christ</li>
+                <li><strong>God's Purpose:</strong> Display His wisdom through church</li>
+                <li><strong>Power to Comprehend:</strong> Understand Christ's love</li>
+                <li><strong>Doxology:</strong> Praise to God who can do more than we ask</li>
+            </ul>
+            
+            <p><strong>Two Key Greek Words:</strong></p>
+            <ul>
+                <li><strong>Παρρησία (Parrēsia):</strong> "Freedom, boldness, confidence"</li>
+                <li><strong>Προσαγωγή (Prosagōgē):</strong> "Access, approach, introduction"</li>
+                <li><strong>Significance:</strong> Legal term for royal audience - we have royal access!</li>
+            </ul>
+            
+            <p><strong>Old Testament vs New Testament Access:</strong></p>
+            <ul>
+                <li><strong>OT:</strong> Only High Priest once a year into Holy of Holies</li>
+                <li><strong>OT:</strong> Veil separating people from God's presence</li>
+                <li><strong>NT:</strong> All believers have 24/7 access through Christ</li>
+                <li><strong>NT:</strong> Veil torn at Jesus' death (Matthew 27:51)</li>
+                <li><strong>NT:</strong> We are all priests (1 Peter 2:9)</li>
+            </ul>
+            
+            <p><strong>What "Approach God" Means Practically:</strong></p>
+            <ul>
+                <li><strong>Prayer:</strong> Come boldly to throne of grace (Hebrews 4:16)</li>
+                <li><strong>Worship:</strong> Enter His courts with praise (Psalm 100:4)</li>
+                <li><strong>Confession:</strong> Approach for cleansing (1 John 1:9)</li>
+                <li><strong>Petition:</strong> Ask with confidence (Matthew 7:7)</li>
+                <li><strong>Thanksgiving:</strong> Enter with gratitude (Psalm 95:2)</li>
+            </ul>
+            
+            <p><strong>Why Faith is Essential:</strong></p>
+            <ul>
+                <li><strong>Hebrews 11:6:</strong> "Without faith it is impossible to please God"</li>
+                <li><strong>Faith Connects:</strong> Links us to Christ's work</li>
+                <li><strong>Faith Receives:</strong> Accepts what Christ accomplished</li>
+                <li><strong>Faith Trusts:</strong> Relies on Jesus' righteousness, not our own</li>
+                <li><strong>Faith Accesses:</strong> Enters through the "door" of Christ (John 10:9)</li>
+            </ul>
+            
+            <p><strong>Four Dimensions of Christ's Love (Ephesians 3:17-19):</strong></p>
+            <ul>
+                <li><strong>Width:</strong> Includes all peoples, nations, cultures</li>
+                <li><strong>Length:</strong> From eternity past to eternity future</li>
+                <li><strong>Height:</strong> Reaches to highest heavens</li>
+                <li><strong>Depth:</strong> Descends to lowest human condition</li>
+                <li><strong>Result:</strong> "Know this love that surpasses knowledge"</li>
+            </ul>
+            
+            <p><strong>Confidence vs Presumption:</strong></p>
+            <ul>
+                <li><strong>Confidence:</strong> Based on Christ's finished work</li>
+                <li><strong>Presumption:</strong> Based on self-righteousness</li>
+                <li><strong>Confidence:</strong> Humble trust in Jesus</li>
+                <li><strong>Presumption:</strong> Arrogant self-trust</li>
+                <li><strong>Key:</strong> Confidence is IN CHRIST, not in ourselves</li>
+            </ul>
+            
+            <p><strong>Paul's Prayer for Believers (Ephesians 3:14-21):</strong></p>
+            <ul>
+                <li><strong>Strength:</strong> "Strengthened with power through his Spirit"</li>
+                <li><strong>Indwelling:</strong> "Christ may dwell in your hearts through faith"</li>
+                <li><strong>Rooted & Grounded:</strong> "Rooted and established in love"</li>
+                <li><strong>Comprehension:</strong> "Grasp how wide and long and high and deep"</li>
+                <li><strong>Filled:</strong> "Filled to the measure of all the fullness of God"</li>
+                <li><strong>Doxology:</strong> "To him be glory in the church"</li>
+            </ul>
+            
+            <p><strong>Related Scriptures on Access to God:</strong></p>
+            <ul>
+                <li><strong>Hebrews 10:19-22:</strong> "We have confidence to enter the Most Holy Place by the blood of Jesus"</li>
+                <li><strong>Romans 5:2:</strong> "We have gained access by faith into this grace"</li>
+                <li><strong>1 Peter 3:18:</strong> "Christ suffered... to bring you to God"</li>
+                <li><strong>John 14:6:</strong> "No one comes to the Father except through me"</li>
+                <li><strong>Hebrews 4:16:</strong> "Let us then approach God's throne of grace with confidence"</li>
+            </ul>
+            
+            <p><strong>Practical Applications:</strong></p>
+            <ul>
+                <li><strong>Daily Approach:</strong> Start each day accessing God's presence</li>
+                <li><strong>Crisis Access:</strong> Run to God in times of trouble</li>
+                <li><strong>Joyful Access:</strong> Come with praise and thanksgiving</li>
+                <li><strong>Corporate Access:</strong> Approach together as church family</li>
+                <li><strong>Confident Prayer:</strong> Ask boldly according to His will</li>
+            </ul>
+            
+            <p><strong>Key Insight:</strong> Ephesians 3:12 reveals one of the most precious privileges of the Christian life - through faith in Christ Jesus, we can approach the Almighty God with both freedom (no barriers) and confidence (no fear). This access isn't based on our performance, religious rituals, or personal righteousness, but solely on our faith-union with Jesus. Because we are "in him," we share in His perfect standing before the Father, giving us 24/7 access to the throne room of heaven. This truth transforms prayer from duty to delight and worship from obligation to joyful privilege.</p>
+        </div>
+        
+        <button class="participate-btn" onclick="openYouTubeComment()">Participate in Quiz</button>
+    </div>
+
+    <audio id="tickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    <audio id="timeUpSound" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-clock-beep-988.mp3" preload="auto"></audio>
+    <audio id="judgmentSound" src="https://assets.mixkit.co/sfx/preview/mixkit-sci-fi-alarm-905.mp3" preload="auto"></audio>
+
+    <script>
+        let timeLeft = 30;
+        let timerInterval;
+        let userAnswer = "";
+        let isCorrect = false;
+        const tickSound = document.getElementById('tickSound');
+        const timeUpSound = document.getElementById('timeUpSound');
+        const judgmentSound = document.getElementById('judgmentSound');
+        
+        function startTimer() {
+            judgmentSound.play();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = timeLeft;
+                
+                if(timeLeft > 0 && timeLeft <= 10) {
+                    tickSound.currentTime = 0;
+                    tickSound.play();
+                    document.getElementById('timer').style.color = "#b0c4de";
+                    document.getElementById('timer').style.animation = "pulse 0.5s infinite alternate";
+                }
+                
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timeUpSound.play();
+                    judgmentSound.pause();
+                    timeUp();
+                }
+            }, 1000);
+        }
+        
+        function timeUp() {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            const correctOption = document.querySelector('.option:nth-child(1)');
+            correctOption.classList.add('correct');
+            correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+        
+        function checkAnswer(selectedOption, correct) {
+            clearInterval(timerInterval);
+            judgmentSound.pause();
+            isCorrect = correct;
+            userAnswer = selectedOption.textContent.trim();
+            
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+            });
+            
+            if(correct) {
+                selectedOption.classList.add('correct');
+                selectedOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            } else {
+                selectedOption.classList.add('incorrect');
+                selectedOption.innerHTML += '<span class="feedback-icon">✗</span>';
+                const correctOption = document.querySelector('.option:nth-child(1)');
+                correctOption.classList.add('correct');
+                correctOption.innerHTML += '<span class="feedback-icon">✓</span>';
+            }
+            
+            document.getElementById('explanation').style.display = 'block';
+            document.querySelector('.participate-btn').style.display = 'inline-block';
+        }
+
+        function openYouTubeComment() {
+            const videoId = "arieYT58n5E";
+            const commentText = `I took the "Approach God with Confidence" Quiz! ${isCorrect ? "I got it right ✓" : "My answer was: " + userAnswer + " ✗"}\nThe correct answer is: Faith (Ephesians 3:12)\nKey Truths:\n- Through faith in Christ we approach God\n- With freedom and confidence\n- 24/7 access to God's presence\n- Based on Jesus' work, not ours\nHow does knowing you can approach God confidently change your prayer life?`;
+            
+            const youtubeUrl = `https://www.youtube.com/shorts/${videoId}`;
+            
+            // For YouTube Shorts, we open the video and suggest commenting
+            const youtubeWindow = window.open(youtubeUrl, "_blank");
+            
+            // Store comment in localStorage for easy copy-paste
+            localStorage.setItem('quizComment', commentText);
+            
+            setTimeout(() => {
+                alert("Comment suggestion copied! Paste it in the YouTube comments.\n\nThrough faith in Christ, we have 24/7 access to God's throne room with confidence!");
+            }, 1000);
+        }
+        
+        window.onload = startTimer;
+    </script>
+</body>
+</html>
